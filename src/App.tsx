@@ -1,26 +1,23 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Header from './components/header'
+import ServiceArea from './components/map';
+import ServiceSlide from './components/serviceslideshow';
+import Testimonials from './components/testimonials';
+import LeadCaptureForm from './components/leadcapture';
+import Footer from './components/footer';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div>
+        <Header />
+        <ServiceArea />
+        <ServiceSlide  />
+        <Testimonials />
+        <LeadCaptureForm />
+        <Footer />
+      </div>
   );
-}
+};
 
 export default App;
+
