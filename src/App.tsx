@@ -7,16 +7,29 @@ import LeadCaptureForm from './components/leadcapture';
 import Footer from './components/footer';
 
 const App = () => {
-  return (
-      <div>
-        <Header />
-        <ServiceArea />
-        <ServiceSlide  />
-        <Testimonials />
-        <LeadCaptureForm />
-        <Footer />
-      </div>
-  );
+    const testimonials = [
+        {
+            name: 'John Doe',
+            quote: 'Sellick Electric did an excellent job!',
+            image: 'residential.jpg'
+        },
+        {
+            name: 'Jane Smith',
+            quote: 'I am really happy with the service provided by Sellick Electric.',
+            image: 'residential.jpg'
+        },
+    ];
+
+    return (
+        <div>
+            <Header />
+            <ServiceArea />
+            <ServiceSlide services= {['Residential', 'Commercial', 'Generators', 'Home Networks', 'Camera Systems']} />
+            <Testimonials testimonials={testimonials}/>
+            <LeadCaptureForm />
+            <Footer />
+        </div>
+    );
 };
 
 export default App;
