@@ -21,7 +21,10 @@
     "leaflet-draw": "^1.0.4",
     "@types/leaflet-draw": "^1.0.7",
     "react-icons": "^4.10.1",
-    "@types/react-icons": "^3.0.0"
+    "@types/react-icons": "^3.0.0",
+    "topojson": "^3.0.2",
+    "@types/topojson": "^3.2.3",
+    "react-responsive-carousel": "^3.2.23"
   },
   "scripts": {
     "start": "react-scripts start",

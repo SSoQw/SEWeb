@@ -23,7 +23,7 @@ const App = () => {
         <div>
             <Header />
             <ServiceArea />
-            <ServiceSlide services={['Residential', 'Commercial', 'Generators', 'Home Networks', 'Camera Systems']} />
+            <ServiceSlide services={['Residential', 'Commercial', 'Generators', 'Networks', 'Camera Systems']} />
             <Testimonials testimonials={testimonials} />
             <LeadCaptureForm />
             <Footer />
