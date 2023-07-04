@@ -1,43 +1,112 @@
-import React from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 
 type ServiceSlideProps = {
     services: string[];
 };
 
-const ServiceSlide: React.FC<ServiceSlideProps> = ({ services }) => {
-    const serviceBackgrounds = {
-        Residential: 'residential.jpg',
-        Commercial: 'commercial.jpg',
-        Generators: 'generators.jpg',
-        'Home Networks': 'networks.jpg',
-        'Camera Systems': 'cameras.png',
-    } as { [key: string]: string };
+export const ServiceSlide: React.FC<ServiceSlideProps> = ({ services }) => {
+    const [activeSlide, setActiveSlide] = useState(0);
 
-    const serviceDescriptions = {
-        Residential: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-        Commercial: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-        Generators: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-        'Home Networks': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-        'Camera Systems': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-    } as { [key: string]: string };
+    const slideNext = useCallback(() => {
+        setActiveSlide((prevSlide) => (prevSlide === services.length - 1 ? 0 : prevSlide + 1));
+    }, [services.length]);
+
+    const slidePrev = useCallback(() => {
+        setActiveSlide((prevSlide) => (prevSlide === 0 ? services.length - 1 : prevSlide - 1));
+    }, [services.length]);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            slideNext();
+        }, 12000);
+
+        return () => {
+            clearInterval(interval);
+        };
+    }, [slideNext]);
 
     return (
-        <div>
-            {services.map((service) => (
-                <div
-                    className="service-slide"
-                    key={service}
-                    style={{ backgroundImage: `url(${serviceBackgrounds[service]})` }}
-                >
-                    <h3>{service}</h3>
-                    <p>{serviceDescriptions[service]}</p>
-                    <a href="/service-details" className="read-more-button">
-                        Read More
-                    </a>
+        <section>
+            <h2 className="service-header">Our Services</h2>
+            <div className="service-slide-container">
+                <div className="service-slide-track" style={{ transform: `translateX(-${activeSlide * 100}%)` }}>
+                    {services.map((service, index) => (
+                        <div key={index} className={`service-slide ${index === activeSlide ? 'active' : ''}`}>
+                            <div className="service-slide-content">
+                                <h3>{service}</h3>
+                            </div>
+                        </div>
+                    ))}
                 </div>
-            ))}
-        </div>
+                <button className="slide-control prev" onClick={slidePrev}>
+                    &lt;
+                </button>
+                <button className="slide-control next" onClick={slideNext}>
+                    &gt;
+                </button>
+            </div>
+        </section>
     );
 };
 
-export default ServiceSlide;
+type Testimonial = {
+    name: string;
+    quote: string;
+    image: string;
+};
+
+type TestimonialsProps = {
+    testimonials: Testimonial[];
+};
+
+export const Testimonials: React.FC<TestimonialsProps> = ({ testimonials }) => {
+    const [activeSlide, setActiveSlide] = useState(0);
+
+    const slideNext = useCallback(() => {
+        setActiveSlide((prevSlide) => (prevSlide === testimonials.length - 1 ? 0 : prevSlide + 1));
+    }, [testimonials.length]);
+
+    const slidePrev = useCallback(() => {
+        setActiveSlide((prevSlide) => (prevSlide === 0 ? testimonials.length - 1 : prevSlide - 1));
+    }, [testimonials.length]);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            slideNext();
+        }, 12000);
+
+        return () => {
+            clearInterval(interval);
+        };
+    }, [slideNext]);
+
+    return (
+        <section className="testimonial-container">
+            <h2>Customer Testimonials</h2>
+            <div className="testimonial-slideshow">
+                <div className="testimonial-slide-track" style={{ transform: `translateX(-${activeSlide * 100}%)` }}>
+                    {testimonials.map((testimonial, index) => (
+                        <div key={index} className={`testimonial-slide ${index === activeSlide ? 'active' : ''}`}>
+                            <div className="testimonial-slide-content">
+                                <div className="testimonial-image">
+                                    <img src={testimonial.image} alt={testimonial.name} />
+                                </div>
+                                <div className="testimonial-info">
+                                    <h3>{testimonial.name}</h3>
+                                    <p>{testimonial.quote}</p>
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+                <button className="slide-control prev" onClick={slidePrev}>
+                    &lt;
+                </button>
+                <button className="slide-control next" onClick={slideNext}>
+                    &gt;
+                </button>
+            </div>
+        </section>
+    );
+};
+

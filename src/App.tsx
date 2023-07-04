@@ -1,8 +1,7 @@
 import React from 'react';
 import Header from './components/header'
 import ServiceArea from './components/map';
-import ServiceSlide from './components/serviceslideshow';
-import Testimonials from './components/testimonials';
+import { ServiceSlide, Testimonials } from './components/serviceslideshow';
 import LeadCaptureForm from './components/leadcapture';
 import Footer from './components/footer';
 
@@ -11,12 +10,12 @@ const App = () => {
         {
             name: 'John Doe',
             quote: 'Sellick Electric did an excellent job!',
-            image: 'residential.jpg'
+            image: ''
         },
         {
             name: 'Jane Smith',
             quote: 'I am really happy with the service provided by Sellick Electric.',
-            image: 'residential.jpg'
+            image: ''
         },
     ];
 
@@ -24,8 +23,8 @@ const App = () => {
         <div>
             <Header />
             <ServiceArea />
-            <ServiceSlide services= {['Residential', 'Commercial', 'Generators', 'Home Networks', 'Camera Systems']} />
-            <Testimonials testimonials={testimonials}/>
+            <ServiceSlide services={['Residential', 'Commercial', 'Generators', 'Home Networks', 'Camera Systems']} />
+            <Testimonials testimonials={testimonials} />
             <LeadCaptureForm />
             <Footer />
         </div>
@@ -33,4 +32,3 @@ const App = () => {
 };
 
 export default App;
-

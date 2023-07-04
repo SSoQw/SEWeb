@@ -1,5 +1,5 @@
 import React from 'react';
-import { MapContainer, TileLayer, CircleMarker, GeoJSON } from 'react-leaflet';
+import { MapContainer, TileLayer, Circle, GeoJSON } from 'react-leaflet';
 import 'leaflet-draw/dist/leaflet.draw.css';
 import 'leaflet-draw';
 import L from 'leaflet';
@@ -17,38 +17,46 @@ const ServiceMap = () => {
     // Custom map style for highlighting areas
     const areaStyle = {
         fillColor: 'green',
-        fillOpacity: 0.3,
+        fillOpacity: 1,
         color: 'green',
-        weight: 1,
+        weight: 2,
     };
 
     const serviceAreaStyle = {
         fillColor: 'blue',
         fillOpacity: 0.3,
         color: 'blue',
-        weight: 1,
+        weight: 3,
     };
 
     const futureAreaStyle = {
         fillColor: 'orange',
-        fillOpacity: 0.3,
+        fillOpacity: 1,
         color: 'orange',
         weight: 1,
     };
 
     // Center coordinates for the map
-    const center: L.LatLngTuple = [43.93, -70.98];
+    const center: L.LatLngTuple = [44.0, -71];
+    const circleCenter: L.LatLngTuple = [43.597532, -70.709917];
+    const circleRadius = 25 * 1609;
 
     // Render the map
     return (
-        <MapContainer center={center} zoom={8} style={{ height: '400px', width: '100%' }}>
-            <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" attribution="Map data &copy; OpenStreetMap contributors" />
+        <MapContainer center={center} zoom={8} style={{ height: '800px', width: '100%' }}>
+            <TileLayer
+                url="https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png"
+                attribution="Map tiles by Carto, under CC BY 3.0. Data by OpenStreetMap, under ODbL"
+                subdomains="abcd"
+                minZoom={0}
+                maxZoom={20}
+            />
 
             {/* Draw the maine.json layer */}
             <GeoJSON data={MEJSONData} style={areaStyle} />
 
             {/* Draw the blue circle marker */}
-            <CircleMarker center={[43.61, -70.63]} radius={25} pathOptions={serviceAreaStyle} />
+            <Circle center={circleCenter} radius={circleRadius} pathOptions={serviceAreaStyle} />
 
             {/* Draw the newhampshire.json layer */}
             <GeoJSON data={NHJSONData} style={futureAreaStyle} />
