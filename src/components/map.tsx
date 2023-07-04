@@ -24,15 +24,15 @@ const Legend = () => {
     return (
         <div className="legend">
             <div className="legend-item">
-                <div className="legend-color" style={{ background: 'green' }}></div>
+                <div className="legend-color" style={{ background: 'green', opacity: .5 }}></div>
                 <div className="legend-label">Service Area</div>
             </div>
             <div className="legend-item">
-                <div className="legend-color" style={{ background: 'blue' }}></div>
+                <div className="legend-color" style={{ background: 'blue', opacity: .5 }}></div>
                 <div className="legend-label">Service and Emergency Call Range</div>
             </div>
             <div className="legend-item">
-                <div className="legend-color" style={{ background: 'orange' }}></div>
+                <div className="legend-color" style={{ background: 'orange', opacity: .5 }}></div>
                 <div className="legend-label">Future Service Area</div>
             </div>
         </div>

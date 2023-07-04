@@ -36,7 +36,7 @@ const ServiceMap = () => {
     };
 
     // Center coordinates for the map
-    const center: L.LatLngTuple = [43.8, -70.5];
+    const center: L.LatLngTuple = [43.7, -70.709917];
     const circleCenter: L.LatLngTuple = [43.597532, -70.709917];
     const circleRadius = 25 * 1609;
 
@@ -49,7 +49,7 @@ const ServiceMap = () => {
 
     // Render the map
     return (
-        <MapContainer center={center} zoom={8} style={{ height: '550px', width: '100%' }}>
+        <MapContainer center={center} zoom={9} style={{ height: '550px', width: '100%' }}>
             <TileLayer
                 url="https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png"
                 attribution="Map tiles by Carto, under CC BY 3.0. Data by OpenStreetMap, under ODbL"
