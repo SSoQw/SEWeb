@@ -24,6 +24,24 @@ header {
   background-color: #022533;
 }
 
+.header-contents {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 100rem;
+  width: 100%;
+  margin: 0 auto;
+}
+
+
+h1 {
+  font-size: 32px;
+  font-weight: bold;
+  color: #8CDFFF;
+  margin: 0;
+}
+
+
 h1 {
   font-size: 32px;
   font-weight: bold;
@@ -50,13 +68,15 @@ code {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  margin: 0;
   padding: 0;
+  max-width: 70rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .titleh1{
   color: #8CDFFF;
-  font-size: 48px;
+  font-size: 72px;
   font-weight: bold;
 }
 
@@ -97,11 +117,14 @@ a:hover {
 .social-icons {
   display: flex;
   align-items: center;
+  margin-left: 10px;
+  font-size: 24px;
 }
 
 .social-icons a {
   color: #8CDFFF;
   margin-left: 10px;
+  font-size: 48px;
 }
 
 .social-icons a:hover {
