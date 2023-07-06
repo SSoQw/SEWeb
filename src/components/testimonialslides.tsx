@@ -12,12 +12,12 @@ interface Testimonial {
 
 const TestimonialSlide: React.FC<Testimonial> = ({ image, name, quote }) => {
     return (
-        <div className="testimonial-slide">
-            <div className="slide-content">
-                <img src={image} alt={name} className="slide-image" />
+        <div className="testimonial-container">
+            <div className="test-slide-content">
                 <h3 className="slide-title">{name}</h3>
-                <p className="slide-description">{quote}</p>
+                <p className="testimonial-quote">{quote}</p>
             </div>
+            <img src={image} alt={name} className="slide-image"/>
         </div>
     );
 };
@@ -26,7 +26,7 @@ const Testimonials = () => {
     const testimonials: Testimonial[] = testimonialsData.testimonials;
 
     return (
-        <div className="testimonial-slides">
+        <div className="container">
             <h2>Testimonials</h2>
         <Carousel showThumbs={true} autoPlay={true} interval={15000} infiniteLoop={true} showStatus={false}>
             {testimonials.map((testimonial, index) => (

@@ -13,24 +13,27 @@ interface Service {
 
 const ServiceSlide: React.FC<Service> = ({ image, type, description, readMoreUrl }) => {
     return (
-        <div className="service-slide">
-            <img src={image} alt={type} className="slide-image" />
-            <h3 className="slide-title">{type}</h3>
-            <a href={readMoreUrl} className="read-more-button">
-                Read More
-            </a>
-            <p className="slide-description">{description}</p>
+        <div className="slide-container">
+            <img src={image} alt={type} className="slide-image"/>
+            <div className="slide-content">
+                <h3 className="slide-title">{type}</h3>
+                <p className="slide-description">{description}</p>
+                <a href={readMoreUrl} className="read-more-button">
+                    Read More
+                </a>
+            </div>
         </div>
     );
 };
+
 
 const ServiceSlides = () => {
     const services: Service[] = servicesData.services;
 
     return (
-        <div className="service-slides">
+        <div className="container">
             <h2>Our Services</h2>
-        <Carousel showThumbs={false} autoPlay={true} interval={10000} infiniteLoop={true} showStatus={false}>
+        <Carousel showThumbs={true} autoPlay={true} interval={10000} infiniteLoop={true} showStatus={false}>
             {services.map((service) => (
                 <ServiceSlide
                     key={service.id}
