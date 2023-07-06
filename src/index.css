@@ -153,24 +153,13 @@ a:hover {
   font-size: 1rem;
 }
 
-.slide-container {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  max-width: 60rem;
-  height: 30rem;
-  margin-left: auto;
-  margin-right: auto;
-  border: 4px solid #022533;
-  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
-}
 
 .slide-container,
 .testimonial-container {
   display: flex;
   align-items: center;
   width: 100%;
-  max-width: 60rem;
+  max-width: 70rem;
   height: 30rem;
   margin: 3.125rem auto;
   border: 4px solid #022533;
@@ -357,7 +346,7 @@ button[type="submit"]:hover {
   position: fixed;
   font-size: 1.5rem;
   font-weight: bold;
-  bottom: 1.25rem;
+  bottom: 15rem;
   left: 50%;
   transform: translateX(-50%);
   background-color: #ffffff;
@@ -365,7 +354,7 @@ button[type="submit"]:hover {
   padding: 0.625rem;
   border-radius: 0.5rem;
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
-  width: 18.75rem;
+  width: 30rem;
   text-align: center;
   margin-top: 0.625rem;
 }

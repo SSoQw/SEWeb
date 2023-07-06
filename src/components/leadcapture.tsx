@@ -40,33 +40,33 @@ const LeadCaptureForm = () => {
         event.preventDefault();
         setErrorField('');
 
-        if (!name) {
-            setErrorField((prev) => prev + 'name ');
-            setStatus('info', 'Please enter your name');
-        }
-
-        if (!workProposal) {
-            setErrorField((prev) => prev + 'proposal ');
-            setStatus('info', 'Please enter a work proposal');
-        }
-
         if (!email && !phone) {
             setErrorField((prev) => prev + 'email phone');
-            setStatus('info', 'Please enter an email or phone number');
+            setStatus('info', 'Please Enter an Email or Phone Number');
         } else {
             if (email && !validateEmail(email)) {
                 setErrorField((prev) => prev + 'email ');
-                setStatus('info', 'Please enter a valid email address');
+                setStatus('info', 'Please Enter a Valid Email Address');
             }
 
             if (phone && !validatePhoneNumber(phone)) {
                 setErrorField((prev) => prev + 'phone ');
-                setStatus('info', 'Please enter a valid phone number');
+                setStatus('info', 'Please Enter a Valid Phone Number');
             }
         }
 
+        if (!workProposal) {
+            setErrorField((prev) => prev + 'proposal ');
+            setStatus('info', 'Please Enter a Work Proposal');
+        }
+
+        if (!name) {
+            setErrorField((prev) => prev + 'name ');
+            setStatus('info', 'Please Enter Your Name');
+        }
+
         if (honeypot) {
-            setStatus('error', 'Your submission was rejected :(');
+            setStatus('error', 'Your Submission Was Rejected :(');
             return;
         }
 
