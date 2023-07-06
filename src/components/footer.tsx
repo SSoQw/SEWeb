@@ -1,13 +1,16 @@
 const Footer = () => {
     return (
         <footer>
-            <div className="contact-info">
-                {/* Contact information */}
+            <div className="footer-contents">
+
+                <div className="contact-info">
+                    {/* Contact information */}
+                </div>
+                <div className="social-icons">
+                    {/* Social media links */}
+                </div>
+                <p className="footer-text">&copy; {new Date().getFullYear()} Sellick Electric. All rights reserved.</p>
             </div>
-            <div className="social-icons">
-                {/* Social media links */}
-            </div>
-            <p>&copy; {new Date().getFullYear()} Sellick Electric. All rights reserved.</p>
         </footer>
     );
 };

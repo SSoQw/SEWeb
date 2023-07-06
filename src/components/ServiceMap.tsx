@@ -49,10 +49,9 @@ const ServiceMap = () => {
 
     // Render the map
     return (
-        <MapContainer center={center} zoom={9} style={{ height: '550px', width: '100%' }}>
+        <MapContainer center={center} zoom={9} scrollWheelZoom={false} doubleClickZoom={false} style={{ height: '550px', width: '100%' }} zoomControl={false}>
             <TileLayer
                 url="https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png"
-                attribution="Map tiles by Carto, under CC BY 3.0. Data by OpenStreetMap, under ODbL"
                 subdomains="abcd"
                 minZoom={0}
                 maxZoom={20}

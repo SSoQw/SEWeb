@@ -1,0 +1,22 @@
+{
+  "testimonials": [
+    {
+      "id": 1,
+      "name": "John Doe",
+      "quote": "Sellick Electric did an amazing job with our electrical needs. Their team was professional, efficient, and provided excellent service. Highly recommended!",
+      "image": "/images/testimonial1.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Jane Smith",
+      "quote": "I'm extremely satisfied with the work done by Sellick Electric. They installed a security camera system in my home, and it works flawlessly. Their attention to detail and expertise are commendable.",
+      "image": "/images/testimonial2.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Mike Johnson",
+      "quote": "Sellick Electric went above and beyond to meet our commercial electrical needs. Their team completed the project on time and within budget. We couldn't be happier with the results.",
+      "image": "/images/testimonial3.jpg"
+    }
+  ]
+}
