@@ -28,6 +28,30 @@ body {
   padding: 1rem;
 }
 
+.not-found-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.not-found-page h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.not-found-page p {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.not-found-page img {
+  width: 300px;
+  height: auto;
+}
+
+
 header,
 footer {
   display: flex;

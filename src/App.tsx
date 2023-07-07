@@ -6,6 +6,7 @@ import Testimonials from "./components/testimonialslides";
 import LeadCaptureForm from './components/leadcapture';
 import Footer from './components/footer';
 import ServiceSlides from "./components/serviceslides";
+import NotFoundPage from './components/NotFound';
 
 interface PageLayoutProps {
     children: ReactNode;
@@ -32,6 +33,7 @@ const App = () => {
                     <Route path="/services" element={<PageLayout>a</PageLayout>}/>
                     <Route path="/about" element={<PageLayout>a</PageLayout>}/>
                     <Route path="/contact" element={<PageLayout>a</PageLayout>}/>
+                    <Route path="*" element={<NotFoundPage />} />
                 </Routes>
             </div>
         </Router>
