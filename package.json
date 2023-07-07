@@ -7,26 +7,26 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "@types/jest": "^27.5.2",
+    "@types/leaflet-draw": "^1.0.7",
     "@types/node": "^16.18.38",
+    "@types/nodemailer": "^6.4.8",
     "@types/react": "^18.2.14",
     "@types/react-dom": "^18.2.6",
+    "@types/react-icons": "^3.0.0",
+    "@types/react-leaflet": "^3.0.0",
+    "@types/topojson": "^3.2.3",
+    "leaflet": "^1.9.4",
+    "leaflet-draw": "^1.0.4",
+    "nodemailer": "^6.9.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1",
-    "typescript": "^4.9.5",
-    "web-vitals": "^2.1.4",
-    "leaflet": "^1.9.4" ,
-    "react-leaflet": "^4.2.1",
-    "@types/react-leaflet": "^3.0.0",
-    "leaflet-draw": "^1.0.4",
-    "@types/leaflet-draw": "^1.0.7",
     "react-icons": "^4.10.1",
-    "@types/react-icons": "^3.0.0",
-    "topojson": "^3.0.2",
-    "@types/topojson": "^3.2.3",
+    "react-leaflet": "^4.2.1",
     "react-responsive-carousel": "^3.2.23",
-    "nodemailer": "^6.9.3",
-    "@types/nodemailer": "^6.4.8"
+    "react-scripts": "5.0.1",
+    "topojson": "^3.0.2",
+    "typescript": "^4.9.5",
+    "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -51,5 +51,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "react-router-dom": "^6.14.1"
   }
 }

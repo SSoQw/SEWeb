@@ -28,7 +28,7 @@ const Testimonials = () => {
     return (
         <div className="container">
             <h2>Testimonials</h2>
-        <Carousel showThumbs={true} autoPlay={true} interval={15000} infiniteLoop={true} showStatus={false}>
+        <Carousel showThumbs={false} autoPlay={true} interval={15000} infiniteLoop={true} showStatus={false}>
             {testimonials.map((testimonial, index) => (
                 <TestimonialSlide
                     key={index}
