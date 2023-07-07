@@ -1,5 +1,5 @@
 import { FaFacebook } from 'react-icons/fa';
-import logo from '../images/FullLogo.png';
+import logo from '../../images/FullLogo.png';
 import {Link} from "react-router-dom";
 
 const Header = () => {
@@ -23,8 +23,8 @@ const Header = () => {
                         </li>
                     </ul>
                 </nav>
-                <a href="https://www.facebook.com/sellickelectric">
-                    <FaFacebook size={48}/>
+                <a href="https://www.facebook.com/sellickelectric" className="social-icons">
+                    <FaFacebook size={48} />
                 </a>
             </div>
         </header>

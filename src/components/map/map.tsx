@@ -1,5 +1,5 @@
 import React from 'react';
-import ServiceMap from './ServiceMap';
+import ServiceMap from './serviceMap';
 
 const ServiceArea = () => {
     return (

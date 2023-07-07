@@ -1,7 +1,7 @@
 import React from 'react';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
-import testimonialsData from '../data/testimonials.json';
+import testimonialsData from '../../data/testimonials.json';
 
 interface Testimonial {
     id?: number;

@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import error404 from '../../images/error404.png';
 
 const NotFoundPage: React.FC = () => {
     const navigate = useNavigate();
@@ -10,10 +11,10 @@ const NotFoundPage: React.FC = () => {
 
     return (
         <div className="not-found-page">
-            <h1>404 - Page Not Found</h1>
+            <img src={error404} alt="404 Error" />
+            <h1>Page Not Found</h1>
             <p>The page you are looking for does not exist.</p>
-            <img src="../images/error404.png" alt="404 Error" />
-            <button onClick={goBack}>Go Back</button>
+            <button onClick={goBack} className="button404">Go Back Home</button>
         </div>
     );
 };

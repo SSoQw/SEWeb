@@ -37,18 +37,37 @@ body {
 }
 
 .not-found-page h1 {
-  font-size: 2rem;
+  font-size: 3rem;
   margin-bottom: 1rem;
 }
 
 .not-found-page p {
-  font-size: 1.5rem;
+  font-size: 2rem;
   margin-bottom: 1.5rem;
 }
 
 .not-found-page img {
-  width: 300px;
+  width: 40rem;
   height: auto;
+}
+
+.button404 {
+  display: inline-block;
+  padding: 1rem 1.25rem;
+  background-color: #8CDFFF;
+  font-size: 2rem;
+  max-width: 30rem;
+  width: 100%;
+  color: white;
+  text-decoration: none;
+  border-radius: 0.25rem;
+  margin-top: 1rem;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.button404:hover {
+  background-color: #022533;
 }
 
 
@@ -62,7 +81,7 @@ footer {
 }
 
 .logo-image {
-  width: 25rem;
+  width: 20rem;
   height: auto;
 }
 
@@ -81,9 +100,22 @@ footer {
   font-weight: bold;
 }
 
-.social-icons a:hover {
-  color: #fff;
+.social-icons {
+  display: flex;
+  align-items: center;
+  margin-left: 0.625rem;
+  font-size: 1.5rem;
 }
+
+.social-icons a {
+  color: #8CDFFF;
+  transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: white;
+}
+
 
 h1, h2, h3, h4, h5, h6 {
   padding: 0.625rem;
@@ -92,22 +124,30 @@ h1, h2, h3, h4, h5, h6 {
   margin-right: auto;
 }
 
+.nav-list {
+  display: flex;
+  align-items: center;
+  list-style-type: none;
+}
+
 .nav-item {
-  display: inline-block;
-  color: #8CDFFF;
-  font-weight: bold;
+  margin-right: 7rem;
+}
+
+.nav-item:last-child {
+  margin-right: 0;
 }
 
 .nav-item a {
   text-decoration: none;
   font-size: 2.5rem;
   font-weight: bold;
-  margin-right: 7rem;
+  color: #8CDFFF;
   transition: color 0.3s ease;
 }
 
 .nav-item a:hover {
-  color: #8CDFFF;
+  color: white;
 }
 
 .header-text {
@@ -151,22 +191,6 @@ a:hover {
   text-decoration: underline;
 }
 
-.social-icons {
-  display: flex;
-  align-items: center;
-  margin-left: 0.625rem;
-  font-size: 1.5rem;
-}
-
-.social-icons a {
-  color: #8CDFFF;
-  margin-left: 0.625rem;
-  font-size: 3rem;
-}
-
-.social-icons a:hover {
-  color: #fff;
-}
 
 .service-area-container {
   flex-direction: row;
@@ -295,10 +319,10 @@ a:hover {
 
 .carousel .control-prev,
 .carousel .control-next {
-  position: absolute; /* Positioned absolutely */
-  top: 50%; /* Positioned at the vertical center */
-  z-index: 2; /* Placed above the slide content */
-  background-color: rgba(0, 0, 0, 1); /* Semi-transparent background */
+  position: absolute;
+  top: 50%;
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 1);
   border: none;
   padding: 0.5rem;
   font-size: 1.5rem;
@@ -326,7 +350,6 @@ a:hover {
 .read-more-button:hover {
   background-color: #022533;
 }
-
 
 form {
   display: flex;
@@ -431,4 +454,28 @@ button[type="submit"]:hover {
 
 .highlight {
   border: .25rem solid orange;
+}
+
+.service-card {
+  border: 1px solid #ccc;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.service-card.expanded {
+  /* Apply styles for expanded card */
+  background-color: lightgray;
+}
+
+.service-card h3 {
+  margin: 0;
+}
+
+.service-content {
+  margin-top: 10px;
+}
+
+.service-content img {
+  max-width: 100%;
+  height: auto;
 }

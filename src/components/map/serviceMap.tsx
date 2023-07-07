@@ -6,8 +6,8 @@ import L from 'leaflet';
 import { feature } from 'topojson-client';
 
 import 'leaflet/dist/leaflet.css';
-import nhTopoJSON from '../data/newhampshire.json';
-import meTopoJSON from '../data/maine.json';
+import nhTopoJSON from '../../data/newhampshire.json';
+import meTopoJSON from '../../data/maine.json';
 
 const ServiceMap = () => {
     // Custom map style for highlighting areas

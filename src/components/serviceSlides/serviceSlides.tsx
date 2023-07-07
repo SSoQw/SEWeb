@@ -1,26 +1,29 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
-import servicesData from '../data/services.json';
+import servicesData from '../../data/services.json';
 
 interface Service {
     id?: number;
     type: string;
     description: string;
     image: string;
-    readMoreUrl: string;
 }
 
-const ServiceSlide: React.FC<Service> = ({ image, type, description, readMoreUrl }) => {
+const ServiceSlide: React.FC<Service> = ({ image, type, description }) => {
+
+    const url = `/services?type=${encodeURIComponent(type)}`;
+
     return (
         <div className="slide-container">
             <img src={image} alt={type} className="slide-image"/>
             <div className="slide-content">
                 <h3 className="slide-title">{type}</h3>
                 <p className="slide-description">{description}</p>
-                <a href={readMoreUrl} className="read-more-button">
+                <Link to={url.toString()} className="read-more-button">
                     Read More
-                </a>
+                </Link>
             </div>
         </div>
     );
@@ -40,7 +43,6 @@ const ServiceSlides = () => {
                     image={service.image}
                     type={service.type}
                     description={service.description}
-                    readMoreUrl={service.readMoreUrl}
                 />
             ))}
         </Carousel>

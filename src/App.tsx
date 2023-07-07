@@ -1,15 +1,18 @@
 import React, {ReactNode} from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Header from './components/header'
-import ServiceArea from './components/map';
-import Testimonials from "./components/testimonialslides";
-import LeadCaptureForm from './components/leadcapture';
-import Footer from './components/footer';
-import ServiceSlides from "./components/serviceslides";
-import NotFoundPage from './components/NotFound';
+import Header from './components/header/header'
+import ServiceArea from './components/map/map';
+import Testimonials from "./components/testimonialSlides/testimonialSlides";
+import LeadCaptureForm from './components/leadcapture/leadCapture';
+import Footer from './components/footer/footer';
+import ServiceSlides from "./components/serviceSlides/serviceSlides";
+import NotFoundPage from './components/notFound/notFound';
+import About from "./components/about/about";
+import Contact from "./components/contact/contact";
+import ServicesPage from "./components/services/services";
 
 interface PageLayoutProps {
-    children: ReactNode;
+    children?: ReactNode;
 }
 
 const PageLayout: React.FC<PageLayoutProps> = ({ children }) => {
@@ -30,9 +33,9 @@ const App = () => {
                 <Routes>
                     <Route path="/" element={<PageLayout><><ServiceArea /><ServiceSlides />
                         <Testimonials /></></PageLayout>}/>
-                    <Route path="/services" element={<PageLayout>a</PageLayout>}/>
-                    <Route path="/about" element={<PageLayout>a</PageLayout>}/>
-                    <Route path="/contact" element={<PageLayout>a</PageLayout>}/>
+                    <Route path="/services"  element={<PageLayout><><ServicesPage /></></PageLayout>}/>
+                    <Route path="/about" element={<PageLayout><><About /></></PageLayout>}/>
+                    <Route path="/contact" element={<PageLayout><><Contact /></></PageLayout>}/>
                     <Route path="*" element={<NotFoundPage />} />
                 </Routes>
             </div>

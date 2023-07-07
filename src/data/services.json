@@ -3,37 +3,37 @@
     {
       "id": 1,
       "type": "Residential",
+      "longDescription": "",
       "description": "We provide comprehensive electrical solutions for residential properties, ensuring safety, efficiency, and reliability.",
-      "image": "/residential.jpg",
-      "readMoreUrl": "/residential"
+      "image": "/residential.jpg"
     },
     {
       "id": 2,
       "type": "Commercial",
+      "longDescription": "",
       "description": "Our commercial electrical services cater to businesses of all sizes, delivering customized solutions for smooth operations.",
-      "image": "/commercial.jpg",
-      "readMoreUrl": "/commercial"
+      "image": "/commercial.jpg"
     },
     {
       "id": 3,
       "type": "Generators",
+      "longDescription": "",
       "description": "We specialize in generator installation and maintenance, offering backup power solutions to keep you prepared.",
-      "image": "/generators.jpg",
-      "readMoreUrl": "/generators"
+      "image": "/generators.jpg"
     },
     {
       "id": 4,
       "type": "Networks",
+      "longDescription": "",
       "description": "Our network installations provide seamless connectivity for homes and businesses, ensuring fast and reliable internet.",
-      "image": "/networks.jpg",
-      "readMoreUrl": "/networks"
+      "image": "/networks.jpg"
     },
     {
       "id": 5,
       "type": "Camera Systems",
+      "longDescription": "",
       "description": "Enhance your security with our advanced camera systems, providing surveillance and peace of mind for your property.",
-      "image": "/cameras.png",
-      "readMoreUrl": "/cameras"
+      "image": "/cameras.png"
     }
   ]
 }
