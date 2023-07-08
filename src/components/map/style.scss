@@ -1,0 +1,37 @@
+.service-area-container {
+  flex-direction: row;
+}
+
+.business-blurb {
+  flex: 1;
+  text-align: center;
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: 1.25rem;
+  height: auto;
+}
+
+.legend {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.25rem;
+  margin-bottom: 0.625rem;
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    margin-right: 1.25rem;
+
+    .legend-color {
+      width: 1.25rem;
+      height: 1.25rem;
+      margin-right: 0.5rem;
+    }
+
+    .legend-label {
+      color: black;
+      font-weight: bold;
+      font-size: 1rem;
+    }
+  }
+}

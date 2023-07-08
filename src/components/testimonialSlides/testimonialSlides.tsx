@@ -12,10 +12,10 @@ interface Testimonial {
 
 const TestimonialSlide: React.FC<Testimonial> = ({ image, name, quote }) => {
     return (
-        <div className="testimonial-container">
-            <div className="test-slide-content">
+        <div className="slide-container">
+            <div className="slide-content">
                 <h3 className="slide-title">{name}</h3>
-                <p className="testimonial-quote">{quote}</p>
+                <p className="slide-description">{quote}</p>
             </div>
             <img src={image} alt={name} className="slide-image"/>
         </div>

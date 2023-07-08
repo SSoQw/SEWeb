@@ -1,0 +1,42 @@
+.not-found-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+  }
+
+  img {
+    width: 40rem;
+    height: auto;
+  }
+
+  .button404 {
+    display: inline-block;
+    padding: 1rem 1.25rem;
+    background-color: $secondary-color;
+    font-size: 2rem;
+    max-width: 30rem;
+    width: 100%;
+    color: white;
+    text-decoration: none;
+    border-radius: 0.25rem;
+    margin-top: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: $primary-color;
+    }
+  }
+}

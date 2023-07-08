@@ -1,0 +1,24 @@
+.service-card {
+  border: 1px solid #ccc;
+  padding: 10px;
+  cursor: pointer;
+  max-width:  $max-width;
+  margin: .5rem auto;
+}
+
+.service-card.expanded {
+  background-color: lightgray;
+}
+
+.service-card h3 {
+  margin: 0;
+}
+
+.service-content {
+  margin-top: 10px;
+}
+
+.service-content img {
+  max-height: 10rem;
+  width: auto;
+}

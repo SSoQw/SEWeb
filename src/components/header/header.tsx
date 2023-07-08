@@ -5,7 +5,7 @@ import {Link} from "react-router-dom";
 const Header = () => {
     return (
         <header>
-            <div className="header-contents">
+            <div className="end-contents">
                 <img src={logo} alt="Sellick Electric Logo" className="logo-image"/>
                 <nav>
                     <ul className="nav-list">

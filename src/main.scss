@@ -1,11 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;700&display=swap');
-
-$body-color: #000000;
-$body-bg: #ffffff;
 $max-width: 70rem;
 $primary-color: #022533;
 $secondary-color: #8CDFFF;
-
 
 body {
   margin: 0;
@@ -13,8 +9,8 @@ body {
   font-family: 'IBM Plex Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: $body-color;
-  background-color: $body-bg;
+  color: black;
+  background-color: white;
   min-height: 100vh;
 }
 
@@ -25,21 +21,173 @@ body {
   justify-content: space-between;
 }
 
-
 .content {
   flex: 1;
 }
 
-
-.container {
-  max-width: $max-width;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 1rem;
-}
 
 h1, h2, h3, h4, h5, h6, p, li {
   max-width: $max-width;
   margin-left: auto;
   margin-right: auto;
 }
+
+h1 {
+  font-size: 4rem;
+  font-weight: bold;
+  color: $primary-color;
+}
+
+h2 {
+  font-size: 3rem;
+  font-weight: bold;
+  color: $primary-color;
+  margin-bottom: 1rem;
+}
+
+h3 {
+  color: $primary-color;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+p {
+  font-size: 1.5rem;
+  line-height: 1.5;
+  margin-bottom: 0.625rem;
+}
+
+a {
+  color: $secondary-color;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+
+header,
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  background-color: $primary-color;
+}
+
+.end-contents {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 100rem;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.carousel .slide {
+  width: 60rem !important;
+}
+
+.carousel .control-dots {
+  bottom: 0;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 1rem;
+}
+
+.carousel .control-dots li {
+  margin: 0.25rem;
+}
+
+.carousel .control-dots li button {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  border: none;
+  background-color: $secondary-color;
+  cursor: pointer;
+}
+
+.carousel .control-dots li.active button {
+  background-color: $secondary-color;
+}
+
+.carousel .control-prev,
+.carousel .control-next {
+  position: absolute;
+  top: 50%;
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 1);
+  border: none;
+  padding: 0.5rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+}
+
+.slide-title {
+  font-size: 2rem;
+  margin-bottom: 0.1rem;
+  text-align: center;
+}
+
+.slide-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 68rem;
+  height: 30rem;
+  margin: 3.125rem auto;
+  border: 4px solid #022533;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.8);
+}
+
+.slide-image {
+  width: 100%;
+  max-width: 50%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.slide-content {
+  width: 100%;
+  max-width: 45%;
+  margin:auto;
+}
+
+
+.slide-description {
+  font-size: 1.25rem;
+  text-align: center;
+}
+
+.read-more-button {
+  display: inline-block;
+  padding: 0.625rem 1.25rem;
+  background-color: #8CDFFF;
+  color: white;
+  text-decoration: none;
+  border-radius: 0.25rem;
+  margin-top: 1rem;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: #022533;
+  }
+}
+
+@import '../src/components/header/style';
+@import '../src/components/notFound/style';
+@import '../src/components/footer/style';
+@import '../src/components/leadcapture/style';
+@import '../src/components/map/style';
+@import '../src/components/services/style';

@@ -1,0 +1,56 @@
+$logo-image-width: 20rem;
+$social-icons-font-size: 1.5rem;
+$nav-item-margin-right: 7rem;
+$nav-item-font-size: 2.5rem;
+
+.header-text {
+  color: $secondary-color;
+  font-size: 4.5rem;
+  font-weight: bold;
+}
+
+.logo-image {
+  width: 20rem;
+  height: auto;
+}
+
+.social-icons {
+  display: flex;
+  align-items: center;
+  font-size: $social-icons-font-size;
+
+  a {
+    color: $secondary-color;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: white;
+    }
+  }
+}
+
+.nav-list {
+  display: flex;
+  align-items: center;
+  list-style-type: none;
+}
+
+.nav-item {
+  margin-right: $nav-item-margin-right;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  a {
+    text-decoration: none;
+    font-size: $nav-item-font-size;
+    font-weight: bold;
+    color: $secondary-color;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: white;
+    }
+  }
+}

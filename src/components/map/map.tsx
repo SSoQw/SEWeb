@@ -6,9 +6,11 @@ const ServiceArea = () => {
         <section>
             <div className="service-area-container">
                 <div className="business-blurb">
-                    <h3>Why settle for anything less than exceptional?</h3>
-
-                    <p> Whether you're a business owner seeking professional electrical solutions or a homeowner looking to enhance your living space with advanced security systems, we've got you covered. Our comprehensive services encompass the full spectrum of electrical work, offering seamless integration of networks and robust security installations.</p>
+                    <h2>Welcome to Sellick Electric</h2>
+                    <p> Whether you're a business owner seeking professional electrical solutions or a homeowner looking
+                        to enhance your living space with advanced security systems, we've got you covered. Our
+                        comprehensive services encompass the full spectrum of electrical work, offering seamless
+                        integration of networks and robust security installations.</p>
                 </div>
                 <div className="map-container">
                     <ServiceMap />
