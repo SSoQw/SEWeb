@@ -63,7 +63,7 @@ const ServicesPage: React.FC = () => {
             <span className={`expand-icon ${expandedCard === index ? 'minus' : 'plus'}`}>
               {expandedCard === index ? '-' : '+'}
             </span>
-                        <h3>{service.type}</h3>
+                        <h2>{service.type}</h2>
                     </div>
                     {expandedCard === index && (
                         <div className="service-content">

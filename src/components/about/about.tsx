@@ -6,9 +6,8 @@ const AboutPage: React.FC = () => {
         <div>
             <h1>Our Story</h1>
             <div className="container">
-                <p>Welcome to Sellick Electric, your trusted partner for all your electrical needs. We are a small,
-                    family-run and owned Electrical Contracting business with a passion for providing exceptional
-                    service and quality workmanship.</p>
+                <p>Sellick Electric is a small, family-run and owned Electrical Contracting business with a
+                    passion for providing exceptional service and quality workmanship.</p>
 
                 <p>At Sellick Electric, we understand the importance of reliable and safe electrical systems in both
                     residential and commercial settings. With years of experience in the industry, our Owner and Master
