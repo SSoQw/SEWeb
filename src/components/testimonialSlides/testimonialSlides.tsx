@@ -26,7 +26,7 @@ const Testimonials = () => {
     const testimonials: Testimonial[] = testimonialsData.testimonials;
 
     return (
-        <div className="container">
+        <div className="carousel-container">
             <h2>Testimonials</h2>
         <Carousel showThumbs={false} autoPlay={true} interval={15000} infiniteLoop={true} showStatus={false}>
             {testimonials.map((testimonial, index) => (

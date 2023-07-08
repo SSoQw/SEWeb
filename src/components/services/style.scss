@@ -1,17 +1,33 @@
 .service-card {
-  border: 1px solid #ccc;
-  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  border: .25rem solid $primary-color;
+  padding: 1rem;
   cursor: pointer;
-  max-width:  $max-width;
-  margin: .5rem auto;
+  max-width: 67rem;
+  margin: 0.5rem auto;
 }
 
 .service-card.expanded {
   background-color: lightgray;
 }
 
-.service-card h3 {
+.service-card .service-header {
+  display: flex;
+  align-items: center;
+}
+
+.service-card h2 {
   margin: 0;
+  padding: 0;
+}
+
+.service-card .expand-icon {
+  font-size: 3rem;
+  width: 3rem;
+  margin: 0.25rem;
 }
 
 .service-content {
@@ -19,6 +35,7 @@
 }
 
 .service-content img {
-  max-height: 10rem;
-  width: auto;
+  max-width: 20rem;
+  width: 100%;
+  height: auto;
 }

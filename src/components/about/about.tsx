@@ -1,11 +1,10 @@
 import React from "react";
 
-
-const AboutPage: React.FC = () => {
+const AboutPage = () => {
     return (
         <div>
             <h1>Our Story</h1>
-            <div className="container">
+            <div>
                 <p>Sellick Electric is a small, family-run and owned Electrical Contracting business with a
                     passion for providing exceptional service and quality workmanship.</p>
 

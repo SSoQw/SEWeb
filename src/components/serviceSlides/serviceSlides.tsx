@@ -34,7 +34,7 @@ const ServiceSlides = () => {
     const services: Service[] = servicesData.services;
 
     return (
-        <div className="container">
+        <div className="carousel-container">
             <h2>Our Services</h2>
         <Carousel showThumbs={true} autoPlay={true} interval={10000} infiniteLoop={true} showStatus={false}>
             {services.map((service) => (

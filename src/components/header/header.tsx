@@ -1,12 +1,11 @@
 import { FaFacebook } from 'react-icons/fa';
-import logo from '../../images/FullLogo.png';
-import {Link} from "react-router-dom";
+import {Link} from 'react-router-dom';
 
 const Header = () => {
     return (
         <header>
             <div className="end-contents">
-                <img src={logo} alt="Sellick Electric Logo" className="logo-image"/>
+                <img src="./FullLogo.png" alt="Sellick Electric Logo" className="logo-image"/>
                 <nav>
                     <ul className="nav-list">
                         <li className="nav-item">

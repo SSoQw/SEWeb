@@ -9,7 +9,7 @@ interface Service {
     image: string;
 }
 
-const ServicesPage: React.FC = () => {
+const ServicesPage = () => {
     const location = useLocation();
     const queryParams = new URLSearchParams(location.search);
     const type = queryParams.get('type');
@@ -50,8 +50,19 @@ const ServicesPage: React.FC = () => {
         }
     };
 
+    const renderDescriptionWithLineBreaks = (description: string) => {
+        const lines = description.split('\n');
+        return lines.map((line, index) => (
+            <React.Fragment key={index}>
+                {line}
+                <br />
+            </React.Fragment>
+        ));
+    };
+
     return (
         <div>
+            <h1>Our Services</h1>
             {servicesData.services.map((service: Service, index: number) => (
                 <div
                     key={service.id}
@@ -68,7 +79,7 @@ const ServicesPage: React.FC = () => {
                     {expandedCard === index && (
                         <div className="service-content">
                             <img src={service.image} alt={service.type} />
-                            <p>{service.longDescription}</p>
+                            <p>{renderDescriptionWithLineBreaks(service.longDescription)}</p>
                         </div>
                     )}
                 </div>

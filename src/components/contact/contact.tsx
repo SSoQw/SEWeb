@@ -1,6 +1,6 @@
 import React from "react";
 
-const ContactPage: React.FC = () => {
+const ContactPage = () => {
     return (
         <div>
             <h2>Have an Electrical Emergency, Give us a Call</h2>
