@@ -1,4 +1,5 @@
 import { FaFacebook } from 'react-icons/fa';
+import { IconContext } from "react-icons";
 import {Link} from 'react-router-dom';
 
 const Header = () => {
@@ -25,8 +26,10 @@ const Header = () => {
                         </li>
                     </ul>
                 </nav>
-                <a href="https://www.facebook.com/sellickelectric" className="social-icons">
-                    <FaFacebook size={48} />
+                <a href="https://www.facebook.com/sellickelectric">
+                    <IconContext.Provider value={{ className: "social-icons" }}>
+                        <FaFacebook size={48}/>
+                    </IconContext.Provider>
                 </a>
             </div>
         </header>

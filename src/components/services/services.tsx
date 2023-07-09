@@ -48,11 +48,6 @@ const ServicesPage = () => {
         } else {
             // Clicked card is not expanded, expand it
             setExpandedCard(index);
-            // Scroll to the expanded card
-            const cardElement = document.getElementById(`service-card-${index}`);
-            if (cardElement) {
-                cardElement.scrollIntoView({ behavior: 'smooth', inline: 'start' });
-            }
         }
     };
 

@@ -37,17 +37,14 @@ footer {
   align-items: center;
   margin-left: $nav-item-margin;
   font-size: $social-icons-font-size;
+  color: $secondary-color;
+  transition: fill 0.3s ease;
 
-  a {
-    color: $secondary-color;
-    transition: color 0.3s ease;
-
-    &:hover {
-      color: white;
-      text-decoration: underline;
-    }
-  }
+  &:hover {
+    color: white;
+   }
 }
+
 
 .nav-list {
   display: flex;

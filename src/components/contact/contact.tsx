@@ -16,9 +16,7 @@ const ContactPage = () => {
             <ul><li>911</li></ul>
 
             <h2>Looking for Quick Answers? Visit our FAQ</h2>
-            <Link to="/faq" className="faq-link">
-                Go to FAQ
-            </Link>
+            <Link to="/faq" className="faq-link">Go to FAQ</Link>
 
             <h2>Didn't Find an Answer? Reach out</h2>
             <ul>
