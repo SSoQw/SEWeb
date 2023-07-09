@@ -1,7 +1,7 @@
 .service-card {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: flex-start;
   border: .25rem solid $primary-color;
   padding: 1rem;
@@ -11,12 +11,25 @@
 }
 
 .service-card.expanded {
-  background-color: lightgray;
+  background-color: white;
 }
 
 .service-card .service-header {
   display: flex;
   align-items: center;
+  width: 100%;
+}
+
+.service-card .service-details {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.service-card .service-details img {
+  max-width: 20rem;
+  height: auto;
+  margin-right: 1rem;
 }
 
 .service-card h2 {
@@ -32,10 +45,16 @@
 
 .service-content {
   margin-top: 10px;
+  width: 100%;
 }
 
 .service-content img {
   max-width: 20rem;
-  width: 100%;
-  height: auto;
+  margin-left: .5rem;
+  float: right;
+}
+
+.service-content p {
+  word-wrap: break-word;
+  text-align: justify;
 }

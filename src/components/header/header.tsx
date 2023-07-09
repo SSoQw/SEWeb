@@ -20,6 +20,9 @@ const Header = () => {
                         <li className="nav-item">
                             <Link to="/contact">Contact</Link>
                         </li>
+                        <li className="nav-item">
+                            <Link to="/faq">FAQ</Link>
+                        </li>
                     </ul>
                 </nav>
                 <a href="https://www.facebook.com/sellickelectric" className="social-icons">

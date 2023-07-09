@@ -90,15 +90,49 @@ form {
     }
   }
 
-  .dismiss {
-    position: absolute;
-    font-size: 1rem;
-    top: 0.3125rem;
-    right: 0.625rem;
-    cursor: pointer;
-  }
-
   .highlight {
     border: .25rem solid orange;
   }
 }
+
+
+.status-message {
+  position: fixed;
+  font-size: 1.5rem;
+  font-weight: bold;
+  bottom: 10rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: white;
+  color: black;
+  padding: 0.625rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
+  width: 30rem;
+  text-align: center;
+  margin-top: 0.625rem;
+
+  &.error {
+    color: red;
+    outline: 0.25rem solid red;
+  }
+
+  &.success {
+    color: #00ff00;
+    outline: 0.25rem solid #00ff00;
+  }
+
+  &.info {
+    color: orange;
+    outline: 0.25rem solid orange;
+  }
+}
+
+.dismiss {
+  position: absolute;
+  font-size: 1rem;
+  top: 0.3125rem;
+  right: 0.625rem;
+  cursor: pointer;
+}
+

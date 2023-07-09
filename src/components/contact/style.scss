@@ -1,7 +1,55 @@
-ul {
-  font-size: 1.5rem;
-}
+.contact-page {
+  align-items: center;
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    font-size: 1.75rem;
 
-li {
-  margin-bottom: 1rem;
+    li {
+      margin-bottom: 1rem;
+
+      a {
+        color: $secondary-color;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  p {
+    font-size: 1.75rem;
+  }
+
+  hr {
+    border: none;
+    height: 0.25rem;
+    background-color: #000;
+    margin: 1rem auto;
+    max-width: $max-width;
+  }
+
+  .faq-link {
+    display: block;
+    padding: 1rem 1rem;
+    background-color: $secondary-color;
+    color: white;
+    text-align: center;
+    font-size: 2rem;
+    border-radius: 0.5rem;
+    max-width: 30rem;
+    margin-left: auto;
+    margin-right: auto;
+    cursor: pointer;
+    transition: color 0.3s ease;
+
+
+    &:hover {
+      background-color: $primary-color;
+      text-decoration: underline;
+    }
+  }
 }

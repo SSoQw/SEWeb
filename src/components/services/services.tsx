@@ -15,7 +15,7 @@ const ServicesPage = () => {
     const type = queryParams.get('type');
 
     const [expandedCard, setExpandedCard] = useState<number | null>(null);
-    const navigate = useNavigate(); // Hook to get the navigate function
+    const navigate = useNavigate();
 
     useEffect(() => {
         if (type) {
@@ -23,17 +23,23 @@ const ServicesPage = () => {
 
             if (serviceIndex !== -1) {
                 setExpandedCard(serviceIndex);
-                // Scroll to the expanded card
-                const cardElement = document.getElementById(`service-card-${serviceIndex}`);
-                if (cardElement) {
-                    cardElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
             } else {
                 // Service type doesn't exist, redirect to /404
                 navigate('/404');
             }
         }
     }, [type, navigate]);
+
+    useEffect(() => {
+        if (expandedCard !== null) {
+            setTimeout(() => {
+                const cardElement = document.getElementById(`service-card-${expandedCard}`);
+                if (cardElement) {
+                    cardElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }, 100);
+        }
+    }, [expandedCard]);
 
     const toggleExpand = (index: number) => {
         if (expandedCard === index) {
@@ -45,18 +51,15 @@ const ServicesPage = () => {
             // Scroll to the expanded card
             const cardElement = document.getElementById(`service-card-${index}`);
             if (cardElement) {
-                cardElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                cardElement.scrollIntoView({ behavior: 'smooth', inline: 'start' });
             }
         }
     };
 
-    const renderDescriptionWithLineBreaks = (description: string) => {
-        const lines = description.split('\n');
+    const renderDescriptionWithParagraphs = (description: string) => {
+        const lines = description.split('\n\n');
         return lines.map((line, index) => (
-            <React.Fragment key={index}>
-                {line}
-                <br />
-            </React.Fragment>
+            <p key={index}>{line}</p>
         ));
     };
 
@@ -79,7 +82,7 @@ const ServicesPage = () => {
                     {expandedCard === index && (
                         <div className="service-content">
                             <img src={service.image} alt={service.type} />
-                            <p>{renderDescriptionWithLineBreaks(service.longDescription)}</p>
+                            {renderDescriptionWithParagraphs(service.longDescription)}
                         </div>
                     )}
                 </div>
