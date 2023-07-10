@@ -6,6 +6,7 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "@types/googlemaps": "^3.43.3",
     "@types/jest": "^27.5.2",
     "@types/leaflet-draw": "^1.0.7",
     "@types/node": "^16.18.38",
@@ -15,6 +16,7 @@
     "@types/react-icons": "^3.0.0",
     "@types/react-leaflet": "^3.0.0",
     "@types/topojson": "^3.2.3",
+    "@types/react-places-autocomplete": "^7.2.9",
     "css-loader": "^6.8.1",
     "leaflet": "^1.9.4",
     "leaflet-draw": "^1.0.4",
@@ -29,7 +31,8 @@
     "sass-loader": "^13.3.2",
     "topojson": "^3.0.2",
     "typescript": "^4.9.5",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "react-places-autocomplete": "^7.3.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -56,6 +59,7 @@
     ]
   },
   "devDependencies": {
+    "react-google-autocomplete": "^2.7.3",
     "react-router-dom": "^6.14.1"
   }
 }
