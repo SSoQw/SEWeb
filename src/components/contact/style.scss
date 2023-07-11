@@ -37,6 +37,7 @@
     padding: 1rem 1rem;
     background-color: $secondary-color;
     margin-top: 2rem;
+    font-weight: bold;
     color: white;
     text-align: center;
     font-size: 2rem;
@@ -45,8 +46,7 @@
     margin-left: auto;
     margin-right: auto;
     cursor: pointer;
-    transition: color 0.3s ease;
-
+    transition: background-color 0.3s ease;
 
     &:hover {
       background-color: $primary-color;

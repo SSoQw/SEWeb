@@ -36,7 +36,7 @@ const ServiceSlides = () => {
     return (
         <div className="carousel-container">
             <h2>Our Services</h2>
-        <Carousel showThumbs={true} autoPlay={true} interval={10000} infiniteLoop={true} showStatus={false}>
+        <Carousel showThumbs={false} autoPlay={true} interval={10000} infiniteLoop={true} showStatus={false}>
             {services.map((service) => (
                 <ServiceSlide
                     key={service.id}

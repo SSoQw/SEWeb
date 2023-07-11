@@ -1,6 +1,6 @@
 {
   "name": "seweb",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
@@ -13,10 +13,10 @@
     "@types/nodemailer": "^6.4.8",
     "@types/react": "^18.2.14",
     "@types/react-dom": "^18.2.6",
+    "@types/react-geosuggest": "^2.7.13",
     "@types/react-icons": "^3.0.0",
     "@types/react-leaflet": "^3.0.0",
     "@types/topojson": "^3.2.3",
-    "@types/react-places-autocomplete": "^7.2.9",
     "css-loader": "^6.8.1",
     "leaflet": "^1.9.4",
     "leaflet-draw": "^1.0.4",
@@ -24,15 +24,16 @@
     "nodemailer": "^6.9.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-geosuggest": "^2.14.1",
     "react-icons": "^4.10.1",
     "react-leaflet": "^4.2.1",
     "react-responsive-carousel": "^3.2.23",
+    "react-router-dom": "^6.14.1",
     "react-scripts": "5.0.1",
     "sass-loader": "^13.3.2",
     "topojson": "^3.0.2",
     "typescript": "^4.9.5",
-    "web-vitals": "^2.1.4",
-    "react-places-autocomplete": "^7.3.0"
+    "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -57,9 +58,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "react-google-autocomplete": "^2.7.3",
-    "react-router-dom": "^6.14.1"
   }
 }
