@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import servicesData from '../../data/services.json';
+
+const fetchServiceData = async () => {
+    const response = await fetch('/services.json');
+    const data = await response.json();
+    return data.services as Service[];
+};
 
 interface Service {
     id: number;
@@ -9,7 +14,18 @@ interface Service {
     image: string;
 }
 
-const ServicesPage = () => {
+const ServicesPage: React.FC = () => {
+    const [services, setServices] = useState<Service[]>([]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const data = await fetchServiceData();
+            console.log('Fetched data:', data);
+            setServices(data);
+        };
+        fetchData();
+    }, []);
+
     const location = useLocation();
     const queryParams = new URLSearchParams(location.search);
     const type = queryParams.get('type');
@@ -18,8 +34,8 @@ const ServicesPage = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        if (type) {
-            const serviceIndex = servicesData.services.findIndex((service: Service) => service.type === type);
+        if (type && services.length) {
+            const serviceIndex = services.findIndex((service: Service) => service.type === type);
 
             if (serviceIndex !== -1) {
                 setExpandedCard(serviceIndex);
@@ -28,7 +44,7 @@ const ServicesPage = () => {
                 navigate('/404');
             }
         }
-    }, [type, navigate]);
+    }, [type, navigate, services]);
 
     useEffect(() => {
         if (expandedCard !== null) {
@@ -61,7 +77,7 @@ const ServicesPage = () => {
     return (
         <div>
             <h1>Our Services</h1>
-            {servicesData.services.map((service: Service, index: number) => (
+            {services.map((service: Service, index: number) => (
                 <div
                     key={service.id}
                     id={`service-card-${index}`}
@@ -69,9 +85,9 @@ const ServicesPage = () => {
                     onClick={() => toggleExpand(index)}
                 >
                     <div className="service-header">
-            <span className={`expand-icon ${expandedCard === index ? 'minus' : 'plus'}`}>
-              {expandedCard === index ? '-' : '+'}
-            </span>
+                        <span className={`expand-icon ${expandedCard === index ? 'minus' : 'plus'}`}>
+                            {expandedCard === index ? '-' : '+'}
+                        </span>
                         <h2>{service.type}</h2>
                     </div>
                     {expandedCard === index && (

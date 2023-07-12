@@ -6,18 +6,18 @@
   text-align: center;
 
   h1 {
-    font-size: 3rem;
+    font-size: $E404-header-font-size;
     margin-bottom: 1rem;
   }
 
   p {
-    font-size: 2rem;
+    font-size: $E404-text-font-size;
     font-weight: bold;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
   }
 
   img {
-    width: 40rem;
+    width: $E404-image-width;
     height: auto;
   }
 
@@ -25,13 +25,13 @@
     display: inline-block;
     padding: 1rem 1.25rem;
     background-color: $secondary-color;
-    font-size: 2rem;
-    max-width: 30rem;
+    font-size: $E404-text-font-size;
+    max-width: $E404-button-size;
     width: 100%;
     color: white;
     text-decoration: none;
     border-radius: 0.25rem;
-    margin-top: 1rem;
+    margin-top: $readable-margin;
     font-weight: bold;
     transition: background-color 0.3s ease;
 

@@ -1,7 +1,6 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
-import testimonialsData from '../../data/testimonials.json';
 
 interface Testimonial {
     id?: number;
@@ -9,6 +8,12 @@ interface Testimonial {
     quote: string;
     image: string;
 }
+
+const fetchTestimonialsData = async () => {
+    const response = await fetch('/testimonials.json');
+    const data = await response.json();
+    return data.testimonials as Testimonial[];
+};
 
 const TestimonialSlide: React.FC<Testimonial> = ({ image, name, quote }) => {
     return (
@@ -23,21 +28,29 @@ const TestimonialSlide: React.FC<Testimonial> = ({ image, name, quote }) => {
 };
 
 const Testimonials = () => {
-    const testimonials: Testimonial[] = testimonialsData.testimonials;
+    const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const data = await fetchTestimonialsData();
+            setTestimonials(data);
+        };
+        fetchData();
+    }, []);
 
     return (
         <div className="carousel-container">
             <h2>Testimonials</h2>
-        <Carousel showThumbs={false} autoPlay={true} interval={15000} infiniteLoop={true} showStatus={false}>
-            {testimonials.map((testimonial, index) => (
-                <TestimonialSlide
-                    key={index}
-                    image={testimonial.image}
-                    name={testimonial.name}
-                    quote={testimonial.quote}
-                />
-            ))}
-        </Carousel>
+            <Carousel showThumbs={false} autoPlay={true} interval={15000} infiniteLoop={true} showStatus={false}>
+                {testimonials.map((testimonial, index) => (
+                    <TestimonialSlide
+                        key={index}
+                        image={testimonial.image}
+                        name={testimonial.name}
+                        quote={testimonial.quote}
+                    />
+                ))}
+            </Carousel>
         </div>
     );
 };

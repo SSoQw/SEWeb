@@ -29,7 +29,6 @@ form {
         margin-bottom: 0;
       }
 
-
       .geosuggest__suggests--hidden {
         max-height: 0;
         overflow: hidden;
@@ -39,10 +38,7 @@ form {
       .geosuggest__suggests--visible {
         top: 100%;
         max-height: 25em;
-        background: #fff;
-        border-top-width: 0;
-        border-left: .1rem solid black;
-        border-right: .1rem solid black;
+        background: white;
         overflow-x: hidden;
         overflow-y: auto;
         list-style: none;
@@ -71,6 +67,7 @@ form {
         cursor: pointer;
         transition: background-color 0.3s ease;
         background-color: $secondary-color;
+        border: .1rem solid $primary-color;
         color: white;
         border-radius: 0.5rem;
         margin-top: .5rem;
@@ -96,7 +93,7 @@ form {
   input,
   textarea {
     padding: 0.625rem;
-    font-size: 1.5rem;
+    font-size: $text-size;
     box-sizing:border-box;
   }
 
@@ -109,14 +106,14 @@ form {
     background-color: $secondary-color;
     color: white;
     padding: 0.625rem 1.25rem;
-    font-size: 1.5rem;
+    font-size: $text-size;
     border: none;
     border-radius: 0.25rem;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    margin-bottom: 1rem;
+    margin-bottom: $readable-margin;
     font-weight: bold;
-    margin-top: 1rem;
+    margin-top: $readable-margin;
 
     &:hover {
       background-color: $primary-color;
@@ -131,7 +128,7 @@ form {
 
 .status-message {
   position: fixed;
-  font-size: 1.5rem;
+  font-size: $text-size;
   font-weight: bold;
   bottom: 10rem;
   left: 50%;
@@ -140,10 +137,10 @@ form {
   color: black;
   padding: 0.625rem;
   border-radius: 0.5rem;
-  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
-  width: 30rem;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.3);
+  max-width: $max-width * .5;
+  width: 100%;
   text-align: center;
-  margin-top: 0.625rem;
 
   &.error {
     color: red;
@@ -164,8 +161,8 @@ form {
 .dismiss {
   position: absolute;
   font-size: 1rem;
-  top: 0.3125rem;
-  right: 0.625rem;
+  top: 0.1rem;
+  right: 0.3rem;
   cursor: pointer;
 }
 

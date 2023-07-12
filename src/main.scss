@@ -1,15 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;700&display=swap');
-$max-width: 70rem;
-$primary-color: #022533;
-$secondary-color: #8CDFFF;
-
-@media (max-width: 992px) {
-  $max-width: 45rem;
-}
-
-@media (max-width: 768px) {
-  $max-width: 20rem;
-}
+@import './var.scss';
+@import './mixins.scss';
 
 body {
   margin: 0;
@@ -35,35 +26,43 @@ body {
 
 
 h1, h2, h3, h4, h5, h6, p, li {
-  max-width: $max-width;
+  max-width: $max-width + 2rem;
   margin-left: auto;
   margin-right: auto;
+  color: $primary-color;
 }
 
 h1 {
-  font-size: 4rem;
+  font-size: $h1-font-size;
   font-weight: bold;
-  color: $primary-color;
 }
 
 h2 {
-  font-size: 3rem;
+  font-size: $h2-font-size;
   font-weight: bold;
-  color: $primary-color;
-  margin-bottom: 1rem;
+  margin-bottom: $readable-margin;
 }
 
 h3 {
-  color: $primary-color;
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
+  font-size: $h3-font-size;
+  margin-bottom: $readable-margin;
 }
 
 p {
-  font-size: 1.5rem;
-  line-height: 1.5;
-  margin-bottom: 0.625rem;
+  font-size: $text-size;
+  line-height: 1.25;
+  margin-bottom: $text-bottom-margin;
+  max-width: $max-width;
+  color: black;
+}
+
+li {
+  font-size: $text-size;
+  line-height: 1.25;
+  margin-bottom: $text-bottom-margin;
+  max-width: $max-width;
+  color: black;
+  list-style: none;
 }
 
 a {

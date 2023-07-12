@@ -1,8 +1,14 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import { Link } from 'react-router-dom';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
-import servicesData from '../../data/services.json';
+
+
+const fetchServiceData = async () => {
+    const response = await fetch('/services.json');
+    const data = await response.json();
+    return data.services as Service[];
+};
 
 interface Service {
     id?: number;
@@ -12,7 +18,6 @@ interface Service {
 }
 
 const ServiceSlide: React.FC<Service> = ({ image, type, description }) => {
-
     const url = `/services?type=${encodeURIComponent(type)}`;
 
     return (
@@ -31,7 +36,16 @@ const ServiceSlide: React.FC<Service> = ({ image, type, description }) => {
 
 
 const ServiceSlides = () => {
-    const services: Service[] = servicesData.services;
+    const [services, setServices] = useState<Service[]>([]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const data = await fetchServiceData();
+            console.log('Fetched data:', data);
+            setServices(data);
+        };
+        fetchData();
+    }, []);
 
     return (
         <div className="carousel-container">

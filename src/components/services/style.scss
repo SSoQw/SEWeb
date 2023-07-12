@@ -6,7 +6,7 @@
   border: .25rem solid $primary-color;
   padding: 1rem;
   cursor: pointer;
-  max-width: 67rem;
+  max-width: $max-width - 2rem;
   margin: 0.5rem auto;
 }
 
@@ -23,7 +23,7 @@
 .service-card .service-details {
   display: flex;
   align-items: flex-start;
-  margin-bottom: 1rem;
+  margin-bottom: $readable-margin;
 }
 
 .service-card .service-details img {

@@ -26,7 +26,7 @@ const Legend = () => {
         <div className="legend">
             <div className="legend-item">
                 <div className="legend-color" style={{ background: 'blue', opacity: .5 }}></div>
-                <div className="legend-label">Service and Emergency Call Range</div>
+                <div className="legend-label">Call Response Range</div>
             </div>
             <div className="legend-item">
                 <div className="legend-color" style={{ background: 'green', opacity: .5 }}></div>
