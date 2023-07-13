@@ -13,17 +13,6 @@ body {
   min-height: 100vh;
 }
 
-.force-height {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.content {
-  flex: 1;
-}
-
 
 h1, h2, h3, h4, h5, h6, p, li {
   max-width: $max-width + 2rem;
@@ -35,6 +24,7 @@ h1, h2, h3, h4, h5, h6, p, li {
 h1 {
   font-size: $h1-font-size;
   font-weight: bold;
+  margin-bottom: $readable-margin;
 }
 
 h2 {
@@ -58,11 +48,15 @@ p {
 
 li {
   font-size: $text-size;
-  line-height: 1.25;
   margin-bottom: $text-bottom-margin;
   max-width: $max-width;
   color: black;
   list-style: none;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
 }
 
 a {
@@ -73,6 +67,14 @@ a {
     text-decoration: underline;
   }
 }
+
+.force-height {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 
 @import '../src/components/header/style';
 @import '../src/components/notFound/style';

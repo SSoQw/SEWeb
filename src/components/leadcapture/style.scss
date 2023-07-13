@@ -24,7 +24,6 @@ form {
 
       .geosuggest__input {
         width: 100%;
-        -webkit-transition: border 0.2s, box-shadow 0.2s;
         transition: border 0.2s, box-shadow 0.2s;
         margin-bottom: 0;
       }
@@ -43,7 +42,6 @@ form {
         overflow-y: auto;
         list-style: none;
         z-index: 5;
-        -webkit-transition: max-height 0.2s, border 0.2s;
         transition: max-height 0.2s, border 0.2s;
       }
       ul.geosuggest__suggests {
@@ -62,7 +60,7 @@ form {
       }
 
       li.geosuggest__item {
-        font-size: 1.5rem;
+        font-size: $text-size;
         padding: .5em .65em;
         cursor: pointer;
         transition: background-color 0.3s ease;
@@ -70,7 +68,7 @@ form {
         border: .1rem solid $primary-color;
         color: white;
         border-radius: 0.5rem;
-        margin-top: .5rem;
+        margin-top: $readable-margin * .5;
 
           &:hover,
           &:focus {
@@ -85,9 +83,9 @@ form {
   }
 
   label {
-    font-size: 1.125rem;
+    font-size: $slide-text;
     font-weight: bold;
-    margin-bottom: 0.5rem;
+    margin-bottom: $readable-margin * .5;
   }
 
   input,
@@ -98,7 +96,7 @@ form {
   }
 
   textarea {
-    min-height: 12rem;
+    min-height: $text-area-height;
     resize: vertical;
   }
 
@@ -118,11 +116,11 @@ form {
     &:hover {
       background-color: $primary-color;
     }
-
   }
 
   .highlight {
     border: .25rem solid orange;
+    border-radius: .5rem;
   }
 }
 
@@ -130,13 +128,13 @@ form {
   position: fixed;
   font-size: $text-size;
   font-weight: bold;
-  bottom: 10rem;
+  bottom: $status-message-gap;
   left: 50%;
   transform: translateX(-50%);
   background-color: white;
   color: black;
   padding: 0.625rem;
-  border-radius: 0.5rem;
+  border-radius: 0.25rem;
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.3);
   max-width: $max-width * .5;
   width: 100%;

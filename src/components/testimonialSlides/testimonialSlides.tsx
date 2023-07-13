@@ -35,22 +35,24 @@ const Testimonials = () => {
             const data = await fetchTestimonialsData();
             setTestimonials(data);
         };
-        fetchData();
+        fetchData().then(() => "None Data :(");
     }, []);
 
     return (
-        <div className="carousel-container">
-            <h2>Testimonials</h2>
-            <Carousel showThumbs={false} autoPlay={true} interval={15000} infiniteLoop={true} showStatus={false}>
-                {testimonials.map((testimonial, index) => (
-                    <TestimonialSlide
-                        key={index}
-                        image={testimonial.image}
-                        name={testimonial.name}
-                        quote={testimonial.quote}
-                    />
-                ))}
-            </Carousel>
+        <div>
+            <h1>Testimonials</h1>
+            <div className="carousel-container">
+                <Carousel showThumbs={false} autoPlay={true} interval={15000} infiniteLoop={true} showStatus={false}>
+                    {testimonials.map((testimonial) => (
+                        <TestimonialSlide
+                            key={testimonial.id}
+                            image={testimonial.image}
+                            name={testimonial.name}
+                            quote={testimonial.quote}
+                        />
+                    ))}
+                </Carousel>
+            </div>
         </div>
     );
 };

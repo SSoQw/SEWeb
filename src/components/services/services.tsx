@@ -23,7 +23,7 @@ const ServicesPage: React.FC = () => {
             console.log('Fetched data:', data);
             setServices(data);
         };
-        fetchData();
+        fetchData().then(() => "None Data :(");
     }, []);
 
     const location = useLocation();
@@ -88,7 +88,7 @@ const ServicesPage: React.FC = () => {
                         <span className={`expand-icon ${expandedCard === index ? 'minus' : 'plus'}`}>
                             {expandedCard === index ? '-' : '+'}
                         </span>
-                        <h2>{service.type}</h2>
+                        <span>{service.type}</span>
                     </div>
                     {expandedCard === index && (
                         <div className="service-content">

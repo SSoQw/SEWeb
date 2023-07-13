@@ -1,56 +1,36 @@
 .service-card {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
   border: .25rem solid $primary-color;
   padding: 1rem;
   cursor: pointer;
   max-width: $max-width - 2rem;
   margin: 0.5rem auto;
+
 }
 
-.service-card.expanded {
-  background-color: white;
-}
-
-.service-card .service-header {
-  display: flex;
-  align-items: center;
-  width: 100%;
-}
-
-.service-card .service-details {
-  display: flex;
-  align-items: flex-start;
-  margin-bottom: $readable-margin;
-}
-
-.service-card .service-details img {
-  max-width: 20rem;
-  height: auto;
-  margin-right: 1rem;
-}
-
-.service-card h2 {
-  margin: 0;
+.service-card span{
   padding: 0;
+  vertical-align: middle;
 }
 
-.service-card .expand-icon {
-  font-size: 3rem;
-  width: 3rem;
-  margin: 0.25rem;
+.service-header {
+  font-size: $h2-font-size;
+  font-weight: bold;
+}
+
+.expand-icon {
+  padding: 0;
+  margin-right: $readable-margin;
 }
 
 .service-content {
-  margin-top: 10px;
-  width: 100%;
+  margin-top: $readable-margin;
 }
 
 .service-content img {
-  max-width: 20rem;
-  margin-left: .5rem;
+  max-width: $logo-image-width;
+  margin-left: $readable-margin;
   float: right;
 }
 
