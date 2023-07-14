@@ -28,7 +28,7 @@ const Header = () => {
                 </nav>
                 <a href="https://www.facebook.com/sellickelectric">
                     <IconContext.Provider value={{ className: "social-icons" }}>
-                        <FaFacebook size={48}/>
+                        <FaFacebook />
                     </IconContext.Provider>
                 </a>
             </div>

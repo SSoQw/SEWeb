@@ -14,11 +14,20 @@ footer {
   max-width: $end-contents-max-width;
   width: 100%;
   margin: 0 auto;
+
+  @include mq($from: xs) {
+    max-width: $end-contents-max-width-xs;
+  }
+  @include mq($until: sm) {
+    max-width: $end-contents-max-width-sm;
+  }
+  @include mq($until: md) {
+    max-width: $end-contents-max-width-md;
+  }
 }
 
 .header-text {
   color: $secondary-color;
-  font-size: $header-font-size;
   font-weight: bold;
 }
 
@@ -30,15 +39,24 @@ footer {
 .social-icons {
   display: flex;
   align-items: center;
-  font-size: $social-icons-font-size;
   color: $secondary-color;
   transition: color 0.3s ease;
+  font-size: $nav-item-font-size;
 
   &:hover {
     color: white;
    }
-}
 
+  @include mq($from: xs) {
+    max-width: $nav-item-font-size-xs;
+  }
+  @include mq($until: sm) {
+    max-width: $nav-item-font-size-sm;
+  }
+  @include mq($until: md) {
+    max-width: $nav-item-font-size-md;
+  }
+}
 
 .nav-list {
   display: flex;
@@ -64,5 +82,27 @@ footer {
       color: white;
       text-decoration: underline;
     }
+  }
+
+  @include mq($from: xs) {
+      font-size: $nav-item-font-size-xs;
+
+      a{
+        font-size: $nav-item-font-size-xs;
+      }
+  }
+  @include mq($until: sm) {
+      font-size: $nav-item-font-size-sm;
+
+      a{
+        font-size: $nav-item-font-size-sm;
+      }
+  }
+  @include mq($until: md) {
+      font-size: $nav-item-font-size-md;
+
+      a{
+        font-size: $nav-item-font-size-md;
+      }
   }
 }

@@ -1,13 +1,18 @@
-//Screen $Sizes
-$lg: 1920px;
+//Screen Sizes for Mixins
 $md: 1280px;
 $sm: 768px;
 $xs: 576px;
 
-//General
-$max-width: 70rem;
+
+//====== Colors ======//
 $primary-color: #022533;
 $secondary-color: #8CDFFF;
+
+
+//====== Default Sizes ======//
+
+// General
+$max-width: 70rem;
 $readable-margin: 1rem;
 $text-bottom-margin: 0.5rem;
 $h1-font-size: 4rem;
@@ -15,29 +20,130 @@ $h2-font-size: 3rem;
 $h3-font-size: 2rem; //Used for Title on Slides
 $text-size: 1.5rem;
 
-//Header Footer
-$logo-image-width: 20rem;
-$social-icons-font-size: 1.5rem;
+// Header Footer
 $nav-item-margin: 6rem;
 $nav-item-font-size: 2.5rem;
-$header-font-size: 4.25rem;
 $logo-width: 20rem;
 $end-contents-max-width: 100rem;
 
-//Map
+// Map
 $legend-item-margin: 1.25rem;
 $legend-color-margin: 0.5rem;
 
-//Slides
+// Slides
 $slide-text: 1.25rem;
 $slide-height: 30rem;
 
-//Lead Capture Form
+// Lead Capture Form
 $text-area-height: 12rem;
 $status-message-gap: 10rem;
 
-//404 Page
+// 404 Page
 $E404-image-width: 40rem;
 $E404-header-font-size: 3rem;
 $E404-text-font-size: 2rem;
 $E404-button-size: 30rem;
+
+//====== Medium Sizes ======//
+
+// General
+$max-width-md: 45rem;
+$readable-margin-md: .75rem;
+$text-bottom-margin-md: 0.375rem;
+$h1-font-size-md: 3.25rem;
+$h2-font-size-md: 2.5rem;
+$h3-font-size-md: 1.75rem; // Used for Title on Slides
+$text-size-md: 1rem;
+
+// Header Footer
+$nav-item-margin-md: 3rem;
+$nav-item-font-size-md: 1.75rem;
+$logo-width-md: 10rem;
+$end-contents-max-width-md: 55rem;
+
+// Map
+$legend-item-margin-md: 1.25rem;
+$legend-color-margin-md: 0.5rem;
+
+// Slides
+$slide-text-md: 1.25rem;
+$slide-height-md: 30rem;
+
+// Lead Capture Form
+$text-area-height-md: 12rem;
+$status-message-gap-md: 10rem;
+
+// 404 Page
+$E404-image-width-md: 40rem;
+$E404-header-font-size-md: 3rem;
+$E404-text-font-size-md: 2rem;
+$E404-button-size-md: 30rem;
+
+// Small Sizes
+// General
+$max-width-sm: 30rem;
+$readable-margin-sm: 0.5rem;
+$text-bottom-margin-sm: 0.25rem;
+$h1-font-size-sm: 2rem;
+$h2-font-size-sm: 1.5rem;
+$h3-font-size-sm: 1rem; // Used for Title on Slides
+$text-size-sm: 0.875rem;
+
+// Header Footer
+$nav-item-margin-sm: 1.5rem;
+$nav-item-font-size-sm: 1rem;
+$logo-width-sm: 8rem;
+$end-contents-max-width-sm: 40rem;
+
+// Map
+$legend-item-margin-sm: 0.5rem;
+$legend-color-margin-sm: 0.25rem;
+
+// Slides
+$slide-text-sm: 0.875rem;
+$slide-height-sm: 20rem;
+
+// Lead Capture Form
+$text-area-height-sm: 8rem;
+$status-message-gap-sm: 5rem;
+
+// 404 Page
+$E404-image-width-sm: 20rem;
+$E404-header-font-size-sm: 1.5rem;
+$E404-text-font-size-sm: 1rem;
+$E404-button-size-sm: 20rem;
+
+
+// XSmall Sizes
+// General
+$max-width-xs: 20rem;
+$readable-margin-xs: 0.25rem;
+$text-bottom-margin-xs: 0.125rem;
+$h1-font-size-xs: 1.5rem;
+$h2-font-size-xs: 1.25rem;
+$h3-font-size-xs: 0.875rem; // Used for Title on Slides
+$text-size-xs: 0.75rem;
+
+// Header Footer
+$nav-item-margin-xs: 1rem;
+$nav-item-font-size-xs: 0.875rem;
+$logo-width-xs: 6rem;
+$end-contents-max-width-xs: 30rem;
+
+// Map
+$legend-item-margin-xs: 0.25rem;
+$legend-color-margin-xs: 0.125rem;
+
+// Slides
+$slide-text-xs: 0.75rem;
+$slide-height-xs: 15rem;
+
+// Lead Capture Form
+$text-area-height-xs: 6rem;
+$status-message-gap-xs: 3rem;
+
+// 404 Page
+$E404-image-width-xs: 15rem;
+$E404-header-font-size-xs: 1.25rem;
+$E404-text-font-size-xs: 0.875rem;
+$E404-button-size-xs: 15rem;
