@@ -66,6 +66,47 @@ form {
     border: .25rem solid orange;
     border-radius: .5rem;
   }
+
+  .select-wrapper {
+    position: relative;
+  }
+
+  .select-wrapper select {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    z-index: 2;
+    background: transparent;
+    border: none;
+    border-radius: 0.25rem;
+    padding: 0.625rem;
+    font-size: $text-size;
+    box-sizing: border-box;
+    height: 14rem;
+  }
+
+  .select-wrapper select option {
+    background-color: $secondary-color;
+    color: $primary-color;
+    padding: 0.25rem;
+    margin-bottom: $readable-margin;
+    border-radius: 0.25rem;
+
+    &:last-child {
+      margin-bottom:0;
+    }
+  }
+
+
+
+  .select-wrapper select option:hover {
+    background-color: $primary-color;
+    color: white;
+    text-decoration: underline;
+    transition: background-color 0.3s ease, color 0.3s ease, text-decoration 0.3s ease;
+  }
+
 }
 
 .status-message {
