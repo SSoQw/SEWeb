@@ -37,7 +37,7 @@
     background-color: $secondary-color;
     margin-top: 2rem;
     font-weight: bold;
-    color: white;
+    color: $primary-color;
     text-align: center;
     font-size: $h3-font-size;
     border-radius: 0.5rem;
@@ -45,11 +45,12 @@
     margin-left: auto;
     margin-right: auto;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease;
 
     &:hover {
       background-color: $primary-color;
       text-decoration: underline;
+      color: white
     }
   }
 }

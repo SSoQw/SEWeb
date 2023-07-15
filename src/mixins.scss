@@ -1,4 +1,5 @@
 @import 'sass-mq/mq';
+
 @use 'sass-mq' as mq with (
   $breakpoints: (
     xs: $xs,
@@ -6,20 +7,4 @@
     md: $md,
   )
 );
-
-@mixin mq($from: false, $until: false) {
-  $query: '';
-
-  @if $from {
-    $query: '(max-width: #{$from})';
-  }
-
-  @if $until {
-    $query: '#{$query} and (min-width: #{$until})';
-  }
-
-  @media #{$query} {
-    @content
-  }
-}
 

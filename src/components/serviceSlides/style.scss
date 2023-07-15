@@ -41,14 +41,15 @@
   display: inline-block;
   padding: 0.625rem 1.25rem;
   background-color: $secondary-color;
-  color: white;
+  color: $primary-color;
   text-decoration: none;
   border-radius: 0.25rem;
   margin-top: $readable-margin;
   font-weight: bold;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
 
   &:hover {
     background-color: $primary-color;
+    color:white;
   }
 }

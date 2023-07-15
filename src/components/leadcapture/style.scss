@@ -4,6 +4,7 @@ form {
   max-width: $max-width;
   margin-left: auto;
   margin-right: auto;
+  position: relative;
 
   .form-row {
     width: 100%;
@@ -20,64 +21,6 @@ form {
 
       &:not(:last-child) {
         margin-right: 1rem;
-      }
-
-      .geosuggest__input {
-        width: 100%;
-        transition: border 0.2s, box-shadow 0.2s;
-        margin-bottom: 0;
-      }
-
-      .geosuggest__suggests--hidden {
-        max-height: 0;
-        overflow: hidden;
-        border: none;
-      }
-
-      .geosuggest__suggests--visible {
-        top: 100%;
-        max-height: 25em;
-        background: white;
-        overflow-x: hidden;
-        overflow-y: auto;
-        list-style: none;
-        z-index: 5;
-        transition: max-height 0.2s, border 0.2s;
-      }
-      ul.geosuggest__suggests {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-      }
-
-      ul.geosuggest__suggests--hidden {
-        display: none;
-      }
-
-      ul.geosuggest__suggests--visible {
-        list-style: none;
-        padding: 0;
-      }
-
-      li.geosuggest__item {
-        font-size: $text-size;
-        padding: .5em .65em;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-        background-color: $secondary-color;
-        border: .1rem solid $primary-color;
-        color: white;
-        border-radius: 0.5rem;
-        margin-top: $readable-margin * .5;
-
-          &:hover,
-          &:focus {
-            background-color: $primary-color;
-          }
-        }
-
-      .geosuggest__item__matched-text {
-        font-weight: bold;
       }
     }
   }
@@ -102,19 +45,20 @@ form {
 
   button[type="submit"] {
     background-color: $secondary-color;
-    color: white;
+    color: $primary-color;
     padding: 0.625rem 1.25rem;
     font-size: $text-size;
     border: none;
     border-radius: 0.25rem;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: color 0.3s ease, background-color 0.3s ease;
     margin-bottom: $readable-margin;
     font-weight: bold;
     margin-top: $readable-margin;
 
     &:hover {
       background-color: $primary-color;
+      color: white;
     }
   }
 
