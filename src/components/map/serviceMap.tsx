@@ -49,7 +49,7 @@ const ServiceMap = () => {
 
     // Render the map
     return (
-        <MapContainer center={center} zoom={9} scrollWheelZoom={false} dragging={false} doubleClickZoom={false} style={{ height: '550px', width: '100%' }} zoomControl={false}>
+        <MapContainer center={center} zoom={9} scrollWheelZoom={false} doubleClickZoom={false} style={{ height: '550px', width: '100%' }} zoomControl={false}>
             <TileLayer
                 url="https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png"
                 subdomains="abcd"

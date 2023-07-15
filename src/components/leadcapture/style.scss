@@ -73,6 +73,7 @@ form {
 
   .select-wrapper select {
     position: absolute;
+    padding: 0;
     top: 100%;
     left: 0;
     width: 100%;
@@ -80,7 +81,7 @@ form {
     background: transparent;
     border: none;
     border-radius: 0.25rem;
-    padding: 0.625rem;
+    margin-top: $readable-margin;
     font-size: $text-size;
     box-sizing: border-box;
     height: 14rem;
@@ -97,8 +98,6 @@ form {
       margin-bottom:0;
     }
   }
-
-
 
   .select-wrapper select option:hover {
     background-color: $primary-color;
