@@ -1,40 +1,49 @@
 .service-card {
   display: flex;
   flex-direction: column;
-  border: .25rem solid $primary-color;
+  border-top: .25rem solid $primary-color;
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
   padding: 1rem;
   cursor: pointer;
   max-width: $max-width - 2rem;
-  margin: 0.5rem auto;
+  margin: 0 auto;
 
+  &:last-child{
+    border-bottom: .25rem solid $primary-color;
+  }
+
+  .service-content {
+    margin-top: $readable-margin;
+    img {
+      max-width: $logo-width;
+      margin-left: $readable-margin;
+      float: right;
+    }
+    p {
+      word-wrap: break-word;
+      text-align: justify;
+    }
+  }
+  .service-header {
+    font-size: $h2-font-size;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+
+    span {
+      padding: 0;
+      vertical-align: middle;
+
+      &.expand-icon {
+        padding: 0;
+        margin-left: 1rem; // adjust the margin as needed
+      }
+    }
+  }
 }
 
-.service-card span{
-  padding: 0;
-  vertical-align: middle;
-}
 
-.service-header {
-  font-size: $h2-font-size;
-  font-weight: bold;
-}
 
-.expand-icon {
-  padding: 0;
-  margin-right: $readable-margin;
-}
 
-.service-content {
-  margin-top: $readable-margin;
-}
-
-.service-content img {
-  max-width: $logo-width;
-  margin-left: $readable-margin;
-  float: right;
-}
-
-.service-content p {
-  word-wrap: break-word;
-  text-align: justify;
-}

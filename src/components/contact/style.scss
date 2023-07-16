@@ -9,11 +9,13 @@
     li {
 
       a {
-        color: $secondary-color;
-        text-decoration: none;
+        color: $primary-color;
+        text-decoration: underline;
+        transition: color 0.3s ease, background-color 0.3s ease;
 
         &:hover {
-          text-decoration: underline;
+          background-color: $primary-color;
+          color: $secondary-color;
         }
       }
     }

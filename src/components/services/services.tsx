@@ -85,10 +85,10 @@ const ServicesPage: React.FC = () => {
                     onClick={() => toggleExpand(index)}
                 >
                     <div className="service-header">
+                        <span>{service.type}</span>
                         <span className={`expand-icon ${expandedCard === index ? 'minus' : 'plus'}`}>
                             {expandedCard === index ? '-' : '+'}
                         </span>
-                        <span>{service.type}</span>
                     </div>
                     {expandedCard === index && (
                         <div className="service-content">
