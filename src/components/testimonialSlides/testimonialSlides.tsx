@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react';
 import { Carousel } from 'react-responsive-carousel';
-import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 interface Testimonial {
     id?: number;
@@ -42,16 +41,24 @@ const Testimonials = () => {
         <div>
             <h1>Testimonials</h1>
             <div className="carousel-container">
-                <Carousel showThumbs={false} autoPlay={true} interval={15000} infiniteLoop={true} showStatus={false}>
-                    {testimonials.map((testimonial) => (
-                        <TestimonialSlide
-                            key={testimonial.id}
-                            image={testimonial.image}
-                            name={testimonial.name}
-                            quote={testimonial.quote}
-                        />
-                    ))}
-                </Carousel>
+                {testimonials.length > 0 && (
+                    <Carousel
+                        showThumbs={false}
+                        autoPlay={true}
+                        interval={10000}
+                        infiniteLoop={true}
+                        showStatus={false}
+                    >
+                        {testimonials.map((testimonial) => (
+                            <TestimonialSlide
+                                key={testimonial.id}
+                                image={testimonial.image}
+                                name={testimonial.name}
+                                quote={testimonial.quote}
+                            />
+                        ))}
+                    </Carousel>
+                )}
             </div>
         </div>
     );

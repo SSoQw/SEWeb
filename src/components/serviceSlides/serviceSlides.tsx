@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import { Link } from 'react-router-dom';
 import { Carousel } from 'react-responsive-carousel';
-import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 
 const fetchServiceData = async () => {
@@ -51,16 +50,24 @@ const ServiceSlides = () => {
         <div>
             <h1>Our Services</h1>
             <div className="carousel-container">
-                <Carousel showThumbs={false} autoPlay={true} interval={10000} infiniteLoop={true} showStatus={false}>
-                    {services.map((service) => (
-                        <ServiceSlide
-                            key={service.id}
-                            image={service.image}
-                            type={service.type}
-                            description={service.description}
-                        />
-                    ))}
-                </Carousel>
+                {services.length > 0 && (
+                    <Carousel
+                        showThumbs={false}
+                        autoPlay={true}
+                        interval={8000}
+                        infiniteLoop={true}
+                        showStatus={false}
+                    >
+                        {services.map((service) => (
+                            <ServiceSlide
+                                key={service.id}
+                                image={service.image}
+                                type={service.type}
+                                description={service.description}
+                            />
+                        ))}
+                    </Carousel>
+                )}
             </div>
         </div>
     );

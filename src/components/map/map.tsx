@@ -34,7 +34,7 @@ const Legend = () => {
             </div>
             <div className="legend-item">
                 <div className="legend-color" style={{ background: 'orange', opacity: .5 }}></div>
-                <div className="legend-label">Future Service Area</div>
+                <div className="legend-label">Not Serviceable</div>
             </div>
         </div>
     );
