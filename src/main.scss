@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;700&display=swap');
 @import './var.scss';
-
+@import './mixins.scss';
 
 body {
   margin: 0;
@@ -19,12 +19,22 @@ h1, h2, h3, h4, h5, h6, p, li {
   margin-left: auto;
   margin-right: auto;
   color: $primary-color;
+  @include mq($xs) {
+    max-width: $max-width-xs + 1rem;
+  }
+  @include mq($xs, $sm) {
+    max-width: $max-width-sm + 2rem;
+  }
+  @include mq($sm, $md) {
+    max-width: $max-width-md + 3rem;
+  }
 }
 
 h1 {
   font-size: $h1-font-size;
   font-weight: bold;
   margin-bottom: $readable-margin;
+
 }
 
 h2 {

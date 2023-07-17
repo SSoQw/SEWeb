@@ -1,10 +1,27 @@
-@import 'sass-mq/mq';
+$md: 1280px;
+$sm: 768px;
+$xs: 576px;
 
 @use 'sass-mq' as mq with (
   $breakpoints: (
     xs: $xs,
     sm: $sm,
-    md: $md,
+    md: $md
   )
 );
 
+@mixin mq($from: false, $until: false) {
+  $mq: '';
+
+  @if $from {
+    $mq: '(min-width: #{$from})';
+  }
+
+  @if $until {
+    $mq: '#{$mq} and (max-width: #{$until})';
+  }
+
+  @media #{$mq} {
+    @content;
+  }
+}

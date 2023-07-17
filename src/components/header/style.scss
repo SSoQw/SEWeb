@@ -14,7 +14,15 @@ footer {
   max-width: $end-contents-max-width;
   width: 100%;
   margin: 0 auto;
-
+  @include mq($xs) {
+    max-width: $end-contents-max-width-xs;
+  }
+  @include mq($xs, $sm) {
+    max-width: $end-contents-max-width-sm;
+  }
+  @include mq($sm, $md) {
+    max-width: $end-contents-max-width-md;
+  }
 }
 
 .header-text {
