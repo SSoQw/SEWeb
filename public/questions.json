@@ -1,0 +1,94 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "category": "General",
+      "question": "What should I do if my circuit breaker keeps tripping?",
+      "answer": "A tripping circuit breaker usually indicates that there is an overload or short circuit in the electrical circuit. First, try unplugging some of the devices that are connected to the circuit to reduce the load. If the circuit still trips, you may need to call an electrician to diagnose and fix the problem."
+    },
+    {
+      "id": 2,
+      "category": "General",
+      "question": "What should I do if my lights flicker or dim?",
+      "answer": "Flickering or dimming lights may be caused by a loose or faulty electrical connection. Check the electrical panel to make sure all circuit breakers are properly seated and tightened. If the problem persists, you may need to call an electrician to check the wiring."
+    },
+    {
+      "id": 3,
+      "category": "Outlets",
+      "question": "Why is my outlet not working?",
+      "answer": "An outlet may not work if it is damaged, has a loose connection, or is overloaded. First, check to see if the circuit breaker has tripped. If the circuit breaker is on and the outlet still doesn't work, try plugging in a different device to see if the problem is with the device or the outlet. If the outlet is still not working, you may need to call an electrician to diagnose and fix the problem."
+    },
+    {
+      "id": 4,
+      "category": "Outlets",
+      "question": "Can I replace an electrical outlet myself?",
+      "answer": "Replacing an electrical outlet may seem like a simple task, but it can be dangerous if you don't know what you're doing. If you're not comfortable working with electricity, it's best to call an electrician to do the job. If you do decide to replace the outlet yourself, make sure to turn off the power to the circuit and follow the manufacturer's instructions carefully."
+    },
+    {
+      "id": 5,
+      "category": "Lighting",
+      "question": "Why do my light bulbs keep burning out?",
+      "answer": "Light bulbs can burn out prematurely if they are exposed to excessive heat or vibration, or if they are not the correct wattage for the fixture. Check the wattage and type of bulb recommended for the fixture and make sure it's the correct one. If the problem persists, the wiring or fixture may be faulty and you may need to call an electrician."
+    },
+    {
+      "id": 6,
+      "category": "Lighting",
+      "question": "How can I install a new light fixture?",
+      "answer": "Installing a new light fixture can be relatively easy if you have basic electrical knowledge. First, turn off the power to the circuit at the electrical panel. Remove the old fixture and disconnect the wires. Connect the wires of the new fixture to the corresponding wires in the ceiling box and attach the fixture to the ceiling. Turn the power back on and test the fixture. If you're not comfortable working with electricity, it's best to call an electrician."
+    },
+    {
+      "id": 7,
+      "category": "Wiring",
+      "question": "What should I do if I smell burning plastic?",
+      "answer": "If you smell burning plastic, it may indicate an electrical problem. Turn off the power to the circuit immediately and unplug any devices that are connected to the circuit. Check the electrical panel to see if a circuit breaker has tripped. If the problem persists, you may need to call an electrician to diagnose and fix the problem."
+    },
+    {
+      "id": 8,
+      "category": "Wiring",
+      "question": "How can I tell if my wiring is outdated?",
+      "answer": "Outdated wiring can be dangerous and may present a fire hazard. If your home was built before the 1980s, it's possible that the wiring is outdated and may need to be replaced. Signs of outdated wiring include frequent circuit breaker trips, flickering lights, and burning smells. You may need to call an electrician to inspect the wiring and determine if it needs to be updated."
+    },
+    {
+      "id": 9,
+      "category": "Safety",
+      "question": "What should I do if I see a frayed electrical cord?",
+      "answer": "A frayed electrical cord can be dangerous and can present a fire hazard. If you see a frayed cord, unplug the device immediately and stop using it. If the cord is attached to an appliance or tool, it may be possible to replace the cord. If the cord is attached to a power tool or other device, it may be necessary to replace the entire device. If you're not comfortable doing this yourself, it's best to call an electrician."
+    },
+    {
+      "id": 10,
+      "category": "Safety",
+      "question": "Is it safe to use extension cords for long periods of time?",
+      "answer": "Extension cords are intended for temporary use and should not be used for long periods of time. Using extension cords for extended periods can present a fire hazard and may overload the circuit. If you need to use an appliance or tool in a location where there is no electrical outlet, it's best to have a new outlet installed. If this is not possible, make sure to use a heavy-duty extension cord that's rated for the device you're using."
+    },
+    {
+      "id": 11,
+      "category": "Outlets",
+      "question": "What should I do if an outlet is hot to the touch?",
+      "answer": "An outlet that feels hot to the touch may indicate an electrical problem. Turn off the power to the circuit immediately and unplug any devices that are connected to the outlet. Check the electrical panel to see if a circuit breaker has tripped. If the problem persists, you may need to call an electrician to diagnose and fix the problem."
+    },
+    {
+      "id": 12,
+      "category": "Outlets",
+      "question": "What should I do if an outlet is sparking?",
+      "answer": "An outlet that sparks when you plug in a device can be dangerous and may present a fire hazard. Unplug the device immediately and stop using the outlet. If the outlet continues to spark when you plug in other devices, turn off the power to the circuit and call an electrician to diagnose and fix the problem."
+    },
+    {
+      "id": 13,
+      "category": "General",
+      "question": "What should I do if my electrical panel is making a buzzing sound?",
+      "answer": "A buzzing sound coming from the electrical panel may indicate an electrical problem. Turn off the power to the circuitimmediately and call an electrician. Do not try to diagnose or fix the problem yourself, as it can be dangerous and may present a risk of electrical shock or fire."
+    },
+    {
+      "id": 14,
+      "category": "General",
+      "question": "What should I do if I get a shock from an electrical device?",
+      "answer": "If you get a shock from an electrical device, unplug it immediately and do not touch it until you're sure it's safe. If the shock was severe or you feel any burning sensations, seek medical attention immediately. If the device is damaged or the wiring is exposed, do not use it and call an electrician to diagnose and fix the problem."
+    },
+    {
+      "id": 15,
+      "category": "Lighting",
+      "question": "How can I install a dimmer switch?",
+      "answer": "Installing a dimmer switch can be relatively easy if you have basic electrical knowledge. First, turn off the power to the circuit at the electrical panel. Remove the old switch and disconnect the wires. Connect the wires of the new dimmer switch to the corresponding wires in the electrical box and attach the switch to the box. Turn the power back on and test the switch. Make sure to use a dimmer switch that's compatible with the type of light bulb you're using. If you're not comfortable working with electricity, it's best to call an electrician."
+    }
+  ]
+}

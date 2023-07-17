@@ -17,6 +17,18 @@
       "name": "Mike Johnson",
       "quote": "Sellick Electric went above and beyond to meet our commercial electrical needs. Their team completed the project on time and within budget. We couldn't be happier with the results.",
       "image": "/residential.jpg"
+    },
+    {
+      "id": 4,
+      "name": "Sarah Lee",
+      "quote": "We recently had Sellick Electric install new lighting fixtures in our home, and they did a fantastic job. Their team was professional and knowledgeable, and the end result exceeded our expectations.",
+      "image": "/residential.jpg"
+    },
+    {
+      "id": 5,
+      "name": "David Chen",
+      "quote": "Sellick Electric provided excellent service when we needed to upgrade the electrical system in our office. Their team was prompt, efficient, and communicated well throughout the project.",
+      "image": "/commercial.jpg"
     }
   ]
 }

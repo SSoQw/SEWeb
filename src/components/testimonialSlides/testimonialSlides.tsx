@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import { shuffle } from 'lodash';
 import { Carousel } from 'react-responsive-carousel';
 
 interface Testimonial {
@@ -21,18 +22,19 @@ const TestimonialSlide: React.FC<Testimonial> = ({ image, name, quote }) => {
                 <h3 className="slide-title">{name}</h3>
                 <p className="slide-description">{quote}</p>
             </div>
-            <img src={image} alt={name} className="slide-image"/>
+            <img src={image} alt={name} className="slide-image" />
         </div>
     );
 };
-
 const Testimonials = () => {
     const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
 
     useEffect(() => {
         const fetchData = async () => {
             const data = await fetchTestimonialsData();
-            setTestimonials(data);
+            const shuffledData = shuffle(data);
+            const slicedData = shuffledData.slice(0, 5);
+            setTestimonials(slicedData);
         };
         fetchData().then(() => "None Data :(");
     }, []);
@@ -49,9 +51,9 @@ const Testimonials = () => {
                         infiniteLoop={true}
                         showStatus={false}
                     >
-                        {testimonials.map((testimonial) => (
+                        {testimonials.map((testimonial, index) => (
                             <TestimonialSlide
-                                key={testimonial.id}
+                                key={testimonial.id ?? index}
                                 image={testimonial.image}
                                 name={testimonial.name}
                                 quote={testimonial.quote}

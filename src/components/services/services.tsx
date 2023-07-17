@@ -1,12 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
-const fetchServiceData = async () => {
-    const response = await fetch('/services.json');
-    const data = await response.json();
-    return data.services as Service[];
-};
-
 interface Service {
     id: number;
     type: string;
@@ -14,8 +8,19 @@ interface Service {
     image: string;
 }
 
+const fetchServiceData = async () => {
+    const response = await fetch('/services.json');
+    const data = await response.json();
+    return data.services as Service[];
+};
+
 const ServicesPage: React.FC = () => {
     const [services, setServices] = useState<Service[]>([]);
+    const [expandedCard, setExpandedCard] = useState<number | null>(null);
+    const location = useLocation();
+    const queryParams = new URLSearchParams(location.search);
+    const type = queryParams.get('type');
+    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchData = async () => {
@@ -25,13 +30,6 @@ const ServicesPage: React.FC = () => {
         };
         fetchData().then(() => "None Data :(");
     }, []);
-
-    const location = useLocation();
-    const queryParams = new URLSearchParams(location.search);
-    const type = queryParams.get('type');
-
-    const [expandedCard, setExpandedCard] = useState<number | null>(null);
-    const navigate = useNavigate();
 
     useEffect(() => {
         if (type && services.length) {
@@ -87,8 +85,8 @@ const ServicesPage: React.FC = () => {
                     <div className="service-header">
                         <span>{service.type}</span>
                         <span className={`expand-icon ${expandedCard === index ? 'minus' : 'plus'}`}>
-                            {expandedCard === index ? '-' : '+'}
-                        </span>
+              {expandedCard === index ? '-' : '+'}
+            </span>
                     </div>
                     {expandedCard === index && (
                         <div className="service-content">

@@ -10,6 +10,16 @@ import nhTopoJSON from '../../data/newhampshire.json';
 import meTopoJSON from '../../data/maine.json';
 
 const ServiceMap = () => {
+    // Center coordinates for the map
+    const center: L.LatLngTuple = [43.7, -70.709917];
+    const circleCenter: L.LatLngTuple = [43.597532, -70.709917];
+    const circleRadius = 25 * 1609;
+    // Convert the TopoJSON to GeoJSON
+    // @ts-ignore
+    const maineGeoJSON  = feature(meTopoJSON, meTopoJSON.objects.cb_2015_maine_county_20m);
+    // @ts-ignore
+    const nhGeoJSON = feature(nhTopoJSON, nhTopoJSON.objects.cb_2015_new_hampshire_county_20m);
+
     // Custom map style for highlighting areas
     const areaStyle = {
         fillColor: 'green',
@@ -35,18 +45,6 @@ const ServiceMap = () => {
         opacity: .5,
     };
 
-    // Center coordinates for the map
-    const center: L.LatLngTuple = [43.7, -70.709917];
-    const circleCenter: L.LatLngTuple = [43.597532, -70.709917];
-    const circleRadius = 25 * 1609;
-
-    // Convert the TopoJSON to GeoJSON
-    // @ts-ignore
-    const maineGeoJSON  = feature(meTopoJSON, meTopoJSON.objects.cb_2015_maine_county_20m);
-    // @ts-ignore
-    const nhGeoJSON = feature(nhTopoJSON, nhTopoJSON.objects.cb_2015_new_hampshire_county_20m);
-
-
     // Render the map
     return (
         <MapContainer center={center} zoom={9} scrollWheelZoom={false} doubleClickZoom={false} style={{ height: '550px', width: '100%' }} zoomControl={false}>
@@ -56,14 +54,8 @@ const ServiceMap = () => {
                 minZoom={0}
                 maxZoom={20}
             />
-
-            {/* Draw the maine.json layer */}
             <GeoJSON data={maineGeoJSON} style={areaStyle} />
-
-            {/* Draw the newhampshire.json layer */}
             <GeoJSON data={nhGeoJSON} style={futureAreaStyle} />
-
-            {/* Draw the blue circle marker */}
             <Circle center={circleCenter} radius={circleRadius} pathOptions={serviceAreaStyle} />
         </MapContainer>
     );

@@ -33,27 +33,29 @@
     max-width: $max-width;
   }
 
-  .faq-link {
-    display: block;
-    padding: 1rem 1rem;
-    background-color: $secondary-color;
-    margin-top: 2rem;
-    font-weight: bold;
-    color: $primary-color;
-    border: 2px solid $primary-color;
-    text-align: center;
-    font-size: $h3-font-size;
-    border-radius: 0.5rem;
-    max-width: $max-width *.5;
-    margin-left: auto;
-    margin-right: auto;
-    cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
+}
 
-    &:hover {
-      background-color: $primary-color;
-      text-decoration: underline;
-      color: white
-    }
+.faq-link {
+  display: block;
+  padding: 1rem 1rem;
+  background-color: $secondary-color;
+  margin-top: 2rem;
+  font-weight: bold;
+  color: $primary-color;
+  border: 2px solid $primary-color;
+  text-align: center;
+  font-size: $h3-font-size;
+  border-radius: 0.5rem;
+  max-width: $max-width * 0.5;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+
+  &:hover {
+    background-color: $primary-color;
+    text-decoration: underline;
+    color: white
   }
 }

@@ -10,7 +10,7 @@ import NotFoundPage from './components/notFound/notFound';
 import About from "./components/about/about";
 import Contact from "./components/contact/contact";
 import ServicesPage from "./components/services/services";
-import FAQPage from "./components/faq/faq";
+import QuestionsPage from "./components/faq/faq";
 
 interface PageLayoutProps {
     children?: ReactNode;
@@ -37,7 +37,7 @@ const App = () => {
                     <Route path="/services"  element={<PageLayout><><ServicesPage /></></PageLayout>}/>
                     <Route path="/about" element={<PageLayout><><About /></></PageLayout>}/>
                     <Route path="/contact" element={<PageLayout><><Contact /></></PageLayout>}/>
-                    <Route path="/faq" element={<PageLayout><><FAQPage /></></PageLayout>}/>
+                    <Route path="/faq" element={<PageLayout><><QuestionsPage /></></PageLayout>}/>
                     <Route path="*" element={<NotFoundPage />} />
                 </Routes>
             </div>
