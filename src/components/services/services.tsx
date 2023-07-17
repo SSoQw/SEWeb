@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import {Link, useLocation, useNavigate} from 'react-router-dom';
 
 interface Service {
     id: number;
@@ -74,6 +74,7 @@ const ServicesPage: React.FC = () => {
 
     return (
         <div>
+            <div>
             <h1>Our Services</h1>
             {services.map((service: Service, index: number) => (
                 <div
@@ -96,6 +97,11 @@ const ServicesPage: React.FC = () => {
                     )}
                 </div>
             ))}
+        </div>
+            <h2>Read About Our Work</h2>
+            <Link to="/testimonials" className="faq-link">
+                Client Testimonials
+            </Link>
         </div>
     );
 };

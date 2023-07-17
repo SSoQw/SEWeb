@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import { shuffle } from 'lodash';
 import { Carousel } from 'react-responsive-carousel';
+import {Link} from "react-router-dom";
 
 interface Testimonial {
     id?: number;
@@ -21,6 +22,9 @@ const TestimonialSlide: React.FC<Testimonial> = ({ image, name, quote }) => {
             <div className="slide-content">
                 <h3 className="slide-title">{name}</h3>
                 <p className="slide-description">{quote}</p>
+                <Link to="/testimonials" className="read-more-button">
+                    Read More
+                </Link>
             </div>
             <img src={image} alt={name} className="slide-image" />
         </div>

@@ -1,0 +1,40 @@
+.testimonial-card {
+  max-width: $max-width;
+  margin: 0 auto;
+  border-top: 0.25rem solid $primary-color;
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
+  padding: $readable-margin;
+  cursor: pointer;
+
+  &:last-child {
+    border-bottom: 0.25rem solid $primary-color;
+  }
+
+  .testimonial-content {
+    margin-top: $readable-margin;
+
+    p {
+      word-wrap: break-word;
+      text-align: justify;
+    }
+  }
+
+  .testimonial-header {
+    font-size: $h3-font-size;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+
+    span {
+      padding: 0;
+      vertical-align: middle;
+
+      &.expand-icon {
+        padding: 0;
+        margin-left: 1rem;
+      }
+    }
+  }
+}
