@@ -10,9 +10,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   color: black;
   background-color: white;
-  min-height: 100vh;
 }
-
 
 h1, h2, h3, h4, h5, h6, p, li {
   max-width: $max-width + 3rem;
@@ -26,7 +24,7 @@ h1, h2, h3, h4, h5, h6, p, li {
     max-width: $max-width-sm + 2rem;
   }
   @include mq($md, $lg) {
-    max-width: $max-width-md + 3rem;
+    max-width: $max-width-md + 2rem;
   }
 }
 
@@ -35,17 +33,53 @@ h1 {
   font-weight: bold;
   margin-bottom: $readable-margin;
 
+  @include mq($xs, $sm) {
+    font-size: $h1-font-size-xs;
+    margin-bottom: $readable-margin-xs;
+  }
+  @include mq($sm, $md) {
+    font-size: $h1-font-size-sm;
+    margin-bottom: $readable-margin-sm;
+  }
+  @include mq($md, $lg) {
+    font-size: $h1-font-size-md;
+    margin-bottom: $readable-margin-md;
+  }
 }
 
 h2 {
   font-size: $h2-font-size;
   font-weight: bold;
   margin-bottom: $readable-margin;
+  @include mq($xs, $sm) {
+    font-size: $h2-font-size-xs;
+    margin-bottom: $readable-margin-xs;
+  }
+  @include mq($sm, $md) {
+    font-size: $h2-font-size-sm;
+    margin-bottom: $readable-margin-sm;
+  }
+  @include mq($md, $lg) {
+    font-size: $h2-font-size-md;
+    margin-bottom: $readable-margin-md;
+  }
 }
 
 h3 {
   font-size: $h3-font-size;
   margin-bottom: $readable-margin;
+  @include mq($xs, $sm) {
+    font-size: $h3-font-size-xs;
+    margin-bottom: $readable-margin-xs;
+  }
+  @include mq($sm, $md) {
+    font-size: $h3-font-size-sm;
+    margin-bottom: $readable-margin-sm;
+  }
+  @include mq($md, $lg) {
+    font-size: $h3-font-size-md;
+    margin-bottom: $readable-margin-md;
+  }
 }
 
 p {
@@ -54,6 +88,21 @@ p {
   margin-bottom: $text-bottom-margin;
   max-width: $max-width;
   color: black;
+  @include mq($xs, $sm) {
+    font-size: $text-size-xs;
+    margin-bottom: $text-bottom-margin-xs;
+    max-width: $max-width-xs;
+  }
+  @include mq($sm, $md) {
+    font-size: $text-size-sm;
+    margin-bottom: $text-bottom-margin-sm;
+    max-width: $max-width-sm;
+  }
+  @include mq($md, $lg) {
+    font-size: $text-size-md;
+    margin-bottom: $text-bottom-margin-md;
+    max-width: $max-width-md;
+  }
 }
 
 li {
@@ -62,11 +111,27 @@ li {
   max-width: $max-width;
   color: black;
   list-style: none;
+
+  @include mq($xs, $sm) {
+    font-size: $text-size-xs;
+    margin-bottom: $text-bottom-margin-xs;
+    max-width: $max-width-xs;
+  }
+  @include mq($sm, $md) {
+    font-size: $text-size-sm;
+    margin-bottom: $text-bottom-margin-sm;
+    max-width: $max-width-sm;
+  }
+  @include mq($md, $lg) {
+    font-size: $text-size-md;
+    margin-bottom: $text-bottom-margin-md;
+    max-width: $max-width-md;
+  }
 }
 
 ul {
-    padding: 0;
-    margin: 0;
+  padding: 0;
+  margin: 0;
 }
 
 a {
@@ -85,14 +150,140 @@ a {
   justify-content: space-between;
 }
 
+.accordion-card {
+  display: flex;
+  flex-direction: column;
+  border-top: .25rem solid $primary-color;
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
+  padding: 1rem;
+  cursor: pointer;
+  max-width: $max-width - 2rem;
+  margin: 0 auto;
+
+  &:last-child{
+    border-bottom: .25rem solid $primary-color;
+  }
+
+  .accordion-content {
+    margin-top: $readable-margin;
+    img {
+      max-width: $logo-width;
+      margin-left: $readable-margin;
+      float: right;
+    }
+    p {
+      word-wrap: break-word;
+      text-align: justify;
+    }
+  }
+  .accordion-header {
+    font-size: $h2-font-size;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+
+    span {
+      padding: 0;
+      vertical-align: middle;
+
+      &.expand-icon {
+        padding: 0;
+        margin-left: 1rem;
+      }
+    }
+  }
+
+  .accordion-author{
+    font-weight: bold;
+    font-style: italic;
+  }
+  @include mq($xs, $sm){
+    max-width: $max-width-xs;
+    padding: $readable-margin-xs;
+    .accordion-content{
+      margin-top: $readable-margin-xs;
+      img{
+        max-width: $logo-width-xs;
+        margin-left: $readable-margin-xs;
+      }
+    }
+    .accordion-header{
+      font-size: $h3-font-size-xs;
+    }
+  }
+  @include mq($sm,$md){
+    max-width: $max-width-sm;
+    padding: $readable-margin-sm;
+    .accordion-content{
+      margin-top: $readable-margin-sm;
+      img {
+        max-width: $logo-width-sm;
+        margin-left: $readable-margin-sm;
+      }
+    }
+    .accordion-header{
+      font-size: $h3-font-size-sm;
+    }
+  }
+  @include mq($md,$lg){
+    max-width: $max-width-md;
+    padding: $readable-margin-md;
+    .accordion-content{
+      margin-top: $readable-margin-md;
+      img{
+        max-width: $logo-width-md;
+        margin-left: $readable-margin-md;
+      }
+    }
+    .accordion-header{
+      font-size: $h3-font-size-md;
+    }
+  }
+}
+
+.big-button {
+  display: block;
+  padding: 1rem 1rem;
+  background-color: $secondary-color;
+  margin-top: 2rem;
+  font-weight: bold;
+  color: $primary-color;
+  border: 2px solid $primary-color;
+  text-align: center;
+  font-size: $h3-font-size;
+  border-radius: 0.5rem;
+  max-width: $max-width * 0.5;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+
+  &:hover {
+    background-color: $primary-color;
+    text-decoration: underline;
+    color: white
+  }
+  @include mq($xs, $sm) {
+      font-size: $h3-font-size-xs;
+      max-width: $max-width-xs * 0.5;
+  }
+  @include mq($sm, $md) {
+    font-size: $h3-font-size-sm;
+    max-width: $max-width-sm * 0.5;
+  }
+  @include mq($md, $lg) {
+    font-size: $h3-font-size-md;
+    max-width: $max-width-md * 0.5;
+  }
+}
 
 @import '../src/components/header/style';
 @import '../src/components/notFound/style';
 @import '../src/components/footer/style';
 @import '../src/components/leadcapture/style';
 @import '../src/components/map/style';
-@import '../src/components/faq/style';
-@import '../src/components/services/style';
 @import '../src/components/contact/style';;
-@import '../src/components/testimonials/style';
 @import '../src/carousel';

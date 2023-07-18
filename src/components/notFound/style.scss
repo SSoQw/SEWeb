@@ -42,4 +42,53 @@
       text-decoration: underline;
     }
   }
+
+  @include mq($xs, $sm){
+    h1 {
+      font-size: $E404-header-font-size-xs;
+    }
+    p {
+      font-size: $E404-text-font-size-xs;
+    }
+    img {
+      width: $E404-image-width-xs;
+    }
+    .button404 {
+      font-size: $E404-text-font-size-xs;
+      max-width: $E404-button-size-xs;
+      margin-top: $readable-margin-xs;
+    }
+  }
+  @include mq($sm, $md){
+    h1 {
+      font-size: $E404-header-font-size-sm;
+    }
+    p {
+      font-size: $E404-text-font-size-sm;
+    }
+    img {
+      width: $E404-image-width-sm;
+    }
+    .button404 {
+      font-size: $E404-text-font-size-sm;
+      max-width: $E404-button-size-sm;
+      margin-top: $readable-margin-sm;
+    }
+  }
+  @include mq($md, $lg){
+    h1 {
+      font-size: $E404-header-font-size-md;
+    }
+    p {
+      font-size: $E404-text-font-size-md;
+    }
+    img {
+      width: $E404-image-width-md;
+    }
+    .button404 {
+      font-size: $E404-text-font-size-md;
+      max-width: $E404-button-size-md;
+      margin-top: $readable-margin-md;
+    }
+  }
 }

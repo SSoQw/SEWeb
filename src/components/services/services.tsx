@@ -47,7 +47,7 @@ const ServicesPage: React.FC = () => {
     useEffect(() => {
         if (expandedCard !== null) {
             setTimeout(() => {
-                const cardElement = document.getElementById(`service-card-${expandedCard}`);
+                const cardElement = document.getElementById(`accordion-card-${expandedCard}`);
                 if (cardElement) {
                     cardElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
@@ -79,18 +79,18 @@ const ServicesPage: React.FC = () => {
             {services.map((service: Service, index: number) => (
                 <div
                     key={service.id}
-                    id={`service-card-${index}`}
-                    className={`service-card ${expandedCard === index ? 'expanded' : ''}`}
+                    id={`accordion-card-${index}`}
+                    className={`accordion-card ${expandedCard === index ? 'expanded' : ''}`}
                     onClick={() => toggleExpand(index)}
                 >
-                    <div className="service-header">
+                    <div className="accordion-header">
                         <span>{service.type}</span>
                         <span className={`expand-icon ${expandedCard === index ? 'minus' : 'plus'}`}>
               {expandedCard === index ? '-' : '+'}
             </span>
                     </div>
                     {expandedCard === index && (
-                        <div className="service-content">
+                        <div className="accordion-content">
                             <img src={service.image} alt={service.type} />
                             {renderDescriptionWithParagraphs(service.longDescription)}
                         </div>
@@ -99,7 +99,7 @@ const ServicesPage: React.FC = () => {
             ))}
         </div>
             <h2>Read About Our Work</h2>
-            <Link to="/testimonials" className="faq-link">
+            <Link to="/testimonials" className="big-button">
                 Client Testimonials
             </Link>
         </div>

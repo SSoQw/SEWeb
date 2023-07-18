@@ -33,6 +33,15 @@ footer {
 .logo-image {
   width: $logo-width;
   height: auto;
+  @include mq($xs, $sm) {
+    width: $logo-width-xs;
+  }
+  @include mq($sm, $md) {
+    width: $logo-width-sm;
+  }
+  @include mq($md, $lg) {
+    width: $logo-width-md;
+  }
 }
 
 .social-icons {
@@ -41,11 +50,18 @@ footer {
   color: $secondary-color;
   transition: color 0.3s ease;
   font-size: $nav-item-font-size;
-
   &:hover {
     color: white;
-   }
-
+  }
+  @include mq($xs, $sm) {
+    font-size: $nav-item-font-size-xs;
+  }
+  @include mq($sm, $md) {
+    font-size: $nav-item-font-size-sm;
+  }
+  @include mq($md, $lg) {
+    font-size: $nav-item-font-size-md;
+  }
 }
 
 .nav-list {
@@ -56,6 +72,7 @@ footer {
 
 .nav-item {
   margin-right: $nav-item-margin;
+
 
   &:last-child {
     margin-right: 0;
@@ -74,4 +91,22 @@ footer {
     }
   }
 
+  @include mq($xs, $sm) {
+    margin-right: $nav-item-margin-xs;
+    a {
+      font-size: $nav-item-font-size-xs;
+    }
+  }
+  @include mq($sm, $md) {
+    margin-right: $nav-item-margin-sm;
+    a {
+      font-size: $nav-item-font-size-sm;
+    }
+  }
+  @include mq($md, $lg) {
+    margin-right: $nav-item-margin-md;
+    a {
+      font-size: $nav-item-font-size-md;
+    }
+  }
 }

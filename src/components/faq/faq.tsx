@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useRef, useState} from "react";
 
 interface Question {
     id: number;
@@ -17,6 +17,7 @@ const QuestionsPage = () => {
     const [questions, setQuestions] = useState<Question[]>([]);
     const [expandedCard, setExpandedCard] = useState<number | null>(null);
     const [searchText, setSearchText] = useState<string>("");
+    const cardRef = useRef<HTMLDivElement | null>(null);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -26,6 +27,18 @@ const QuestionsPage = () => {
         };
         fetchData().then(() => "None Data :(");
     }, []);
+
+
+    useEffect(() => {
+        if (expandedCard !== null) {
+            setTimeout(() => {
+                const cardElement = cardRef.current;
+                if (cardElement) {
+                    cardElement.scrollIntoView({ behavior: "smooth", block: "center" });
+                }
+            }, 100);
+        }
+    }, [expandedCard, questions]);
 
 
     const toggleExpand = (index: number) => {
@@ -93,12 +106,13 @@ const QuestionsPage = () => {
                         {filteredQuestions.map((question: Question) => (
                             <div
                                 key={`${category}-${question.id}`}
-                                className={`question-card ${
+                                className={`accordion-card ${
                                     expandedCard === question.id ? "expanded" : ""
                                 }`}
                                 onClick={() => toggleExpand(question.id)}
+                                ref={expandedCard === question.id ? cardRef : null}
                             >
-                                    <div className="question-header">
+                                    <div className="accordion-header">
                                         <span>{question.question}</span>
                                         <span
                                             className={`expand-icon ${
@@ -109,7 +123,7 @@ const QuestionsPage = () => {
                   </span>
                                     </div>
                                     {expandedCard === question.id && (
-                                        <div className="question-content">
+                                        <div className="accordion-content">
                                             {renderAnswerWithParagraphs(question.answer)}
                                         </div>
                                     )}
@@ -122,7 +136,7 @@ const QuestionsPage = () => {
             <p>Our documentation provides comprehensive electrical resources, buying guides, troubleshooting docs,
                 and quick start guides for your convenience. It's a valuable resource for further information.</p>
             <a href="https://docs.sellickelectric.com">
-                <button className="faq-link">Visit Our Documentation</button>
+                <button className="big-button">Visit Our Documentation</button>
             </a>
         </div>
     );

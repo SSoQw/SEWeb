@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 
 interface Testimonial {
     id: number;
     type: string;
     name: string;
     quote: string;
+    image: string;
 }
 
 const fetchTestimonialData = async () => {
@@ -16,6 +17,7 @@ const fetchTestimonialData = async () => {
 const TestimonialsPage = () => {
     const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
     const [expandedCard, setExpandedCard] = useState<number | null>(null);
+    const cardRef = useRef<HTMLDivElement | null>(null);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -26,12 +28,21 @@ const TestimonialsPage = () => {
         fetchData().then(() => "None Data :(");
     }, []);
 
+    useEffect(() => {
+        if (expandedCard !== null) {
+            setTimeout(() => {
+                const cardElement = cardRef.current;
+                if (cardElement) {
+                    cardElement.scrollIntoView({ behavior: "smooth", block: "center" });
+                }
+            }, 100);
+        }
+    }, [expandedCard, testimonials]);
+
     const toggleExpand = (index: number) => {
         if (expandedCard === index) {
-            // Clicked card is already expanded, collapse it
             setExpandedCard(null);
         } else {
-            // Clicked card is not expanded, expand it
             setExpandedCard(index);
         }
     };
@@ -47,6 +58,7 @@ const TestimonialsPage = () => {
         {}
     );
 
+
     return (
         <div>
             <h1>Testimonials</h1>
@@ -57,12 +69,13 @@ const TestimonialsPage = () => {
                         {testimonials.map((testimonial: Testimonial) => (
                             <div
                                 key={`${type}-${testimonial.id}`}
-                                className={`testimonial-card ${
+                                className={`accordion-card ${
                                     expandedCard === testimonial.id ? "expanded" : ""
                                 }`}
                                 onClick={() => toggleExpand(testimonial.id)}
+                                ref={expandedCard === testimonial.id ? cardRef : null}
                             >
-                                <div className="testimonial-header">
+                                <div className="accordion-header">
                                     <span>{testimonial.name}</span>
                                     <span
                                         className={`expand-icon ${
@@ -73,9 +86,10 @@ const TestimonialsPage = () => {
                   </span>
                                 </div>
                                 {expandedCard === testimonial.id && (
-                                    <div className="testimonial-content">
+                                    <div className="accordion-content">
+                                        <img src={testimonial.image} alt={testimonial.type} />
                                         <p>{testimonial.quote}</p>
-                                        <p className="testimonial-author">- {testimonial.name}</p>
+                                        <p className="accordion-author">- {testimonial.name}</p>
                                     </div>
                                 )}
                             </div>
@@ -84,9 +98,9 @@ const TestimonialsPage = () => {
                 );
             })}
             <h2>Want To Share Your Testimonial?</h2>
-            <p>We value your feedback! If you'd like to share your testimonial with us, please email us!</p>
+            <p>We value your feedback! If you'd like to share your testimonial with us, please email us with your feedback and an picture of the work.</p>
             <a href="mailto:testimonial@sellickelectric.com">
-                <button className="faq-link">Submit Testimonial</button>
+                <button className="big-button">Submit Testimonial</button>
             </a>
         </div>
     );
