@@ -19,13 +19,13 @@ h1, h2, h3, h4, h5, h6, p, li {
   margin-left: auto;
   margin-right: auto;
   color: $primary-color;
-  @include mq($xs) {
+  @include mq($xs, $sm) {
     max-width: $max-width-xs + 1rem;
   }
-  @include mq($xs, $sm) {
+  @include mq($sm, $md) {
     max-width: $max-width-sm + 2rem;
   }
-  @include mq($sm, $md) {
+  @include mq($md, $lg) {
     max-width: $max-width-md + 3rem;
   }
 }

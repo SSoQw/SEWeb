@@ -1,14 +1,9 @@
+$lg: 1440px;
 $md: 1280px;
 $sm: 768px;
 $xs: 576px;
 
-@use 'sass-mq' as mq with (
-  $breakpoints: (
-    xs: $xs,
-    sm: $sm,
-    md: $md
-  )
-);
+@use 'sass-mq' as mq;
 
 @mixin mq($from: false, $until: false) {
   $mq: '';
