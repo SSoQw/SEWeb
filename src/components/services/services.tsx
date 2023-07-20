@@ -66,6 +66,7 @@ const ServicesPage: React.FC = () => {
     };
 
     const renderDescriptionWithParagraphs = (description: string) => {
+        //TODO: Change to make have the service cards take in HTML ref from JSON, rather than string from JSON
         const lines = description.split('\n\n');
         return lines.map((line, index) => (
             <p key={index}>{line}</p>

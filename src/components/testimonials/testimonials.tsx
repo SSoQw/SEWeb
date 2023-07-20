@@ -6,6 +6,7 @@ interface Testimonial {
     name: string;
     quote: string;
     image: string;
+    tagline: string;
 }
 
 const fetchTestimonialData = async () => {
@@ -76,7 +77,7 @@ const TestimonialsPage = () => {
                                 ref={expandedCard === testimonial.id ? cardRef : null}
                             >
                                 <div className="accordion-header">
-                                    <span>{testimonial.name}</span>
+                                    <span>{testimonial.tagline}</span>
                                     <span
                                         className={`expand-icon ${
                                             expandedCard === testimonial.id ? "minus" : "plus"
