@@ -194,6 +194,25 @@ const LeadCaptureForm = () => {
             console.error('Error occurred:', error);
             setGeocodeFailed(true);
         }
+        /* For when backend is implemented for production
+        try {
+            const response = await fetch('/api/geocode', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ partialAddress }),
+            });
+            const data = await response.json();
+            const addresses = data.addresses;
+
+            setDropdownOptions(addresses);
+            setShowDropdown({ visible: addresses.length > 0, isExpanded: addresses.length > 0 });
+            } catch (error) {
+                console.error('Error occurred:', error);
+                setGeocodeFailed(true);
+        }
+         */
     };
 
 
