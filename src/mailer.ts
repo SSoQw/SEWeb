@@ -54,9 +54,9 @@ app.post('/api/send-email', (req, res) => {
     };
 
     // Send the email using Nodemailer
-    transporter.sendMail(message, (err, info) => {
-        if (err) {
-            console.error('Error occurred while sending email:', err);
+    transporter.sendMail(message, (error, info) => {
+        if (error) {
+            console.error('Error occurred while sending email:', error);
             res.status(500).json({ error: 'Failed to send email' });
         } else {
             console.log('Email sent successfully:', info.response);
