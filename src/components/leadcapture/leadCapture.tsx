@@ -5,7 +5,6 @@ import {LngLat} from "mapbox-gl";
 const LeadCaptureForm = () => {
     const center = new LngLat(43.597532, -70.709917);
     const location = useLocation();
-    const token = process.env.MAPBOX_ACCESS_TOKEN;
     const textareaRef = useRef<HTMLTextAreaElement>(null);
     const [dropdownOptions, setDropdownOptions] = useState<string[]>([]);
     const [name, setName] = useState('');
@@ -22,7 +21,7 @@ const LeadCaptureForm = () => {
     const [geocodeFailed, setGeocodeFailed] = useState(false);
     const [showDropdown, setShowDropdown] = useState({visible: false, isExpanded: false});
 
-    console.log(process.env.MAPBOX_ACCESS_TOKEN);
+
 
     useEffect(() => {
         adjustTextareaHeight();
@@ -183,7 +182,7 @@ const LeadCaptureForm = () => {
     const geocodeAddress = async (partialAddress: string) => {
         try {
             const response = await fetch(
-                `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(partialAddress)}.json?access_token=${token}&country=us&proximity=${center.lng},${center.lat}&limit=4`
+                `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(partialAddress)}.json?access_token=${process.env.REACT_APP_MAPBOX_ACCESS_TOKEN}&country=us&proximity=${center.lng},${center.lat}&limit=4`
             );
             const data = await response.json();
             const addresses = data.features
