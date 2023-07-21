@@ -23,7 +23,6 @@ const TestimonialsPage = () => {
     useEffect(() => {
         const fetchData = async () => {
             const data = await fetchTestimonialData();
-            console.log("Fetched data:", data);
             setTestimonials(data);
         };
         fetchData().then(() => "None Data :(");
@@ -76,7 +75,7 @@ const TestimonialsPage = () => {
                                 onClick={() => toggleExpand(testimonial.id)}
                                 ref={expandedCard === testimonial.id ? cardRef : null}
                             >
-                                <div className="accordion-header">
+                                <div className="long-accordion-header">
                                     <span>{testimonial.tagline}</span>
                                     <span
                                         className={`expand-icon ${
@@ -99,7 +98,7 @@ const TestimonialsPage = () => {
                 );
             })}
             <h2>Want To Share Your Testimonial?</h2>
-            <p>We value your feedback! If you'd like to share your testimonial with us, please email us with your feedback and an picture of the work.</p>
+            <p>We value your feedback! If you'd like to share your testimonial with us, please email us with your name, company name if applicable, feedback, and a picture of the work you thought was worth talking about.</p>
             <a href="mailto:testimonial@sellickelectric.com">
                 <button className="big-button">Submit Testimonial</button>
             </a>

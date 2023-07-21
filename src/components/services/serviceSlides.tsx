@@ -40,7 +40,6 @@ const ServiceSlides = () => {
     useEffect(() => {
         const fetchData = async () => {
             const data = await fetchServiceData();
-            console.log('Fetched data:', data);
             setServices(data);
         };
         fetchData().then(() => "None Data :(");

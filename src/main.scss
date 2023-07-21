@@ -195,6 +195,23 @@ a {
     }
   }
 
+  .long-accordion-header {
+    font-size: $h3-font-size;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+
+    span {
+      padding: 0;
+      vertical-align: middle;
+
+      &.expand-icon {
+        padding: 0;
+        margin-left: 1rem;
+      }
+    }
+  }
+
   .accordion-author{
     font-weight: bold;
     font-style: italic;

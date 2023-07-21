@@ -22,7 +22,6 @@ const QuestionsPage = () => {
     useEffect(() => {
         const fetchData = async () => {
             const data = await fetchQuestionData();
-            console.log("Fetched data:", data);
             setQuestions(data);
         };
         fetchData().then(() => "None Data :(");
@@ -112,7 +111,7 @@ const QuestionsPage = () => {
                                 onClick={() => toggleExpand(question.id)}
                                 ref={expandedCard === question.id ? cardRef : null}
                             >
-                                    <div className="accordion-header">
+                                    <div className="long-accordion-header">
                                         <span>{question.question}</span>
                                         <span
                                             className={`expand-icon ${
