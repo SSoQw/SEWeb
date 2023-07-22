@@ -1,6 +1,7 @@
 import express from 'express';
 import nodemailer from 'nodemailer';
 import {LngLat} from "mapbox-gl";
+import * as fs from "fs";
 
 const app = express();
 const port = 22222;
@@ -65,6 +66,39 @@ app.post('/api/send-email', (req, res) => {
     });
 });
 
+// Endpoint that gets current services
+app.post('/api/services', (req, res) => {
+    try {
+        const data = fs.readFileSync('services.json', 'utf8');
+        const services = JSON.parse(data);
+        res.json({ services });
+    } catch (error) {
+        console.error('Error occurred:', error);
+        res.status(500).json({ error: 'Failed to retrieve services data' });
+    }
+});
+// Endpoint that gets current testimonials
+app.post('/api/testimonials', (req, res) => {
+    try{
+        const data = fs.readFileSync('testimonials.json', 'utf8');
+        const testimonials = JSON.parse(data);
+        res.json({ testimonials });
+    }catch(error){
+        console.error('Error occurred:', error);
+        res.status(500).json({ error: 'Failed to retrieve testimonials data' });
+    }
+});
+// Endpoint that gets current FAQs
+app.post('/api/faqs', (req, res) => {
+    try{
+        const data = fs.readFileSync('questions.json', 'utf8');
+        const faqs = JSON.parse(data);
+        res.json({ faqs });
+    } catch(error){
+        console.error('Error occurred:', error);
+        res.status(500).json({ error: 'Failed to retrieve FAQs data' });
+    }
+});
 // Start the server
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);

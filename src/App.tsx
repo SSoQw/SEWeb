@@ -1,5 +1,6 @@
-import React, {ReactNode} from 'react';
+import {FC, ReactNode} from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { DataProvider } from './DataContext';
 import Header from './components/header/header'
 import ServiceArea from './components/map/map';
 import TestimonialSlides from "./components/testimonials/testimonialSlides";
@@ -17,7 +18,7 @@ interface PageLayoutProps {
     children?: ReactNode;
 }
 
-const PageLayout: React.FC<PageLayoutProps> = ({ children }) => {
+const PageLayout: FC<PageLayoutProps> = ({ children }) => {
     return (
         <div className="force-height">
             <Header />
@@ -31,6 +32,7 @@ const PageLayout: React.FC<PageLayoutProps> = ({ children }) => {
 const App = () => {
     return (
         <Router>
+            <DataProvider>
             <div>
                 <Routes>
                     <Route path="/" element={<PageLayout><><ServiceArea /><ServiceSlides />
@@ -43,6 +45,7 @@ const App = () => {
                     <Route path="*" element={<NotFoundPage />} />
                 </Routes>
             </div>
+            </DataProvider>
         </Router>
     );
 };

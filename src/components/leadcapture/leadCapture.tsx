@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useRef, FormEvent} from 'react';
+import {ChangeEvent, FormEvent, useState, useEffect, useRef} from 'react';
 import {useLocation} from 'react-router-dom';
 import {LngLat} from "mapbox-gl";
 
@@ -20,7 +20,6 @@ const LeadCaptureForm = () => {
     const [addressSelected, setAddressSelected] = useState(false);
     const [geocodeFailed, setGeocodeFailed] = useState(false);
     const [showDropdown, setShowDropdown] = useState({visible: false, isExpanded: false});
-
 
 
     useEffect(() => {
@@ -216,7 +215,7 @@ const LeadCaptureForm = () => {
     };
 
 
-    const handleAddressChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const handleAddressChange = (event: ChangeEvent<HTMLInputElement>) => {
         const partialAddress: string = event.target.value;
         setAddress(partialAddress);
         if (partialAddress.length >= 4) {
@@ -237,7 +236,7 @@ const LeadCaptureForm = () => {
         }
     };
 
-    const handleAddressSelect = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const handleAddressSelect = (event: ChangeEvent<HTMLSelectElement>) => {
         const selectedAddress: string = event.target.value;
         setAddress(selectedAddress);
         setAddressSelected(true);
@@ -247,7 +246,7 @@ const LeadCaptureForm = () => {
         });
     };
 
-    const handlePhoneChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const handlePhoneChange = (event: ChangeEvent<HTMLInputElement>) => {
         const rawPhone = event.target.value.replace(/\D/g, '');
         let formatted: string;
 

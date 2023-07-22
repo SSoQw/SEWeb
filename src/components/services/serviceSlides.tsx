@@ -1,22 +1,10 @@
-import React, {useEffect, useState} from 'react';
+import { FC, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { Carousel } from 'react-responsive-carousel';
+import DataContext from '../../DataContext';
+import { Service } from "../../types";
 
-
-const fetchServiceData = async () => {
-    const response = await fetch('/services.json');
-    const data = await response.json();
-    return data.services as Service[];
-};
-
-interface Service {
-    id?: number;
-    type: string;
-    description: string;
-    image: string;
-}
-
-const ServiceSlide: React.FC<Service> = ({ image, type, description }) => {
+const ServiceSlide: FC<Service> = ({ image, type, description }) => {
     const url = `/services?type=${encodeURIComponent(type)}`;
 
     return (
@@ -33,17 +21,8 @@ const ServiceSlide: React.FC<Service> = ({ image, type, description }) => {
     );
 };
 
-
 const ServiceSlides = () => {
-    const [services, setServices] = useState<Service[]>([]);
-
-    useEffect(() => {
-        const fetchData = async () => {
-            const data = await fetchServiceData();
-            setServices(data);
-        };
-        fetchData().then(() => "None Data :(");
-    }, []);
+    const { services } = useContext(DataContext);
 
     return (
         <div>

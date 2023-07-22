@@ -1,4 +1,3 @@
-import React from 'react';
 import ServiceMap from './serviceMap';
 
 const ServiceArea = () => {

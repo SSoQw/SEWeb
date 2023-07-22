@@ -1,32 +1,13 @@
-import React, { useEffect, useState, useRef } from "react";
+import { useContext, useEffect, useState, useRef } from "react";
+import DataContext from '../../DataContext';
+import { Testimonial } from "../../types";
 
-interface Testimonial {
-    id: number;
-    type: string;
-    name: string;
-    quote: string;
-    image: string;
-    tagline: string;
-}
-
-const fetchTestimonialData = async () => {
-    const response = await fetch("/testimonials.json");
-    const data = await response.json();
-    return data.testimonials as Testimonial[];
-};
 
 const TestimonialsPage = () => {
-    const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
+    const { testimonials } = useContext(DataContext);
     const [expandedCard, setExpandedCard] = useState<number | null>(null);
     const cardRef = useRef<HTMLDivElement | null>(null);
 
-    useEffect(() => {
-        const fetchData = async () => {
-            const data = await fetchTestimonialData();
-            setTestimonials(data);
-        };
-        fetchData().then(() => "None Data :(");
-    }, []);
 
     useEffect(() => {
         if (expandedCard !== null) {
@@ -49,15 +30,14 @@ const TestimonialsPage = () => {
 
     const testimonialsByType = testimonials.reduce(
         (acc: { [key: string]: Testimonial[] }, testimonial) => {
-            if (!acc[testimonial.type]) {
-                acc[testimonial.type] = [];
+            if (!acc[testimonial.type ?? 'No type found']) {
+                acc[testimonial.type ?? 'No type found'] = [];
             }
-            acc[testimonial.type].push(testimonial);
+            acc[testimonial.type ?? 'No type found'].push(testimonial);
             return acc;
         },
         {}
     );
-
 
     return (
         <div>
@@ -72,7 +52,7 @@ const TestimonialsPage = () => {
                                 className={`accordion-card ${
                                     expandedCard === testimonial.id ? "expanded" : ""
                                 }`}
-                                onClick={() => toggleExpand(testimonial.id)}
+                                onClick={() => toggleExpand(testimonial.id ?? -1)}
                                 ref={expandedCard === testimonial.id ? cardRef : null}
                             >
                                 <div className="long-accordion-header">

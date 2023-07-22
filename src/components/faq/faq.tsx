@@ -1,16 +1,19 @@
-import React, {useEffect, useRef, useState} from "react";
+import {ChangeEvent, useEffect, useRef, useState} from "react";
+import { Question } from "../../types";
 
-interface Question {
-    id: number;
-    category: string;
-    question: string;
-    answer: string;
-}
 
 const fetchQuestionData = async () => {
-    const response = await fetch("/questions.json");
-    const data = await response.json();
-    return data.questions as Question[];
+    try {
+        const response = await fetch('/api/questions');
+        const data = await response.json();
+        return data.questions as Question[];
+    } catch (error) {
+        console.error('Error occurred:', error);
+        // If the API call fails, fetch the data from the questions.json file in public, which may be old.
+        const response = await fetch("/questions.json");
+        const data = await response.json();
+        return data.questions as Question[];
+    }
 };
 
 const QuestionsPage = () => {
@@ -75,7 +78,7 @@ const QuestionsPage = () => {
         );
     };
 
-    const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const handleSearchChange = (event: ChangeEvent<HTMLInputElement>) => {
         setSearchText(event.target.value);
     };
 

@@ -1,22 +1,11 @@
-import React, {useEffect, useState} from 'react';
+import { FC, useContext, useEffect, useState } from 'react';
 import { shuffle } from 'lodash';
 import { Carousel } from 'react-responsive-carousel';
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
+import DataContext from '../../DataContext';
+import { Testimonial } from "../../types";
 
-interface Testimonial {
-    id?: number;
-    name: string;
-    quote: string;
-    image: string;
-}
-
-const fetchTestimonialsData = async () => {
-    const response = await fetch('/testimonials.json');
-    const data = await response.json();
-    return data.testimonials as Testimonial[];
-};
-
-const TestimonialSlide: React.FC<Testimonial> = ({ image, name, quote }) => {
+const TestimonialSlide: FC<Testimonial> = ({ image, name, quote }) => {
     return (
         <div className="slide-container">
             <div className="slide-content">
@@ -31,17 +20,14 @@ const TestimonialSlide: React.FC<Testimonial> = ({ image, name, quote }) => {
     );
 };
 const Testimonials = () => {
-    const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
+    const { testimonials } = useContext(DataContext);
+    const [testimonialsSlides, setTestimonialSlides] = useState<Testimonial[]>([]);
 
     useEffect(() => {
-        const fetchData = async () => {
-            const data = await fetchTestimonialsData();
-            const shuffledData = shuffle(data);
-            const slicedData = shuffledData.slice(0, 5);
-            setTestimonials(slicedData);
-        };
-        fetchData().then(() => "None Data :(");
-    }, []);
+        const shuffledData = shuffle(testimonials);
+        const slicedData = shuffledData.slice(0, 5);
+        setTestimonialSlides(slicedData);
+    }, [testimonials]);
 
     return (
         <div>
@@ -55,9 +41,9 @@ const Testimonials = () => {
                         infiniteLoop={true}
                         showStatus={false}
                     >
-                        {testimonials.map((testimonial, index) => (
+                        {testimonialsSlides.map((testimonial, index) => (
                             <TestimonialSlide
-                                key={testimonial.id ?? index}
+                                key={index}
                                 image={testimonial.image}
                                 name={testimonial.name}
                                 quote={testimonial.quote}

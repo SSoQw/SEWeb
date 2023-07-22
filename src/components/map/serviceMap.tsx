@@ -1,10 +1,5 @@
-import React from 'react';
 import { MapContainer, TileLayer, Circle, GeoJSON } from 'react-leaflet';
-import 'leaflet-draw/dist/leaflet.draw.css';
-import 'leaflet-draw';
-import L from 'leaflet';
 import { feature } from 'topojson-client';
-
 import 'leaflet/dist/leaflet.css';
 import nhTopoJSON from '../../data/newhampshire.json';
 import meTopoJSON from '../../data/maine.json';

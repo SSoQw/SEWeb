@@ -1,34 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import {useContext, useEffect, useState} from 'react';
 import {Link, useLocation, useNavigate} from 'react-router-dom';
+import DataContext from '../../DataContext';
+import { Service } from "../../types";
 
-interface Service {
-    id: number;
-    type: string;
-    longDescription: string;
-    image: string;
-}
-
-const fetchServiceData = async () => {
-    const response = await fetch('/services.json');
-    const data = await response.json();
-    return data.services as Service[];
-};
-
-const ServicesPage: React.FC = () => {
-    const [services, setServices] = useState<Service[]>([]);
+const ServicesPage = () => {
+    const { services } = useContext(DataContext);
     const [expandedCard, setExpandedCard] = useState<number | null>(null);
     const location = useLocation();
     const queryParams = new URLSearchParams(location.search);
     const type = queryParams.get('type');
     const navigate = useNavigate();
 
-    useEffect(() => {
-        const fetchData = async () => {
-            const data = await fetchServiceData();
-            setServices(data);
-        };
-        fetchData().then(() => "None Data :(");
-    }, []);
 
     useEffect(() => {
         if (type && services.length) {
@@ -64,8 +46,8 @@ const ServicesPage: React.FC = () => {
         }
     };
 
-    const renderDescriptionWithParagraphs = (description: string) => {
-        const lines = description.split('\n\n');
+    const renderDescriptionWithParagraphs = (longDescription: string) => {
+        const lines = longDescription.split('\n\n');
         return lines.map((line, index) => (
             <p key={index}>{line}</p>
         ));
@@ -93,13 +75,13 @@ const ServicesPage: React.FC = () => {
                                 {service.type === 'Camera Systems' ? (
                                     <>
                                         <img src={service.image} alt={service.type} />
-                                        {renderDescriptionWithParagraphs(service.longDescription)}
+                                        {renderDescriptionWithParagraphs(service.longDescription ?? 'error rendering description')}
                                         <CameraSystemsTable />
                                     </>
                                 ) : (
                                     <>
                                         <img src={service.image} alt={service.type} />
-                                        {renderDescriptionWithParagraphs(service.longDescription)}
+                                        {renderDescriptionWithParagraphs(service.longDescription ?? 'error rendering description')}
                                     </>
                                 )}
                             </div>
