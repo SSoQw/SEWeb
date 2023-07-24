@@ -8,6 +8,10 @@ const TestimonialsPage = () => {
     const [expandedCard, setExpandedCard] = useState<number | null>(null);
     const cardRef = useRef<HTMLDivElement | null>(null);
 
+    // Scroll to the top of the page when component is mounted
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
 
     useEffect(() => {
         if (expandedCard !== null) {

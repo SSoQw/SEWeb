@@ -4,16 +4,20 @@
   align-items: center;
   justify-content: center;
   text-align: center;
+  min-height: 100vh;
+  background-color: #1c1c1c;
 
   h1 {
     font-size: $E404-header-font-size;
     margin-bottom: 1rem;
+    color: grey;
   }
 
   p {
     font-size: $E404-text-font-size;
     font-weight: bold;
     margin-bottom: 1rem;
+    color: grey;
   }
 
   img {
@@ -39,16 +43,12 @@
     &:hover {
       background-color: $primary-color;
       color: white;
-      text-decoration: underline;
     }
   }
 
   @include mq($xs, $sm){
     h1 {
       font-size: $E404-header-font-size-xs;
-    }
-    p {
-      font-size: $E404-text-font-size-xs;
     }
     img {
       width: $E404-image-width-xs;
@@ -63,9 +63,6 @@
     h1 {
       font-size: $E404-header-font-size-sm;
     }
-    p {
-      font-size: $E404-text-font-size-sm;
-    }
     img {
       width: $E404-image-width-sm;
     }
@@ -78,9 +75,6 @@
   @include mq($md, $lg){
     h1 {
       font-size: $E404-header-font-size-md;
-    }
-    p {
-      font-size: $E404-text-font-size-md;
     }
     img {
       width: $E404-image-width-md;
