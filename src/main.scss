@@ -261,50 +261,6 @@ a {
 }
 
 
-.camera-systems-table {
-  border-collapse: collapse;
-  margin: 2rem auto;
-  font-size: $h3-font-size;
-
-  .camera-systems-table-header {
-    background-color: $primary-color;
-    color: white;
-    font-weight: bold;
-    text-align: right;
-    padding: .5rem .5rem .5rem 2rem;
-    border: 2px solid black;
-  }
-
-  .camera-systems-table-name{
-    font-weight: bold;
-    text-align:center;
-    border: 1px solid black;
-    padding-left: 2rem;
-    padding-right: 2rem;
-  }
-
-  .camera-systems-table-cell {
-    text-align:center;
-    border: 1px solid black;
-    padding: .5rem 2rem;
-
-    &.good {
-      font-weight: bold;
-      background-color: $good-green;
-    }
-
-    &.bad {
-      font-weight: bold;
-      background-color: $bad-red;
-    }
-
-    &.partial {
-      font-weight: bold;
-      background-color: $grey;
-    }
-  }
-}
-
 .big-button {
   display: block;
   padding: 1rem 1rem;
@@ -347,5 +303,6 @@ a {
 @import '../src/components/footer/style';
 @import '../src/components/leadcapture/style';
 @import '../src/components/map/style';
-@import '../src/components/contact/style';;
+@import '../src/components/contact/style';
+@import '../src/components/services/style';
 @import '../src/carousel';
