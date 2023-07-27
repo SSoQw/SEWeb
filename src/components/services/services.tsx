@@ -108,7 +108,8 @@ const CameraSystemsTable = () => {
             </tr>
             <tr>
                 <th className="camera-systems-table-header">Resolution</th>
-                <td className="camera-systems-table-cell" colSpan={2}>1080p - 4K</td>
+                <td className="camera-systems-table-cell">4K</td>
+                <td className="camera-systems-table-cell">1080p</td>
             </tr>
             <tr>
                 <th className="camera-systems-table-header">Base Station Cost</th>
@@ -117,8 +118,8 @@ const CameraSystemsTable = () => {
             </tr>
             <tr>
                 <th className="camera-systems-table-header">Cost per Camera</th>
-                <td className="camera-systems-table-cell">$100 - $200</td>
-                <td className="camera-systems-table-cell">$50 - $100</td>
+                <td className="camera-systems-table-cell">$100 - $500</td>
+                <td className="camera-systems-table-cell">$50 - $300</td>
             </tr>
             <tr>
                 <th className="camera-systems-table-header">Indoor Use</th>

@@ -266,7 +266,7 @@ const LeadCaptureForm = () => {
     return (
         <section>
             <h2>Have a Project in Mind? Get in Touch</h2>
-            <form onSubmit={handleSubmit} autoComplete="off">
+            <form onSubmit={handleSubmit}>
                 <div className="form-row">
                     <div>
                         <input
@@ -282,6 +282,7 @@ const LeadCaptureForm = () => {
                             type="text"
                             pattern="[A-Za-z ]+"
                             id="name"
+                            autoComplete="name"
                             placeholder="Name"
                             value={name}
                             onChange={(e) => setName(e.target.value)}
@@ -292,6 +293,8 @@ const LeadCaptureForm = () => {
                     <div>
                         <label htmlFor="email">Email</label>
                         <input
+                            type="email"
+                            autoComplete="email"
                             id="email"
                             placeholder="Email"
                             value={email}
@@ -303,6 +306,7 @@ const LeadCaptureForm = () => {
                         <label htmlFor="phone">Phone</label>
                         <input
                             type="tel"
+                            autoComplete="tel"
                             id="phone"
                             name="phone"
                             placeholder="Phone"
@@ -318,6 +322,7 @@ const LeadCaptureForm = () => {
                         <label htmlFor="address">Service Address*</label>
                         <input
                             type="text"
+                            autoComplete="off"
                             value={address}
                             placeholder="(Nearest) Street Address"
                             onChange={handleAddressChange}
@@ -342,6 +347,7 @@ const LeadCaptureForm = () => {
                 <label htmlFor="proposal">Work Proposal *</label>
                 <textarea
                     id="proposal"
+                    autoComplete="off"
                     placeholder="Work Proposal"
                     value={workProposal}
                     onChange={(e) => setWorkProposal(e.target.value)}
