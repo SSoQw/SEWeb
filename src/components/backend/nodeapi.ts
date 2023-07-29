@@ -1,7 +1,6 @@
 import express from 'express';
 import nodemailer from 'nodemailer';
 import {LngLat} from "mapbox-gl";
-import { Request, Response } from 'express';
 import fs from "fs";
 import passport from 'passport';
 import { User, initializePassport } from './passport-config';
