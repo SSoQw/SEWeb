@@ -1,10 +1,18 @@
 import express from 'express';
 import nodemailer from 'nodemailer';
 import {LngLat} from "mapbox-gl";
-import * as fs from "fs";
+import { Request, Response } from 'express';
+import fs from "fs";
+import passport from 'passport';
+import { User, initializePassport } from './passport-config';
 
 const app = express();
 const port = 22222;
+
+
+initializePassport();
+app.use(passport.initialize());
+app.use(passport.session());
 
 // Configure Nodemailer transporter
 const transporter = nodemailer.createTransport({
@@ -16,6 +24,16 @@ const transporter = nodemailer.createTransport({
         pass: `${process.env.REACT_APP_MAIL_APP_PASS}`,
     },
 });
+
+function isAuthenticated(req: Request, res: Response, next: Function) {
+    // Check if the user is authenticated and has the User type
+    const user = req.user as User | null;
+    if (user && user.role === 'elevated') {
+        return next();
+    }
+    res.status(401).json({ error: 'Unauthorized' });
+}
+
 
 //Endpoint for MapBox Gecode API
 app.post('/api/geocode', async (req, res) => {
@@ -99,6 +117,34 @@ app.post('/api/faqs', (req, res) => {
         res.status(500).json({ error: 'Failed to retrieve FAQs data' });
     }
 });
+
+app.post(
+    '/api/login',
+    passport.authenticate('local', { failureRedirect: '/login-failed' }),
+    (req: Request, res: Response) => {
+        res.status(200).json({ message: 'Login successful' });
+    }
+);
+
+app.get('/api/logout', (req: Request, res: Response) => {
+    req.logout();
+    res.status(200).json({ message: 'Logout successful' });
+});
+
+app.get('/login-failed', (req: Request, res: Response) => {
+    res.status(401).json({ error: 'Login failed' });
+});
+
+app.post('/dashboard', isAuthenticated, (req, res) => {
+    // Check if the user is authorized to add testimonials
+    if (req.user.role === 'elevated') {
+        // TODO Dashboard user is authorized to add testimonials
+    } else {
+        res.status(403).json({ error: 'Forbidden' });
+    }
+});
+
+
 // Start the server
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
