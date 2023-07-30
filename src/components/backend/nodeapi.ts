@@ -10,6 +10,7 @@ const port = 22222;
 
 
 initializePassport();
+
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -24,15 +25,14 @@ const transporter = nodemailer.createTransport({
     },
 });
 
-function isAuthenticated(req: Request, res: Response, next: Function) {
+function isAuthenticated(req: express.Request , res: express.Response, next: express.NextFunction) {
     // Check if the user is authenticated and has the User type
-    const user = req.user as User | null;
+    const user = req.user as User;
     if (user && user.role === 'elevated') {
         return next();
     }
     res.status(401).json({ error: 'Unauthorized' });
 }
-
 
 //Endpoint for MapBox Gecode API
 app.post('/api/geocode', async (req, res) => {
@@ -118,31 +118,34 @@ app.post('/api/faqs', (req, res) => {
 });
 
 app.post(
-    '/api/login',
+    '/dashboard/login',
     passport.authenticate('local', { failureRedirect: '/login-failed' }),
-    (req: Request, res: Response) => {
+    (req, res) => {
         res.status(200).json({ message: 'Login successful' });
     }
 );
 
-app.get('/api/logout', (req: Request, res: Response) => {
-    req.logout();
-    res.status(200).json({ message: 'Logout successful' });
+app.get('/dashboard/logout', (req, res) => {
+    req.logout({} as passport.LogOutOptions, (err: any) => {
+        if (err) {
+            res.status(500).json({ error: 'Failed to logout' });
+        } else {
+            res.status(200).json({ message: 'Logout successful' });
+        }
+    });
 });
 
-app.get('/login-failed', (req: Request, res: Response) => {
+app.get('/login-failed', (req, res) => {
     res.status(401).json({ error: 'Login failed' });
 });
 
 app.post('/dashboard', isAuthenticated, (req, res) => {
-    // Check if the user is authorized to add testimonials
-    if (req.user.role === 'elevated') {
-        // TODO Dashboard user is authorized to add testimonials
+    if (req.user && req.user.role === 'elevated') {
+        // TODO Dashboard user if authorized to add testimonials
     } else {
         res.status(403).json({ error: 'Forbidden' });
     }
 });
-
 
 // Start the server
 app.listen(port, () => {
