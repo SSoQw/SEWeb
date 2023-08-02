@@ -11,6 +11,21 @@
   height: auto;
 }
 
+.map-container {
+  flex: 1;
+  height: $map-height;
+  margin: 0 auto;
+  @include mq($xs,$sm){
+    height: $map-height-xs;
+  }
+  @include mq($sm,$md){
+    height: $map-height-sm;
+  }
+  @include mq($md,$lg){
+    height: $map-height-md;
+  }
+}
+
 .legend {
   display: flex;
   justify-content: center;

@@ -140,7 +140,7 @@ app.get('/login-failed', (req, res) => {
 });
 
 app.post('/dashboard', isAuthenticated, (req, res) => {
-    if (req.user && req.user.role === 'elevated') {
+    if (req.user && req.user === 'elevated') {
         // TODO Dashboard user if authorized to add testimonials
     } else {
         res.status(403).json({ error: 'Forbidden' });
