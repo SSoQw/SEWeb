@@ -1,9 +1,11 @@
 import express from 'express';
+import 'node-fetch';
 import nodemailer from 'nodemailer';
 import {LngLat} from "mapbox-gl";
 import fs from "fs";
 import passport from 'passport';
 import { User, initializePassport } from './passport-config';
+import fetch from 'node-fetch';
 
 const app = express();
 const port = 22222;
@@ -43,6 +45,7 @@ app.post('/api/geocode', async (req, res) => {
             `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(partialAddress)}.json?access_token=${process.env.REACT_APP_MAPBOX_ACCESS_TOKEN}&country=us&proximity=${center.lng},${center.lat}&limit=4`
         );
         const data = await response.json();
+        // @ts-ignore
         const addresses = data.features
             .filter((feature: any) => feature.place_type.includes('address'))
             .map((feature: any) => feature.place_name);
