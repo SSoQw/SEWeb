@@ -1,24 +1,28 @@
-import express from 'express';
-import 'node-fetch';
-import nodemailer from 'nodemailer';
-import {LngLat} from "mapbox-gl";
+import mapboxgl from "mapbox-gl";
 import fs from "fs";
+import express from 'express';
+import session from "express-session";
+import nodemailer from 'nodemailer';
 import passport from 'passport';
-import { User, initializePassport } from './passport-config';
 import fetch from 'node-fetch';
+import { initializePassport, isAuthenticated } from "./passportmw.js";
+
 
 const app = express();
 const port = 22222;
 
-
-initializePassport();
-
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(session({
+    secret: "secret secret that is secret",
+    resave: false,
+    saveUninitialized: false
+}));
+initializePassport(app);
 
 // Configure Nodemailer transporter
 const transporter = nodemailer.createTransport({
-    host: 'exchange-server',
+    host: 'smtp.office365.com',
     port: 587,
     secure: true,
     auth: {
@@ -27,19 +31,10 @@ const transporter = nodemailer.createTransport({
     },
 });
 
-function isAuthenticated(req: express.Request , res: express.Response, next: express.NextFunction) {
-    // Check if the user is authenticated and has the User type
-    const user = req.user as User;
-    if (user && user.role === 'elevated') {
-        return next();
-    }
-    res.status(401).json({ error: 'Unauthorized' });
-}
-
 //Endpoint for MapBox Gecode API
 app.post('/api/geocode', async (req, res) => {
     const { partialAddress } = req.body;
-    const center = new LngLat(43.597532, -70.709917);
+    const center = new mapboxgl.LngLat(43.597532, -70.709917);
     try{
         const response = await fetch(
             `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(partialAddress)}.json?access_token=${process.env.REACT_APP_MAPBOX_ACCESS_TOKEN}&country=us&proximity=${center.lng},${center.lat}&limit=4`

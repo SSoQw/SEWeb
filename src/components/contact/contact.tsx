@@ -13,7 +13,7 @@ const ContactPage = () => {
                 <li>Versant: 1-(855)-363-7211</li>
                 <li>Eastern Maine E.C.: 1-(844)-363-2688  </li>
                 <li>Kennebunk L&P: (207)-985-3311</li>
-                <li>Maddison Electric Works: (207) 696-4401</li>
+                <li>Maddison Electric Works: (207)-696-4401</li>
             </ul>
             <h2>For Emergency Electrical Service Inquiries</h2>
             <hr/>

@@ -2,8 +2,11 @@
   "extends": "./tsconfig.base.json",
   "compilerOptions": {
     "module": "commonjs",
-    "outDir": "./dist",
-    "rootDir": "./backend"
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "outDir": "./dist"
   },
-  "include": ["backend"]
+ "include": ["backend"],
+  "exclude": ["node_modules"],
 }
