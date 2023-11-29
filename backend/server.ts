@@ -10,13 +10,13 @@ import passport from 'passport';
 import { initializePassport } from "./components/auth/passport.js";
 import LocalUsers, { User } from "./models/user.js";
 import { userIsValid } from "./components/auth/checkAuth.js";
-import authRouter from "./components/authRouter.js"
-import mailRouter from "./components/mailerRouter.js"
+import authRouter from "./components/auth/authRouter.js"
+import mailRouter from "./components/mail/mailerRouter.js"
 
 const app = express();
 const port = 3000;
 
-const secret = "abc" // pls put in .env
+const secret = `${process.env.SecPassPaort}` // pls put in .env
 
 // Bodyparser middleware for routes to accept JSON
 app.use(

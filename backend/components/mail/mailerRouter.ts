@@ -1,5 +1,5 @@
 import express from "express";
-import { mailer } from "./mail/mailer.js";
+import { mailer } from "./mailer.js";
 const mailRouter = express.Router();
 
 mailRouter.post('/send-email', mailer);
