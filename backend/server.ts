@@ -11,6 +11,7 @@ import { initializePassport } from "./components/auth/passport.js";
 import LocalUsers, { User } from "./models/user.js";
 import { sendEmail } from "./components/mail/mailer.js";
 import { userAlreadyLoggedIn, userIsValid } from "./components/auth/checkAuth.js";
+import mailRouter from "./components/router.js";
 
 const app = express();
 const port = 3000;
@@ -73,17 +74,6 @@ app.post('/api/geocode', async (req, res) => {
     }
 });
 
-// Endpoint to handle form submissions
-app.post('/api/send-email', async (req, res) => {
-    try {
-        await sendEmail(req.body);
-        res.status(200).json({ message: 'Email sent successfully' });
-    } catch (error) {
-        console.error(error);
-        res.status(500).json({ error: 'Failed to send email' });
-    }
-});
-
 // Endpoint that gets current services
 app.post('/api/services', (req, res) => {
     try {
@@ -122,9 +112,7 @@ app.get("/login", userAlreadyLoggedIn,  (req, res) => {
     res.send(`<div>pp</div>`)
 })
 
-app.post("/login", async (req, res, next) => {
-    passport.authenticate("local", { successRedirect: "/dashboard" })(req, res, next)
-})
+app.post("/login", passport.authenticate("local", { successRedirect: "/dashboard" }))
 
 app.get('/logout', (req, res) => {
     req.logout({}, () => {res.status(200).redirect("/login")})
@@ -144,6 +132,8 @@ app.get('/dashboard', userIsValid, async (req, res) => {
         { message: "sefsegagarhsdhs", user: user.username},
     ]})
 });
+
+app.use("/api", mailRouter)
 
 // Start the server
 app.listen(port, () => {

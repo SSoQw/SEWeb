@@ -1,4 +1,5 @@
 import nodemailer from 'nodemailer';
+import type { Request, Response} from "express"
 
 const transporter = nodemailer.createTransport({
     host: 'smtp.office365.com',
@@ -35,4 +36,14 @@ export async function sendEmail({ name, email, phone, address, workProposal }: a
             }
         });
     });
+}
+
+export const mailer = async (req: Request, res: Response) => {
+    try {
+        await sendEmail(req.body);
+        res.status(200).json({ message: 'Email sent successfully' });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Failed to send email' });
+    }
 }
