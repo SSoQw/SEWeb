@@ -9,8 +9,9 @@ import bodyParser from "body-parser";
 import passport from 'passport';
 import { initializePassport } from "./components/auth/passport.js";
 import LocalUsers, { User } from "./models/user.js";
-import { userAlreadyLoggedIn, userIsValid } from "./components/auth/checkAuth.js";
-import mailRouter from "./components/router.js";
+import { userIsValid } from "./components/auth/checkAuth.js";
+import mailRouter from "./components/mailerRouter.js"
+import authRouter from "./components/authRouter.js";
 
 const app = express();
 const port = 3000;
@@ -107,20 +108,6 @@ app.post('/api/faqs', (req, res) => {
     }
 });
 
-app.get("/login", userAlreadyLoggedIn,  (req, res) => {
-    res.send(`<div>pp</div>`)
-})
-
-app.post("/login", passport.authenticate("local", { successRedirect: "/dashboard" }))
-
-app.get('/logout', (req, res) => {
-    req.logout({}, () => {res.status(200).redirect("/login")})
-});
-
-app.get('/login-failed', (req, res) => {
-    res.status(401).json({ error: 'Login failed' });
-});
-
 app.get('/dashboard', userIsValid, async (req, res) => {
     const user = req.user as User
     console.log("req.user", user)
@@ -133,6 +120,7 @@ app.get('/dashboard', userIsValid, async (req, res) => {
 });
 
 app.use("/api/mailer", mailRouter)
+app.use("/", authRouter)
 
 // Start the server
 app.listen(port, () => {
