@@ -24,7 +24,7 @@ interface PrivateRouteProps {
     isAuthenticated: boolean;
 }
 
-const PrivateRoute: FC<PrivateRouteProps> = ({ element, isAuthenticated }) => {
+const PrivateRoute: FC<PrivateRouteProps> = ({element, isAuthenticated }) => {
     return isAuthenticated ? (
         <Route element={element} />
     ) : (
@@ -64,8 +64,9 @@ const App = () => {
                     <Route path="/contact" element={<PageLayout><><Contact /></></PageLayout>}/>
                     <Route path="/faq" element={<PageLayout><><QuestionsPage /></></PageLayout>}/>
                     <Route path="/testimonials" element={<PageLayout><><Testimonials /></></PageLayout>}/>
-                    <PrivateRoute element={<PageLayout><><Dashboard /></></PageLayout>}
-                        isAuthenticated={isAuthenticated}/>
+                    <Route path="/dashboard"
+                           element={<PrivateRoute element={<PageLayout><><Dashboard /></></PageLayout>}
+                                                  isAuthenticated={isAuthenticated}/>}/>
                     <Route path="*" element={<NotFoundPage />} />
                 </Routes>
             </div>
