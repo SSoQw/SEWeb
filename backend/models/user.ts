@@ -6,7 +6,7 @@ export interface IUser {
     username: string;
 }
 
-export default class User {
+export default class LocalUsers {
     users: IUser[];
 
     async initUsers() {
