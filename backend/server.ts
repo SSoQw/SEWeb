@@ -6,10 +6,9 @@ import mapboxgl from "mapbox-gl";
 import fetch from 'node-fetch';
 import cookieParser from "cookie-parser"
 import bodyParser from "body-parser";
-import passport, { AuthenticateCallback } from 'passport';
+import passport from 'passport';
 import { initializePassport } from "./components/auth/passport.js";
 import LocalUsers, { User } from "./models/user.js";
-import { sendEmail } from "./components/mail/mailer.js";
 import { userAlreadyLoggedIn, userIsValid } from "./components/auth/checkAuth.js";
 import mailRouter from "./components/router.js";
 
@@ -133,7 +132,7 @@ app.get('/dashboard', userIsValid, async (req, res) => {
     ]})
 });
 
-app.use("/api", mailRouter)
+app.use("/api/mailer", mailRouter)
 
 // Start the server
 app.listen(port, () => {
