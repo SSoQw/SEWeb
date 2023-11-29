@@ -1,16 +1,16 @@
-import mapboxgl from "mapbox-gl";
 import fs from "fs";
+import cors from "cors"
 import express from 'express';
 import session from "express-session";
-import nodemailer from 'nodemailer';
-import passport, { AuthenticateCallback } from 'passport';
+import mapboxgl from "mapbox-gl";
 import fetch from 'node-fetch';
-import bodyParser from "body-parser";
-import { initializePassport } from "./passport.js";
-import LocalUsers, { User } from "./models/user.js";
 import cookieParser from "cookie-parser"
-import { userAlreadyLoggedIn, userIsValid } from "./checkAuth.js";
-import cors from "cors"
+import bodyParser from "body-parser";
+import passport, { AuthenticateCallback } from 'passport';
+import { initializePassport } from "./components/auth/passport.js";
+import LocalUsers, { User } from "./models/user.js";
+import { sendEmail } from "./components/mail/mailer.js";
+import { userAlreadyLoggedIn, userIsValid } from "./components/auth/checkAuth.js";
 
 const app = express();
 const port = 3000;
@@ -53,17 +53,6 @@ let usersDB = new LocalUsers();
 
 initializePassport(passport, usersDB);
 
-// Configure Nodemailer transporter
-const transporter = nodemailer.createTransport({
-    host: 'smtp.office365.com',
-    port: 587,
-    secure: true,
-    auth: {
-        user: 'leads@sellickelectric.com',
-        pass: `${process.env.REACT_APP_MAIL_APP_PASS}`,
-    },
-});
-
 //Endpoint for MapBox Gecode API
 app.post('/api/geocode', async (req, res) => {
     const { partialAddress } = req.body;
@@ -85,33 +74,14 @@ app.post('/api/geocode', async (req, res) => {
 });
 
 // Endpoint to handle form submissions
-app.post('/api/send-email', (req, res) => {
-    const { name, email, phone, address, workProposal } = req.body;
-
-    // Compose the email message
-    const message = {
-        from: 'leads@sellickelectric.com',
-        to: 'leads@sellickelectric.com',
-        subject: 'New Lead From Website',
-        text: `
-      Name: ${name}
-      Email: ${email}
-      Phone: ${phone}
-      Address: ${address}
-      Work Proposal: ${workProposal}
-    `,
-    };
-
-    // Send the email using Nodemailer
-    transporter.sendMail(message, (error, info) => {
-        if (error) {
-            console.error('Error occurred while sending email:', error);
-            res.status(500).json({ error: 'Failed to send email' });
-        } else {
-            console.log('Email sent successfully:', info.response);
-            res.status(200).json({ message: 'Email sent successfully' });
-        }
-    });
+app.post('/api/send-email', async (req, res) => {
+    try {
+        await sendEmail(req.body);
+        res.status(200).json({ message: 'Email sent successfully' });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Failed to send email' });
+    }
 });
 
 // Endpoint that gets current services

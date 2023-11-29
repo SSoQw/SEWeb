@@ -1,6 +1,6 @@
 import LocalStrategy from "passport-local";
 import bcrypt from "bcrypt";
-import LocalUsers, { User } from "./models/user.js";
+import LocalUsers, { User } from "../../models/user.js";
 import { PassportStatic } from "passport";
 
 const passportStrategyOptions: LocalStrategy.IStrategyOptions = {
