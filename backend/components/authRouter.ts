@@ -1,5 +1,5 @@
 import express from "express"
-import { userAlreadyLoggedIn } from "./auth/checkAuth";
+import { userAlreadyLoggedIn } from "./auth/checkAuth.js";
 import passport from "passport";
 const authRouter = express.Router();
 

@@ -10,8 +10,8 @@ import passport from 'passport';
 import { initializePassport } from "./components/auth/passport.js";
 import LocalUsers, { User } from "./models/user.js";
 import { userIsValid } from "./components/auth/checkAuth.js";
+import authRouter from "./components/authRouter.js"
 import mailRouter from "./components/mailerRouter.js"
-import authRouter from "./components/authRouter.js";
 
 const app = express();
 const port = 3000;

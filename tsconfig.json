@@ -2,11 +2,14 @@
   "extends": "./tsconfig.base.json",
   "compilerOptions": {
     "esModuleInterop": true,
+    "target": "ESNext",
     "module": "ESNext",
     "moduleResolution": "Node",
     "resolveJsonModule": true,
-    "noEmit": true
+    "noEmit": true,
   },
-  "ts-node": { "esm": true},
-  "include": ["src"]
+  "ts-node": { 
+    "esm": true
+  },
+  "include": ["src", "backend"]
 }
