@@ -6,10 +6,10 @@ import nodemailer from 'nodemailer';
 import passport, { AuthenticateCallback } from 'passport';
 import fetch from 'node-fetch';
 import bodyParser from "body-parser";
-import { initializePassport } from "./passportmw.js";
+import { initializePassport } from "./passport.js";
 import LocalUsers, { User } from "./models/user.js";
 import cookieParser from "cookie-parser"
-import { userIsValid } from "./checkAuth.js";
+import { userAlreadyLoggedIn, userIsValid } from "./checkAuth.js";
 import cors from "cors"
 
 const app = express();
@@ -25,7 +25,6 @@ bodyParser.urlencoded({
 );
 app.use(bodyParser.json({ limit: "1000mb" }));
 
-// MongoDB session store
 app.use(
 session({
     secret: secret,
@@ -39,7 +38,7 @@ session({
 app.use(express.json({ limit: "200mb" }));
 
 // Use cookies
-app.use(cookieParser());
+app.use(cookieParser(secret));
 
 // Use cors
 app.use(cors({
@@ -48,11 +47,9 @@ app.use(cors({
 }));
 
 // Passport middleware
-app.use(cookieParser(process.env.APP_SECRET));
 app.use(passport.initialize());
 app.use(passport.session());
 let usersDB = new LocalUsers();
-usersDB.initUsers();
 
 initializePassport(passport, usersDB);
 
@@ -151,35 +148,25 @@ app.post('/api/faqs', (req, res) => {
     }
 });
 
+app.get("/login", userAlreadyLoggedIn,  (req, res) => {
+    res.send(`<div>pp</div>`)
+})
+
 app.post("/login", async (req, res, next) => {
-    passport.authenticate("local", ((err, user) => {
-        if (!user || err) {
-            res.status(401).json({ validationError: "invalid_creds"})
-        } else {
-            req.login(user, () => {
-                res.status(200).redirect("/dashboard")
-            })
-            
-        }
-    }) as AuthenticateCallback)(req, res, next)
+    passport.authenticate("local", { successRedirect: "/dashboard" })(req, res, next)
 })
 
 app.get('/logout', (req, res) => {
-    req.logout({} as passport.LogOutOptions, (err: any) => {
-        if (err) {
-            res.status(500).json({ error: 'Failed to logout' });
-        } else {
-            res.status(200).json({ message: 'Logout successful' });
-        }
-    });
+    req.logout({}, () => {res.status(200).redirect("/login")})
 });
 
 app.get('/login-failed', (req, res) => {
     res.status(401).json({ error: 'Login failed' });
 });
 
-app.get('/dashboard', passport.authenticate('local', { failureRedirect: '/login' }), async (req, res) => {
+app.get('/dashboard', userIsValid, async (req, res) => {
     const user = req.user as User
+    console.log("req.user", user)
     res.status(200).json({ testimonials: [
         { message: "lksjflksjfklsd", user: user.username},
         { message: "wffasfsefasef", user: user.username},

@@ -24,7 +24,7 @@ const verify = (db: LocalUsers): LocalStrategy.VerifyFunction => async (email, p
 export function initializePassport(passport: PassportStatic, usersDB: LocalUsers) {
     passport.use(new LocalStrategy.Strategy(passportStrategyOptions, verify(usersDB)));
 
-    passport.serializeUser((user: Express.User, cb) => cb(user))
+    passport.serializeUser((user: Express.User, cb) => cb(null, user))
 
     passport.deserializeUser((user: User, done) => {
         const u = usersDB.findUser(user.email);
