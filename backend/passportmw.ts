@@ -1,18 +1,16 @@
-import * as passportStrategy from "passport-local";
-import passport from "passport";
+import LocalStrategy from "passport-local";
 import bcrypt from "bcrypt";
-import { Express, Request, Response, NextFunction } from "express";
-import { IUser } from "./models/user";
-import LocalUsers from "./models/user";
+import LocalUsers, { User } from "./models/user.js";
+import { PassportStatic } from "passport";
 
-const passportStrategyOptions: passportStrategy.IStrategyOptions = {
+const passportStrategyOptions: LocalStrategy.IStrategyOptions = {
     usernameField: "email",
     passwordField: "password"
 }
 
-const userCredsInvalidMsg = { message: "Email or password is incorrect"}
-const validateUser = (password: string, dbpassword: string) => bcrypt.compareSync(password, dbpassword) 
-const verify = (db: LocalUsers): passportStrategy.VerifyFunction => async (email, password, done) => {
+const userCredsInvalidMsg = { message: "Email or password is incorrect" } as const
+const validateUser = (password: string, dbpassword: string) => bcrypt.compareSync(password, dbpassword)
+const verify = (db: LocalUsers): LocalStrategy.VerifyFunction => async (email, password, done) => {
     const user = db.findUser(email);
     if(user) {
         validateUser(password, user.password) 
@@ -23,26 +21,13 @@ const verify = (db: LocalUsers): passportStrategy.VerifyFunction => async (email
     }
 }
 
-export function initializePassport(app: Express) {
-    const usersDB = new LocalUsers();
-    usersDB.initUsers();
-    app.use(passport.initialize());
-    app.use(passport.authenticate('session'));
+export function initializePassport(passport: PassportStatic, usersDB: LocalUsers) {
+    passport.use(new LocalStrategy.Strategy(passportStrategyOptions, verify(usersDB)));
 
-    passport.use(new passportStrategy.Strategy(passportStrategyOptions, verify(usersDB)));
+    passport.serializeUser((user: Express.User, cb) => cb(user))
 
-    passport.serializeUser((user, cb) => cb(user))
-
-    passport.deserializeUser((user: IUser, done) => {
+    passport.deserializeUser((user: User, done) => {
         const u = usersDB.findUser(user.email);
         done(null, u);
     });
 }
-
-export function isAuthenticated(req: Request ,res: Response, next: NextFunction): Response | void {
-    if(req.user)
-        return next();
-    else
-        res.redirect("/");
-}
-

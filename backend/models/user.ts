@@ -1,21 +1,29 @@
 import bcrypt from "bcrypt";
 
-export interface IUser {
+export interface User extends Express.User {
     email: string;
     password: string;
     username: string;
 }
 
 export default class LocalUsers {
-    users: IUser[];
+    users: User[] = [];
 
-    async initUsers() {
-        const p = await bcrypt.hash("goodpassword", 10);
-        this.users = [{ email: "test@not.real", password: p, username: "test"}];
+    initUsers() {
+        this.users = [{ 
+            email: "test@not.real", 
+            password: bcrypt.hashSync("a", 10), 
+            username: "James F"
+        }, { 
+            email: "test2@not.real", 
+            password: bcrypt.hashSync("b", 10), 
+            username: "Cameron Levey"
+        }, { 
+            email: "test3@not.real", 
+            password: bcrypt.hashSync("c", 10), 
+            username: "Thingy 2"
+        }];
     }
 
-    findUser(email: string) {
-        return this.users.find(u => u.email === email);
-    }
-
+    findUser = (email: string) => this.users.find(u => u.email === email)
 }
