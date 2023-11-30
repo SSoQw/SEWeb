@@ -16,7 +16,7 @@ import mailRouter from "./components/mail/mailerRouter.js"
 const app = express();
 const port = 3000;
 
-const secret = `${process.env.SecPassPaort}` // pls put in .env
+const secret = `${process.env.SecPassPaort}`;
 
 // Bodyparser middleware for routes to accept JSON
 app.use(

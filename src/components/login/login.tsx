@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
+import { useAuth } from '../../contexts/authContext';
 
-interface LoginFormProps {
-    onLoginSuccess: () => void;
-}
+const LoginForm: React.FC = () => {
+    const { login } = useAuth(); // Using the useAuth hook
 
-const LoginForm: React.FC<LoginFormProps> = ({ onLoginSuccess }) => {
     const [credentials, setCredentials] = useState({
         email: '',
         password: ''
     });
+
     const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setCredentials({
             ...credentials,
@@ -28,7 +28,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLoginSuccess }) => {
             });
             if (response.ok) {
                 console.log('Login successful');
-                onLoginSuccess();
+                login();
             } else {
                 console.error('Login failed');
             }

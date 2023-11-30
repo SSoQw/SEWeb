@@ -25,13 +25,13 @@ interface PrivateRouteProps {
     element: ReactNode;
 }
 
-const PrivateRoute: FC<PrivateRouteProps> = ({element}) => {
-    const {isAuthenticated} = useAuth();
+const PrivateRoute: FC<PrivateRouteProps> = ({ element }) => {
+    const { isAuthenticated } = useAuth();
 
     return isAuthenticated ? (
-        <Route element={element}/>
+        <Route element={element} />
     ) : (
-        <Navigate to="/login" replace={true}/>
+        <Navigate to="/login" replace={true} />
     );
 };
 
@@ -47,7 +47,6 @@ const PageLayout: FC<PageLayoutProps> = ({children}) => {
 };
 
 const App = () => {
-    const { login } = useAuth();
     return (
         <Router>
             <AuthProvider>
@@ -57,8 +56,7 @@ const App = () => {
                             <Route path="/" element={<PageLayout><><ServiceArea/><ServiceSlides/>
                                 <TestimonialSlides/></>
                             </PageLayout>}/>
-                            <Route path="/login"
-                                   element={<PageLayout><LoginForm onLoginSuccess={login}/></PageLayout>}/>
+                            <Route path="/login" element={<LoginForm />}/>
                             <Route path="/services" element={<PageLayout><><ServicesPage/></>
                             </PageLayout>}/>
                             <Route path="/about" element={<PageLayout><><About/></>
