@@ -69,7 +69,7 @@ const App = () => {
                             </PageLayout>}/>
                             <Route path="/testimonials" element={<PageLayout><><Testimonials/></>
                             </PageLayout>}/>
-                            <Route path="/dashboard" element={<PrivateRoute element={<PageLayout><><Dashboard/></>
+                            <Route path="/dashboard" element={<PrivateRoute element={<PageLayout><><Dashboard /></>
                             </PageLayout>} />}/>
                             <Route path="*" element={<NotFoundPage/>}/>
                         </Routes>

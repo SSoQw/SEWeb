@@ -5,8 +5,16 @@ interface LoginFormProps {
 }
 
 const LoginForm: React.FC<LoginFormProps> = ({ onLoginSuccess }) => {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const [credentials, setCredentials] = useState({
+        email: '',
+        password: ''
+    });
+    const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setCredentials({
+            ...credentials,
+            [e.target.name]: e.target.value
+        });
+    }
 
     const handleLogin = async () => {
         try {
@@ -15,7 +23,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLoginSuccess }) => {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ email, password }),
+                body: JSON.stringify(credentials),
                 credentials: 'include',
             });
             if (response.ok) {
@@ -33,15 +41,17 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLoginSuccess }) => {
         <div>
             <input
                 type="text"
+                name="email"
                 placeholder="Email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                value={credentials.email}
+                onChange={onChange}
             />
             <input
                 type="password"
+                name="password"
                 placeholder="Password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                value={credentials.password}
+                onChange={onChange}
             />
             <button onClick={handleLogin}>Login</button>
         </div>
