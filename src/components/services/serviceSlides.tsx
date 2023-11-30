@@ -1,7 +1,7 @@
 import { FC, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { Carousel } from 'react-responsive-carousel';
-import DataContext from '../../DataContext';
+import DataContext from '../../contexts/dataContext';
 import { Service } from "../../types";
 
 const ServiceSlide: FC<Service> = ({ image, type, description }) => {

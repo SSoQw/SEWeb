@@ -1,5 +1,5 @@
 import  { FC, ReactNode, createContext, useEffect, useState } from 'react';
-import { Service, Testimonial } from './types';
+import { Service, Testimonial } from '../types';
 
 interface DataContextProps {
     children: ReactNode;

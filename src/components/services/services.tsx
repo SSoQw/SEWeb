@@ -1,6 +1,6 @@
 import {useContext, useEffect, useState} from 'react';
 import {Link, useLocation, useNavigate} from 'react-router-dom';
-import DataContext from '../../DataContext';
+import DataContext from '../../contexts/dataContext';
 import { Service } from "../../types";
 
 const ServicesPage = () => {

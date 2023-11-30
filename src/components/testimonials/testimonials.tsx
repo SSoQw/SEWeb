@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState, useRef } from "react";
-import DataContext from '../../DataContext';
+import DataContext from '../../contexts/dataContext';
 import { Testimonial } from "../../types";
 
 

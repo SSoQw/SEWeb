@@ -2,7 +2,7 @@ import { FC, useContext, useEffect, useState } from 'react';
 import { shuffle } from 'lodash';
 import { Carousel } from 'react-responsive-carousel';
 import { Link } from "react-router-dom";
-import DataContext from '../../DataContext';
+import DataContext from '../../contexts/dataContext';
 import { Testimonial } from "../../types";
 
 const TestimonialSlide: FC<Testimonial> = ({ image, name, quote }) => {
