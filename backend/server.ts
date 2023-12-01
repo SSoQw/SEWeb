@@ -8,15 +8,14 @@ import cookieParser from "cookie-parser"
 import bodyParser from "body-parser";
 import passport from 'passport';
 import { initializePassport } from "./components/auth/passport.js";
-import LocalUsers, { User } from "./models/user.js";
-import { userIsValid } from "./components/auth/checkAuth.js";
+import LocalUsers from "./models/user.js";
 import authRouter from "./components/auth/authRouter.js"
 import mailRouter from "./components/mail/mailerRouter.js"
 
 const app = express();
 const port = 3000;
 
-const secret = `${process.env.SecPassPaort}`;
+const secret = `${process.env.SecPassPort}`;
 
 // Bodyparser middleware for routes to accept JSON
 app.use(
@@ -108,19 +107,8 @@ app.post('/api/faqs', (req, res) => {
     }
 });
 
-app.get('/dashboard', userIsValid, async (req, res) => {
-    const user = req.user as User
-    console.log("req.user", user)
-    res.status(200).json({ testimonials: [
-        { message: "lksjflksjfklsd", user: user.username},
-        { message: "wffasfsefasef", user: user.username},
-        { message: "sefsfsfsefsefsef", user: user.username},
-        { message: "sefsegagarhsdhs", user: user.username},
-    ]})
-});
-
-app.use("/api/mailer", mailRouter)
-app.use("/", authRouter)
+app.use("/api/mail", mailRouter)
+app.use("/api/auth", authRouter)
 
 // Start the server
 app.listen(port, () => {

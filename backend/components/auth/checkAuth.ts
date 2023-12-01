@@ -9,7 +9,7 @@ export const userIsValid = (req: Request, res: Response, next: NextFunction) => 
 
 export const userAlreadyLoggedIn = (req: Request, res: Response, next: NextFunction) => {
     if(req.user)
-        res.redirect("/dashboard")
+        res.status(200).redirect("/dashboard");
     else
         next();
 }

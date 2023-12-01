@@ -11,7 +11,7 @@ const transporter = nodemailer.createTransport({
     },
 });
 
-export async function sendEmail({ name, email, phone, address, workProposal }: any) {
+async function sendEmail({ name, email, phone, address, workProposal }: any) {
     const message = {
         from: 'leads@sellickelectric.com',
         to: 'leads@sellickelectric.com',

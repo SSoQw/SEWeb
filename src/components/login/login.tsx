@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useAuth } from '../../contexts/authContext';
 
 const LoginForm: React.FC = () => {
-    const { login } = useAuth(); // Using the useAuth hook
+    const { login } = useAuth();
 
     const [credentials, setCredentials] = useState({
         email: '',
@@ -18,7 +18,7 @@ const LoginForm: React.FC = () => {
 
     const handleLogin = async () => {
         try {
-            const response = await fetch('/auth/login', {
+            const response = await fetch('/api/auth/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
