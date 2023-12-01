@@ -18,7 +18,7 @@ const LoginForm: React.FC = () => {
 
     const handleLogin = async () => {
         try {
-            const response = await fetch('/api/auth/login', {
+            const response = await fetch('http://localhost:22222/api/auth/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -38,6 +38,7 @@ const LoginForm: React.FC = () => {
     };
 
     return (
+        //TODO Style this form and put it in the middle of the page
         <div>
             <input
                 type="text"
