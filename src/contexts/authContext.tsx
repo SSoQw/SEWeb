@@ -1,4 +1,5 @@
 import React, { createContext, FC, ReactNode, useContext, useState } from 'react';
+import {Navigate} from "react-router-dom";
 
 interface AuthContextProps {
     isAuthenticated: boolean;
@@ -14,10 +15,13 @@ export const AuthProvider: FC<{ children: ReactNode }> = ({ children }) => {
 
     const login = () => {
         setAuthenticated(true);
+        console.log('Login successful');
+        <Navigate to="/dashboard" replace={true} />
     };
 
     const logout = () => {
         setAuthenticated(false);
+        <Navigate to="/" replace={true} />
     };
 
     return (
