@@ -3,8 +3,10 @@ dotenv.config();
 
 type Config = {
     port: number;
+    nport: number;
     secret: string;
-    cookiename: string
+    cookiename: string;
+    origin: string;
 }
 
 // This is typically a bad idea. 

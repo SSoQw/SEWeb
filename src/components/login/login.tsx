@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useAuth } from '../../contexts/authContext';
+import { urlWithPort } from '../../util/config';
 
 const LoginForm: React.FC = () => {
     const { login } = useAuth();
@@ -18,7 +19,7 @@ const LoginForm: React.FC = () => {
 
     const handleLogin = async () => {
         try {
-            const response = await fetch('http://localhost:22222/api/auth/login', {
+            await fetch(`${urlWithPort}/api/auth/login`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -26,12 +27,6 @@ const LoginForm: React.FC = () => {
                 body: JSON.stringify(credentials),
                 credentials: 'include',
             });
-            if (response.ok) {
-                console.log('Login successful');
-                login();
-            } else {
-                console.error('Login failed');
-            }
         } catch (error) {
             console.error('Error during login:', error);
         }

@@ -14,7 +14,7 @@ import mailRouter from "./components/mail/mailerRouter.js"
 import { dconfig } from "./config.js";
 
 const app = express();
-const port = dconfig.port || 3000;
+const port = dconfig.nport;
 
 const secret = `${dconfig.secret}`;
 
@@ -106,8 +106,6 @@ app.post('/api/faqs', (req, res) => {
         res.status(500).json({ error: 'Failed to retrieve FAQs data' });
     }
 });
-
-
 
 // Start the server
 app.listen(port, () => {
