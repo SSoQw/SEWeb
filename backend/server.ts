@@ -11,47 +11,47 @@ import { initializePassport } from "./components/auth/passport.js";
 import LocalUsers from "./models/user.js";
 import authRouter from "./components/auth/authRouter.js"
 import mailRouter from "./components/mail/mailerRouter.js"
+import { dconfig } from "./config.js";
 
 const app = express();
-const port = 3000;
+const port = dconfig.port || 3000;
 
-const secret = `${process.env.SecPassPort}`;
+const secret = `${dconfig.secret}`;
 
-// Bodyparser middleware for routes to accept JSON
-app.use(
-bodyParser.urlencoded({
-    extended: false,
-})
-);
-app.use(bodyParser.json({ limit: "1000mb" }));
-
-app.use(
-session({
+const sessionConfig = {
     secret: secret,
-    name: "session",
+    name: dconfig.cookiename,
     resave: false,
     saveUninitialized: true,
-})
-);
-
-// Parse request body as JSON
-app.use(express.json({ limit: "200mb" }));
-
-// Use cookies
-app.use(cookieParser(secret));
-
-// Use cors
-app.use(cors({
+}
+const corsConfig = {
     origin: "http://localhost:3000",
-    credentials: true,
-}));
+    credentials: true 
+}
+const initMiddleware = () => [
+    bodyParser.urlencoded({ extended: false }),
+    bodyParser.json({ limit: "10mb" }),
+    session(sessionConfig),
+    express.json({ limit: "10mb" }),
+    cookieParser(secret),
+    cors(corsConfig),
+].map(mw => app.use(mw));
+// if you don't call initMiddleware you will not have middleware
+initMiddleware()
 
-// Passport middleware
-app.use(passport.initialize());
-app.use(passport.session());
-let usersDB = new LocalUsers();
-
+const initPassport = () => [
+    passport.initialize(),
+    passport.session(),
+].map(mw => app.use(mw))
+initPassport()
+let usersDB = new LocalUsers(); // this should point to postgres instance eventually
 initializePassport(passport, usersDB);
+
+// routing
+app.use("/api/mail", mailRouter)
+app.use("/api/auth", authRouter)
+
+// MISC ROUTES todo silo
 
 //Endpoint for MapBox Gecode API
 app.post('/api/geocode', async (req, res) => {
@@ -107,8 +107,7 @@ app.post('/api/faqs', (req, res) => {
     }
 });
 
-app.use("/api/mail", mailRouter)
-app.use("/api/auth", authRouter)
+
 
 // Start the server
 app.listen(port, () => {
