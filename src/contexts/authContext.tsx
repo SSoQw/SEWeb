@@ -1,8 +1,10 @@
 import React, { createContext, FC, ReactNode, useContext, useState } from 'react';
+import { urlWithPort } from '../util/config';
+import { useNavigate } from 'react-router-dom';
 
 interface AuthContextProps {
     isAuthenticated: boolean;
-    login: () => void;
+    login: (credentials: { email: string; password: string }) => void;
     logout: () => void;
 }
 
@@ -10,10 +12,28 @@ const AuthContext = createContext<AuthContextProps | undefined>(undefined);
 
 export const AuthProvider: FC<{ children: ReactNode }> = ({ children }) => {
     const [isAuthenticated, setAuthenticated] = useState<boolean>(false);
+    const navigate = useNavigate();
 
-    const login = () => {
-        setAuthenticated(true);
-        console.log('Login successful');
+    const login = async (credentials: { email: string; password: string }) => {
+        try {
+            const response = await fetch(`${urlWithPort}/api/auth/login`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(credentials),
+                credentials: 'include',
+            });
+            if (response.ok) {
+                setAuthenticated(true);
+                navigate('/dashboard', { replace: true });
+                console.log('Login successful');
+            } else {
+                console.log('Login failed');
+            }
+        } catch (error) {
+            console.error('Error during login:', error);
+        }
     };
 
     const logout = () => {
