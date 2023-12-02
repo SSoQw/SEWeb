@@ -19,13 +19,13 @@ authRouter.post("/login", (req, res, next) => {
             if (err) {
                 return next(err);
             }
-            return res.status(200).redirect("/dashboard");
+            return res.status(200).json({ message: "Login worked :)" })
         });
     })(req, res, next);
 });
 
 authRouter.get('/logout', (req, res) => {
-    req.logout({}, () => {res.status(200).redirect("/login")})
+    req.logout({}, () => {res.status(200).redirect("/")})
 });
 
 authRouter.get('/login-failed', (req, res) => {

@@ -29,7 +29,7 @@ const PrivateRoute: FC<PrivateRouteProps> = ({ element }) => {
     const { isAuthenticated } = useAuth();
 
     return isAuthenticated ? (
-        <Route element={element} />
+        <>{element}</>
     ) : (
         <Navigate to="/login" replace={true} />
     );
