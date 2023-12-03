@@ -3,9 +3,9 @@ import { urlWithPort } from "../util/config";
 import { useNavigate } from "react-router-dom";
 
 interface AuthContextProps {
-    isAuthenticated: boolean;
-    login: (credentials: { email: string; password: string }) => void;
-    logout: () => void;
+  isAuthenticated: boolean;
+  login: (credentials: { email: string; password: string }) => void;
+  logout: () => void;
 }
 
 const AuthContext = createContext<AuthContextProps | undefined>(undefined);

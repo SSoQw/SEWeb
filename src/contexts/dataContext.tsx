@@ -2,12 +2,12 @@ import  { FC, ReactNode, createContext, useEffect, useState } from "react";
 import { Service, Testimonial } from "../types";
 
 interface DataContextProps {
-    children: ReactNode;
+  children: ReactNode;
 }
 
 interface DataContextValue {
-    services: Service[];
-    testimonials: Testimonial[];
+  services: Service[];
+  testimonials: Testimonial[];
 }
 
 const DataContext = createContext<DataContextValue>({

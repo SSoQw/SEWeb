@@ -27,15 +27,14 @@ module.exports = {
     "sourceType": "module"
   },
   "plugins": [
-    "@typescript-eslint",
-    "react"
+    "@stylistic"
   ],
   "rules": {
-    "indent": ["error", 2],
-    "linebreak-style": ["error","windows"],
-    "quotes": ["error","double"],
-    "semi": ["error","always"],
+    "@stylistic/indent": ["error", 2],
+    "@stylistic/linebreak-style": ["error","windows"],
+    "@stylistic/quotes": ["error","double"],
+    "@stylistic/semi": ["error","always"],
     "react/react-in-jsx-scope": "off",
-    "key-spacing": ["warn", { "afterColon": true }]
+    "@stylistic/key-spacing": ["warn", { "afterColon": true }],
   }
 };
