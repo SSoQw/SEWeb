@@ -3,7 +3,7 @@ import { feature } from "topojson-client";
 import "leaflet/dist/leaflet.css";
 import nhTopoJSON from "../../data/newhampshire.json";
 import meTopoJSON from "../../data/maine.json";
-import { TopologyC } from "../../../codecs/geojson";
+import { TopologyC } from "../../codecs/geojson";
 import type { Topology } from "topojson-specification";
 
 const ServiceMap = () => {

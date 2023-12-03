@@ -12,7 +12,7 @@ import LocalUsers from "./models/user.js";
 import authRouter from "./components/auth/authRouter.js";
 import mailRouter from "./components/mail/mailerRouter.js";
 import { dconfig } from "./config.js";
-import { MapboxDataC, MapboxFeature } from "../codecs/mapbox.js";
+import { MapboxDataC, MapboxFeature } from "#codecs/mapbox.js";
 
 const app = express();
 const port = dconfig.nport;

@@ -1,12 +1,15 @@
 {
   "extends": "./tsconfig.base.json",
   "compilerOptions": {
+    "baseUrl": "./",
     "esModuleInterop": true,
     "target": "ESNext",
-    "module": "ESNext",
     "moduleResolution": "Node",
     "resolveJsonModule": true,
     "noEmit": true,
+    "paths": {
+      "@codecs/*": ["src/codecs/*"]
+    },
   },
   "ts-node": { 
     "esm": true

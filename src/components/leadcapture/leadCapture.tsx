@@ -1,7 +1,7 @@
 import {ChangeEvent, FormEvent, useState, useEffect, useRef} from "react";
 import {useLocation} from "react-router-dom";
 import {LngLat} from "mapbox-gl";
-import { MapboxDataC, MapboxFeature } from "../../../codecs/mapbox";
+import { MapboxDataC, MapboxFeature } from "@codecs/mapbox";
 
 const LeadCaptureForm = () => {
   const center = new LngLat(43.597532, -70.709917);
