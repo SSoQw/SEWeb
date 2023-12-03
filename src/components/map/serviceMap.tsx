@@ -3,6 +3,8 @@ import { feature } from "topojson-client";
 import "leaflet/dist/leaflet.css";
 import nhTopoJSON from "../../data/newhampshire.json";
 import meTopoJSON from "../../data/maine.json";
+import { TopologyC } from "../../../codecs/geojson";
+import type { Topology } from "topojson-specification";
 
 const ServiceMap = () => {
   // Center coordinates for the map
@@ -10,8 +12,10 @@ const ServiceMap = () => {
   const circleCenter: L.LatLngTuple = [43.597532, -70.709917];
   const circleRadius = 25 * 1609;
   // Convert the TopoJSON to GeoJSON
-  const maineGeoJSON = feature(meTopoJSON, meTopoJSON.objects.cb_2015_maine_county_20m);
-  const nhGeoJSON = feature(nhTopoJSON, nhTopoJSON.objects.cb_2015_new_hampshire_county_20m);
+  const meTopo: Topology = TopologyC.parse(meTopoJSON);
+  const nhTopo: Topology = TopologyC.parse(nhTopoJSON);
+  const maineGeoJSON = feature(meTopo, meTopoJSON.objects.cb_2015_maine_county_20m.type);
+  const nhGeoJSON = feature(nhTopo, nhTopoJSON.objects.cb_2015_new_hampshire_county_20m.type);
 
   // Custom map style for highlighting areas
   const areaStyle = {
