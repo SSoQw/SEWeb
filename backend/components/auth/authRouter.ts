@@ -4,7 +4,7 @@ import passport from "passport";
 const authRouter = express.Router();
 
 authRouter.get("/login", userAlreadyLoggedIn,  (req, res) => {
-    res.status(200).json({ message: "Login worked :)" })
+    res.status(200).json({ message: "Login successful" })
 })
 
 authRouter.post("/login", (req, res, next) => {
@@ -19,13 +19,13 @@ authRouter.post("/login", (req, res, next) => {
             if (err) {
                 return next(err);
             }
-            return res.status(200).json({ message: "Login worked :)" })
+            return res.status(200).json({ message: "Login successful" })
         });
     })(req, res, next);
 });
 
 authRouter.get('/logout', (req, res) => {
-    req.logout({}, () => {res.status(200).redirect("/")})
+    req.logout({}, () => {res.status(200).json({ message: "See you next time" })});
 });
 
 authRouter.get('/login-failed', (req, res) => {

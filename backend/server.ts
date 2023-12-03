@@ -48,7 +48,7 @@ let usersDB = new LocalUsers(); // this should point to postgres instance eventu
 initializePassport(passport, usersDB);
 
 // routing
-app.use("/api/mail", mailRouter)
+app.use("/api", mailRouter)
 app.use("/api/auth", authRouter)
 
 // MISC ROUTES todo silo
