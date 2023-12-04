@@ -8,8 +8,8 @@
     "resolveJsonModule": true,
     "noEmit": true,
     "paths": {
-      "@codecs/*": ["src/codecs/*"]
-    },
+      "@codecs/*": ["src/codecs"]
+    }
   },
   "ts-node": { 
     "esm": true
