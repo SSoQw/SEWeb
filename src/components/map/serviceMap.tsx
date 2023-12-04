@@ -1,8 +1,8 @@
 import { MapContainer, TileLayer, Circle, GeoJSON } from "react-leaflet";
-import "leaflet/dist/leaflet.css";
-import statesdata from "../../data/statesdata.json";
 import { LatLngTuple } from "leaflet";
 import { GeoJsonObject } from "geojson";
+import "leaflet/dist/leaflet.css";
+import statesdata from "../../data/statesdata.json";
 
 const ServiceMap = () => {
   // Center coordinates for the map
