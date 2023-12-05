@@ -8,7 +8,7 @@ const ServiceMap = () => {
   // Center coordinates for the map
   const center: LatLngTuple = [43.7, -70.709917];
   const circleCenter: LatLngTuple = [43.597532, -70.709917];
-  const circleRadius = 30 * 1609;
+  const circleRadius = 25 * 1609;
 
 
 
