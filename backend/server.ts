@@ -8,8 +8,8 @@ import { initializePassport } from "./components/auth/passport.js";
 import LocalUsers from "./models/user.js";
 import authRouter from "./components/auth/authRouter.js";
 import mailRouter from "./components/mail/mailerRouter.js";
-import geoRouter from "./components/geocode/geoRouter";
-import dataRouter from "./components/siteData/dataRouter";
+import geoRouter from "./components/geocode/geoRouter.js";
+import dataRouter from "./components/siteData/dataRouter.js";
 import { dconfig } from "./config.js";
 
 
